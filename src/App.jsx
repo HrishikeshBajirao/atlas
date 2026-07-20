@@ -1,18 +1,21 @@
 import { useState } from "react"
-import countries from "./data/countries"
-
+import getCountry from "./api/restcountries"
 
 function App() {
   const [countryInput, setCountryInput] = useState("");
   const [countryInfo, setCountryInfo] = useState(null);
   const [searched, setSearched] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setCountryInfo(null);
-    const foundCountry = countries.find((data) => data.name.toLowerCase().trim() === countryInput.toLowerCase());
-    if(foundCountry !== undefined){
+
+    try {
+      const foundCountry = await getCountry(countryInput);
       setCountryInfo(foundCountry);
+      console.log(foundCountry);
+    } catch (err) {
+      setCountryInfo(null);
+      console.error(err);
     }
     setSearched(true);
   }
@@ -34,10 +37,10 @@ function App() {
       <div id="output-container" className={` ${searched ? "block" : "hidden"} my-5 mx-auto w-md border-gray border-1 rounded-sm p-2.5`}>
         {countryInfo ? (
           <>
-            <p className="text-center text-lg">Country: {countryInfo.name}</p>
-            <p className="text-center text-lg">GDP: {countryInfo.gdp}</p>
+            <p className="text-center text-lg">Country: {countryInfo.names.common}</p>
             <p className="text-center text-lg">Population: {countryInfo.population.toLocaleString()}</p>
-            <p className="text-center text-lg">Area(sqkm): {countryInfo.area}</p>
+            <p className="text-center text-lg">Capital: {countryInfo.capitals[0].name}</p>
+            <p className="text-center text-lg">Currency: {countryInfo.currencies[0].name}</p>
           </>
         ) : (
           <p className="text-center text-lg text-red-300">There is no data on this country</p>
