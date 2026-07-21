@@ -11,11 +11,13 @@
 
 ## v0.2
 
-- [ ] Better UI
-- [ ] Country flags
-- [ ] Country coat of arms
-- [ ] Region
-- [ ] Timezones
+- [x] Better UI
+- [x] Country flags
+- [x] Component-based architecture
+- [x] Responsive layout improvements
+- [x] Reusable UI components
+- [x] Accessibility improvements
+- [x] Cleaner project structure
 
 ---
 

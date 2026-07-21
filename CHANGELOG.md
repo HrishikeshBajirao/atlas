@@ -26,3 +26,22 @@ The format follows Keep a Changelog and Semantic Versioning.
 ### Changed
 
 - Migrated from mock JSON data to live REST API.
+
+## [0.2.0] - 2026-07-21
+
+### Added
+- Reusable `Button1` component
+- `CountryCard` component
+- `Loading` component
+- Responsive country information layout
+- Accessible form label and image alt text
+
+### Changed
+- Refactored the application into reusable React components
+- Simplified `App.jsx` by separating UI into dedicated components
+- Improved overall project structure and maintainability
+- Enhanced responsive layout for smaller screens
+- Reused button styles through a shared component
+
+### Fixed
+- Minor UI and accessibility improvements
