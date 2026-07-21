@@ -13,7 +13,7 @@ Atlas is being built as a portfolio project while learning modern frontend devel
 | Version | Release Date | Status | Highlights |
 |---------|--------------|--------|------------|
 | **v0.1.0** | Jul 20, 2026 | ✅ Released | Live country search, REST Countries API integration, loading state |
-| **v0.2.0** | TBD | 🚧 Planned | More country details, improved UI, flags |
+| **v0.2.0** | Jul 21, 2026 | ✅ Released | More country details, improved UI, flags |
 | **v0.3.0** | TBD | 🚧 Planned | Country comparison |
 | **v0.4.0** | TBD | 🚧 Planned | Charts & visualizations |
 | **v0.5.0** | TBD | 🚧 Planned | Interactive world map |
