@@ -9,8 +9,6 @@ export default async function getCountry(name){
             },
         }
     );
-
     const data = await response.json();
-
     return data.data.objects[0];
 }
