@@ -29,7 +29,7 @@ function App() {
         setCountryInfo = {setCountryInfo}
         setCountryInput = {setCountryInput}
       />
-      + <div id="output-container" className={` ${searched ? "block" : "hidden"} my-5 mx-auto w-full max-w-[800px] px-3 min-h-[500px] rounded-sm`}>
+      <div id="output-container" className={` ${searched ? "block" : "hidden"} my-5 mx-auto w-full max-w-[800px] px-3 min-h-[500px] rounded-sm`}>
         {loading ? (
             <Loading countryInput={countryInput} />
         ) : countryInfo ? (
@@ -42,7 +42,7 @@ function App() {
           </>
         ) : (
           <>
-            <p className="my-5 text-center text-2xl text-red-300">There is no country names {countryInput}</p>
+            <p className="my-5 text-center text-2xl text-red-300">There is no country named {countryInput}</p>
             <p className="text-center text-2xl text-red-300">Search for another country</p>
             <Button1 
               buttonText="Search here"
