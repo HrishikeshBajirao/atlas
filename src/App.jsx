@@ -1,5 +1,8 @@
 import { useState } from "react"
 import SearchFormContainer from "./components/SearchForm"
+import Loading from "./components/Loading"
+import CountryCard from "./components/CountryCard"
+import Button1 from "./components/Button1"
 
 function App() {
   const [countryInput, setCountryInput] = useState("");
@@ -26,46 +29,25 @@ function App() {
         setCountryInfo = {setCountryInfo}
         setCountryInput = {setCountryInput}
       />
-      <div id="output-container" className={` ${searched ? "block" : "hidden"} my-5 mx-auto w-[800px] min-h-[500px] flex-column items-center justify-center rounded-sm`}>
+      + <div id="output-container" className={` ${searched ? "block" : "hidden"} my-5 mx-auto w-full max-w-[800px] px-3 min-h-[500px] rounded-sm`}>
         {loading ? (
-          <p className="text-2xl text-red-400 text-center">Loading {countryInput}...</p>
-        ) : 
-        countryInfo ? (
+            <Loading countryInput={countryInput} />
+        ) : countryInfo ? (
           <>
-          <div className="country-card w-full bg-slate-800 text-white px-[50px] py-5 rounded-lg">
-            <img src={countryInfo.flag.url_svg} width="200" className="mx-auto rounded-lg" />
-            <h2 id="card-title" className="text-center text-3xl my-3">{countryInfo.names.common}</h2>
-            <div className="card-contents grid grid-cols-[1fr_2px_1fr] gap-4">
-              <div className="card-column grid gap-">
-                <p className="text-lg"><span className="font-semibold">👨‍👩‍👧‍👦 Population: </span>{countryInfo.population.toLocaleString()}</p>
-                <p className="text-lg"><span className="font-semibold">📍 Capital: </span>{countryInfo.capitals[0].name}</p>
-                <p className="text-lg"><span className="font-semibold">🤝 Language: </span>{countryInfo.languages[0].name}</p>
-              </div>
-              <div className="vertical-line bg-gray-600 h-full"></div>
-              <div className="card-column grid gap-4">
-                <p className="text-lg"><span className="font-semibold">🌐 Continent: </span>{countryInfo.continents.join(",")}</p>
-                <p className="text-lg"><span className="font-semibold">🗺️ Area: </span>{countryInfo.area.kilometers.toLocaleString()} sq km</p>
-                <p className="text-lg"><span className="font-semibold">🪙 Currency: </span>{countryInfo.currencies[0].name} ({countryInfo.currencies[0].symbol})</p>
-              </div>
-            </div>
-          </div>
-          <button className="block mx-auto my-3 bg-blue-600 text-white px-4 py-3 rounded-lg font-medium 
-              transition duration-300 ease-in-out transform hover:bg-blue-500 hover:cursor-pointer
-              hover:scale-105 active:scale-95"
-              onClick={handleMoreBtn}>
-            Search more
-          </button>
+          <CountryCard countryInfo={countryInfo} />
+          <Button1 
+            buttonText="Search More"
+            handleClick={handleMoreBtn}
+          />
           </>
         ) : (
           <>
             <p className="my-5 text-center text-2xl text-red-300">There is no country names {countryInput}</p>
             <p className="text-center text-2xl text-red-300">Search for another country</p>
-            <button className="block mx-auto my-3 bg-blue-600 text-white px-4 py-3 rounded-lg font-medium 
-                transition duration-300 ease-in-out transform hover:bg-blue-500 hover:cursor-pointer
-                hover:scale-105 active:scale-95"
-                onClick={handleMoreBtn}>
-              Search here
-            </button>
+            <Button1 
+              buttonText="Search here"
+              handleClick={handleMoreBtn}
+            />
           </>
         )}
       </div>
@@ -73,4 +55,4 @@ function App() {
   )
 }
 
-export default App;
+export default App; 
