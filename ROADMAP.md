@@ -1,15 +1,16 @@
 # Atlas Roadmap
 
-## v0.1
+## v0.1 - Foundation ✅
 
 - [x] Initial React setup
 - [x] Country search
-- [x] REST API integration
+- [x] REST Countries API integration
 - [x] Loading state
+- [x] Error handling
 
 ---
 
-## v0.2
+## v0.2 - UI & Architecture ✅
 
 - [x] Better UI
 - [x] Country flags
@@ -21,64 +22,80 @@
 
 ---
 
-## v0.3
+## v0.3 - Search Experience ✅
 
-- [ ] Country comparison
+- [x] Recent searches
+- [x] Persist recent searches with localStorage
+- [x] Restore recent searches on page load
+- [x] Prevent duplicate entries
+- [x] Limit history to five recent searches
+- [x] Clickable recent search items
+- [x] Delete individual recent searches
+
+---
+
+## v0.4 - Country Comparison
+
+- [ ] Compare two countries side by side
 - [ ] Compare population
-- [ ] Compare GDP
 - [ ] Compare area
+- [ ] Compare capital
+- [ ] Compare currencies
+- [ ] Compare languages
+- [ ] Compare time zones
 
 ---
 
-## v0.4
+## v0.5 - Data Visualization
 
-- [ ] Charts
-- [ ] Population graph
-- [ ] GDP graph
-- [ ] Life expectancy graph
+- [ ] Population charts
+- [ ] Area comparison charts
+- [ ] Regional statistics
+- [ ] Interactive comparison graphs
 
 ---
 
-## v0.5
+## v0.6 - Interactive Map
 
 - [ ] Interactive world map
 - [ ] Click countries
+- [ ] Highlight searched countries
 - [ ] Highlight regions
 
 ---
 
-## v0.6
+## v0.7 - User Features
 
-- [ ] Search history
 - [ ] Favorite countries
-- [ ] Local storage
+- [ ] Export favorites
+- [ ] Search filters
+- [ ] Region filter
 
 ---
 
-## v0.7
+## v0.8 - UX Improvements
 
-- [ ] Responsive redesign
-- [ ] Mobile optimization
-- [ ] Tablet layout
-
----
-
-## v0.8
-
-- [ ] Animations
 - [ ] Dark mode
-- [ ] Better loading skeletons
+- [ ] Animations
+- [ ] Loading skeletons
+- [ ] Toast notifications
+- [ ] Better empty states
 
 ---
 
-## v0.9
+## v0.9 - Performance
 
-- [ ] Performance optimization
 - [ ] Code splitting
 - [ ] Lazy loading
+- [ ] Image optimization
+- [ ] Performance optimizations
 
 ---
 
-## v1.0
+## v1.0 - Production Release
 
+- [ ] Final UI polish
+- [ ] Cross-browser testing
+- [ ] Accessibility audit
+- [ ] Documentation updates
 - [ ] Production-ready release

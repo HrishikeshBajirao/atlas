@@ -1,10 +1,10 @@
 # 🌍 Atlas
 
-Atlas is a React-based web application for exploring countries around the world.
+Atlas is a modern React application for exploring countries around the world.
 
-Users can search for any country and instantly view important information such as population, capital city, currency, area, languages, flags, and much more.
+Search for any country to instantly discover detailed information including its flag, population, capital, currencies, languages, area, region, time zones, and more.
 
-Atlas is being built as a portfolio project while learning modern frontend development with React.
+Atlas is being built as a portfolio project while learning modern frontend development with React, focusing on clean architecture, reusable components, and an excellent user experience.
 
 ---
 
@@ -13,34 +13,43 @@ Atlas is being built as a portfolio project while learning modern frontend devel
 | Version | Release Date | Status | Highlights |
 |---------|--------------|--------|------------|
 | **v0.1.0** | Jul 20, 2026 | ✅ Released | Live country search, REST Countries API integration, loading state |
-| **v0.2.0** | Jul 21, 2026 | ✅ Released | More country details, improved UI, flags |
-| **v0.3.0** | TBD | 🚧 Planned | Country comparison |
-| **v0.4.0** | TBD | 🚧 Planned | Charts & visualizations |
-| **v0.5.0** | TBD | 🚧 Planned | Interactive world map |
-| **v1.0.0** | TBD | 🎯 Goal | Stable portfolio release |
+| **v0.2.0** | Jul 21, 2026 | ✅ Released | Component-based architecture, reusable UI components, responsive improvements |
+| **v0.3.0** | Jul 22, 2026 | ✅ Released | Recent searches, localStorage persistence, clickable search history, delete history |
+| **v0.4.0** | TBD | 🚧 Planned | Country comparison |
+| **v0.5.0** | TBD | 🚧 Planned | Data visualizations |
+| **v0.6.0** | TBD | 🚧 Planned | Interactive world map |
+| **v1.0.0** | TBD | 🎯 Goal | Production-ready portfolio release |
+
+---
 
 ## Features
 
 ### Current
 
-- Live country search
-- REST Countries API integration
-- Loading indicator
-- Error handling
-- Responsive interface
+- 🔍 Live country search
+- 🌐 REST Countries API integration
+- 🏳️ Country flags and detailed information
+- 💾 Persistent recent searches using localStorage
+- 🖱️ Clickable recent search history
+- ❌ Delete individual recent searches
+- 🚫 Duplicate prevention for search history
+- ⏳ Loading indicator
+- ⚠️ Error handling
+- 📱 Responsive interface
+- 🧩 Component-based architecture
 
 ---
 
 ## Planned
 
-- Country comparison
-- Interactive maps
-- Population charts
-- GDP visualization
-- Historical population
-- Search history
-- Favorites
-- Dark mode
+- 🔄 Side-by-side country comparison
+- 📊 Population and area visualizations
+- 🗺️ Interactive world map
+- ⭐ Favorite countries
+- 🌍 Region-based filtering
+- 🌙 Dark mode
+- ✨ Animations and loading skeletons
+- ⚡ Performance optimizations
 
 ---
 
@@ -49,18 +58,46 @@ Atlas is being built as a portfolio project while learning modern frontend devel
 - React
 - Vite
 - Tailwind CSS
-- JavaScript
+- JavaScript (ES6+)
 - REST Countries API
+- localStorage
 
 ---
 
 ## Installation
 
 ```bash
-git clone <repo-url>
+git clone <repository-url>
 
 cd atlas
 
 npm install
 
 npm run dev
+```
+
+---
+
+## Project Goals
+
+Atlas is more than a country information app. It serves as a hands-on learning project to practice:
+
+- Building reusable React components
+- Managing application state
+- Working with REST APIs
+- Persisting data with localStorage
+- Creating responsive user interfaces
+- Writing maintainable and scalable code
+- Following professional Git workflows with feature branches and semantic versioning
+
+---
+
+## Roadmap
+
+See the project's **ROADMAP.md** for upcoming features and planned releases.
+
+---
+
+## License
+
+This project is open source and intended for learning and portfolio purposes.
