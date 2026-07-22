@@ -1,16 +1,21 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import SearchFormContainer from "./components/SearchForm"
 import Loading from "./components/Loading"
 import CountryCard from "./components/CountryCard"
 import Button1 from "./components/Button1"
 import RecentSearches from "./components/RecentSearches"
+const RECENT_SEARCHES_KEY = "atlas-recent-searches";
 
 function App() {
   const [countryInput, setCountryInput] = useState("");
   const [countryInfo, setCountryInfo] = useState(null);
   const [searched, setSearched] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [recentSearches, setRecentSearches] = useState([]);
+  const [recentSearches, setRecentSearches] = useState(JSON.parse(localStorage.getItem(RECENT_SEARCHES_KEY)) || []);
+
+  useEffect(() => {
+    localStorage.setItem(RECENT_SEARCHES_KEY, JSON.stringify(recentSearches));
+  }, [recentSearches])
 
   const handleMoreBtn = () => {
     setCountryInput("")
@@ -30,7 +35,6 @@ function App() {
         setLoading = {setLoading}
         setCountryInfo = {setCountryInfo}
         setCountryInput = {setCountryInput}
-        recentSearches={recentSearches}
         setRecentSearches={setRecentSearches}
       />
 

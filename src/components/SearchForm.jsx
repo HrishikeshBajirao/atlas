@@ -2,7 +2,7 @@ import getCountry from "../api/restcountries"
 import Button1 from "./Button1"
 
 export default function SearchFormContainer({countryInput, searched, setSearched, 
-      setLoading, setCountryInfo, setCountryInput, recentSearches, setRecentSearches}){
+      setLoading, setCountryInfo, setCountryInput, setRecentSearches}){
 
     const handleSubmit = async (e) => {
     e.preventDefault();
@@ -13,10 +13,12 @@ export default function SearchFormContainer({countryInput, searched, setSearched
     try {
       const foundCountry = await getCountry(countryInput.toLowerCase().trim());
       setCountryInfo(foundCountry);
-      setRecentSearches([
-        {name: foundCountry.names.common, code:foundCountry.codes.alpha_2}, 
-        ...recentSearches.filter((item) => item.name !== foundCountry.names.common).slice(0, 4)
-      ]);
+      setRecentSearches((currentRecentSearches) => [
+        { name: foundCountry.names.common, code: foundCountry.codes.alpha_2 },
+        ...currentRecentSearches
+          .filter((item) => item.name !== foundCountry.names.common)
+          .slice(0, 4),
+      ]); 
     } catch (err) {
       console.error(err);
     } finally {
