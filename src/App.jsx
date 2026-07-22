@@ -39,8 +39,9 @@ function App() {
       />
 
       <RecentSearches 
-        recentSearches={recentSearches}
-        searched = {searched} 
+        searched = {searched}
+        recentSearches = {recentSearches}
+        setRecentSearches = {setRecentSearches}
       />
 
       <div id="output-container" className={` ${searched ? "block" : "hidden"} my-5 mx-auto w-full max-w-[800px] px-3 min-h-[500px] rounded-sm`}>
