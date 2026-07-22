@@ -1,7 +1,7 @@
 import Button1 from "./Button1"
 import getCountry from "../api/restcountries"
 
-export default function SearchFormContainer({countryInput, searched, setSearched, 
+export default function SearchForm({countryInput, setSearched, 
       setLoading, setCountryInfo, setCountryInput, setRecentSearches}){
 
   const handleSubmit = async (e) => {
@@ -30,8 +30,7 @@ export default function SearchFormContainer({countryInput, searched, setSearched
   }
 
   return (
-      <div id="input-container" className={`${searched ? "hidden" : ""} my-5 mx-auto w-md h-[30vh] flex items-center justify-center rounded-sm p-2.5`}>
-      <form id="country-form" className="w-full flex items-center justify-around" 
+      <form id="country-form" className="w-full flex items-center justify-around mt-20" 
         onSubmit={handleSubmit}>
           <label htmlFor="country-input" className="sr-only">Country name</label>
           <input 
@@ -47,6 +46,5 @@ export default function SearchFormContainer({countryInput, searched, setSearched
           buttonText="Search"
         />
       </form>
-    </div>
   )
 }
