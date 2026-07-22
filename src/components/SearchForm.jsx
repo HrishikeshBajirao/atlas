@@ -1,32 +1,18 @@
 import Button1 from "./Button1"
-import getCountry from "../api/restcountries"
+import fetchCountryData from "../services/fetchCountryData.js"
 
 export default function SearchFormContainer({countryInput, searched, setSearched, 
       setLoading, setCountryInfo, setCountryInput, setRecentSearches}){
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setSearched(true);
-    setLoading(true);
-    setCountryInfo(null);
-
-    try {
-      const foundCountry = await getCountry(countryInput.toLowerCase().trim());
-      setCountryInfo(foundCountry);
-      console.log(foundCountry);
-      if(foundCountry){
-        setRecentSearches((currentRecentSearches) => [
-          { name: foundCountry.names.common, code: foundCountry.codes.alpha_2 },
-          ...currentRecentSearches
-            .filter((item) => item.name !== foundCountry.names.common)
-            .slice(0, 4),
-        ]);
-      } 
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setLoading(false);
-    }
+    fetchCountryData(
+      countryInput,
+      setSearched,
+      setLoading,
+      setCountryInfo,
+      setRecentSearches
+    );
   }
 
   return (

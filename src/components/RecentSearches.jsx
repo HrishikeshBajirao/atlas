@@ -1,5 +1,18 @@
-export default function RecentSearches({searched, recentSearches, setRecentSearches})
+import fetchCountryData from "../services/fetchCountryData.js"
+
+export default function RecentSearches({searched, recentSearches, setRecentSearches,
+    setSearched, setLoading, setCountryInfo})
 {    
+    const handleRecentSearchClick = (name) => {
+        fetchCountryData(
+            name,
+            setSearched,
+            setLoading,
+            setCountryInfo,
+            setRecentSearches
+        );
+    }
+
     const handleDeleteRecent = (code) => {
         setRecentSearches((currentRecentSearches) => [
             ...currentRecentSearches
@@ -12,7 +25,8 @@ export default function RecentSearches({searched, recentSearches, setRecentSearc
             <h2 className="text-center text-slate-200 font-semibold text-xl my-3">Recent Searches</h2>
             {recentSearches.map((item) => (
                 <div key={item.code} className="recent-search-item flex justify-center items-center">
-                    <button className="text-center text-md text-slate-400">
+                    <button className="text-center text-md text-slate-400 hover:cursor-pointer hover:scale-105"
+                        onClick={() => handleRecentSearchClick(item.name)}>
                         [ {item.code} {item.name} ]
                     </button>
                     <button 

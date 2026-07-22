@@ -42,6 +42,9 @@ function App() {
         searched = {searched}
         recentSearches = {recentSearches}
         setRecentSearches = {setRecentSearches}
+        setSearched  = {setSearched}
+        setLoading  = {setLoading}
+        setCountryInfo  = {setCountryInfo}
       />
 
       <div id="output-container" className={` ${searched ? "block" : "hidden"} my-5 mx-auto w-full max-w-[800px] px-3 min-h-[500px] rounded-sm`}>
