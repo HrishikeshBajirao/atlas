@@ -13,7 +13,10 @@ export default function SearchFormContainer({countryInput, searched, setSearched
     try {
       const foundCountry = await getCountry(countryInput.toLowerCase().trim());
       setCountryInfo(foundCountry);
-      setRecentSearches([{name: foundCountry.names.common, code:foundCountry.codes.alpha_2}, ...recentSearches]);
+      setRecentSearches([
+        {name: foundCountry.names.common, code:foundCountry.codes.alpha_2}, 
+        ...recentSearches.filter((item) => item.name !== foundCountry.names.common).slice(0, 4)
+      ]);
     } catch (err) {
       console.error(err);
     } finally {
