@@ -1,7 +1,8 @@
 import getCountry from "../api/restcountries"
 import Button1 from "./Button1"
 
-export default function SearchFormContainer({countryInput, searched, setSearched, setLoading, setCountryInfo, setCountryInput}){
+export default function SearchFormContainer({countryInput, searched, setSearched, 
+      setLoading, setCountryInfo, setCountryInput, recentSearches, setRecentSearches}){
 
     const handleSubmit = async (e) => {
     e.preventDefault();
@@ -12,7 +13,7 @@ export default function SearchFormContainer({countryInput, searched, setSearched
     try {
       const foundCountry = await getCountry(countryInput.toLowerCase().trim());
       setCountryInfo(foundCountry);
-      console.log(foundCountry);
+      setRecentSearches([{name: foundCountry.names.common, code:foundCountry.codes.alpha_2}, ...recentSearches]);
     } catch (err) {
       console.error(err);
     } finally {
@@ -21,7 +22,7 @@ export default function SearchFormContainer({countryInput, searched, setSearched
   }
 
     return (
-        <div id="input-container" className={`${searched ? "hidden" : ""} my-5 mx-auto w-md h-[40vh] flex items-center justify-center rounded-sm p-2.5`}>
+        <div id="input-container" className={`${searched ? "hidden" : ""} my-5 mx-auto w-md h-[30vh] flex items-center justify-center rounded-sm p-2.5`}>
         <form id="country-form" className="w-full flex items-center justify-around" onSubmit={handleSubmit}>
             <label htmlFor="country-input" className="sr-only">Country name</label>
             <input 

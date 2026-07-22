@@ -3,12 +3,14 @@ import SearchFormContainer from "./components/SearchForm"
 import Loading from "./components/Loading"
 import CountryCard from "./components/CountryCard"
 import Button1 from "./components/Button1"
+import RecentSearches from "./components/RecentSearches"
 
 function App() {
   const [countryInput, setCountryInput] = useState("");
   const [countryInfo, setCountryInfo] = useState(null);
   const [searched, setSearched] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [recentSearches, setRecentSearches] = useState([]);
 
   const handleMoreBtn = () => {
     setCountryInput("")
@@ -28,13 +30,23 @@ function App() {
         setLoading = {setLoading}
         setCountryInfo = {setCountryInfo}
         setCountryInput = {setCountryInput}
+        recentSearches={recentSearches}
+        setRecentSearches={setRecentSearches}
       />
+
+      <RecentSearches 
+        recentSearches={recentSearches}
+        searched = {searched} 
+      />
+
       <div id="output-container" className={` ${searched ? "block" : "hidden"} my-5 mx-auto w-full max-w-[800px] px-3 min-h-[500px] rounded-sm`}>
         {loading ? (
             <Loading countryInput={countryInput} />
         ) : countryInfo ? (
           <>
-          <CountryCard countryInfo={countryInfo} />
+          <CountryCard 
+            countryInfo={countryInfo}
+          />
           <Button1 
             buttonText="Search More"
             handleClick={handleMoreBtn}
