@@ -8,43 +8,68 @@ Atlas is being built as a portfolio project while learning modern frontend devel
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
-### v0.4.0 — Dynamic Comparison
+<details>
+<summary><strong>🌟 v0.4.0 — Dynamic Comparison</strong></summary>
 
-<img src="assets/screenshots/atlas-v0.4.0-two-comparison-slots.png" width="500" >
-<img src="assets/screenshots/atlas-v0.4.0-four-comparison-slots.png" width="500" >
+<br>
 
+<p align="center">
+  <img src="assets/screenshots/atlas-v0.4.0-two-comparison-slots.png" width="500">
+  <img src="assets/screenshots/atlas-v0.4.0-four-comparison-slots.png" width="500">
+</p>
 
 Dynamic comparison panels with independent state management.
 
+</details>
+
 ---
 
-### v0.3.0 — Recent Searches using localStorage API
+<details>
+<summary><strong>💾 v0.3.0 — Recent Searches using localStorage API</strong></summary>
 
-<img src="assets/screenshots/atlas-v0.3.0-recent-searches.png" width="500" >
+<br>
+
+<p align="center">
+  <img src="assets/screenshots/atlas-v0.3.0-recent-searches.png" width="500">
+</p>
 
 Persistent search history using localStorage.
 
+</details>
+
 ---
 
-### v0.2.0 — UI Redesign
+<details>
+<summary><strong>🎨 v0.2.0 — UI Redesign</strong></summary>
 
-<img src="assets/screenshots/atlas-v0.2.0-ui1.png" width="500" >
-<img src="assets/screenshots/atlas-v0.2.0-ui2.png" width="500" >
+<br>
+
+<p align="center">
+  <img src="assets/screenshots/atlas-v0.2.0-ui1.png" width="500">
+  <img src="assets/screenshots/atlas-v0.2.0-ui2.png" width="500">
+</p>
 
 Reusable components and improved interface.
 
+</details>
+
 ---
 
-### v0.1.0 — Initial Search
+<details>
+<summary><strong>🚀 v0.1.0 — Initial Search</strong></summary>
 
-<img src="assets/screenshots/atlas-v0.1.0-home.png" width="500" >
-<img src="assets/screenshots/atlas-v0.1.0-search-result.png" width="500" >
+<br>
+
+<p align="center">
+  <img src="assets/screenshots/atlas-v0.1.0-home.png" width="500">
+  <img src="assets/screenshots/atlas-v0.1.0-search-result.png" width="500">
+</p>
 
 First working version using the REST Countries API.
 
----
+</details>
 
 ## Version History
 
