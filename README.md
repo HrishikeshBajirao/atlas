@@ -15,8 +15,8 @@ Atlas is being built as a portfolio project while learning modern frontend devel
 | **v0.1.0** | Jul 20, 2026 | ✅ Released | Live country search, REST Countries API integration, loading state |
 | **v0.2.0** | Jul 21, 2026 | ✅ Released | Component-based architecture, reusable UI components, responsive improvements |
 | **v0.3.0** | Jul 22, 2026 | ✅ Released | Recent searches, localStorage persistence, clickable search history, delete history |
-| **v0.4.0** | TBD | 🚧 Planned | Country comparison |
-| **v0.5.0** | TBD | 🚧 Planned | Data visualizations |
+| **v0.4.0** | Jul 27, 2026 | ✅ Released | Dynamic comparison panels, add/remove slots, scalable architecture |
+| **v0.5.0** | TBD | 🚧 Planned | Advanced country comparison & visualizations |
 | **v0.6.0** | TBD | 🚧 Planned | Interactive world map |
 | **v1.0.0** | TBD | 🎯 Goal | Production-ready portfolio release |
 
@@ -37,12 +37,16 @@ Atlas is being built as a portfolio project while learning modern frontend devel
 - ⚠️ Error handling
 - 📱 Responsive interface
 - 🧩 Component-based architecture
+- 🆚 Dynamic country comparison panels
+- ➕ Add unlimited comparison slots
+- ❌ Remove individual comparison slots
+- 🧠 Scalable array-based comparison architecture
 
 ---
 
 ## Planned
 
-- 🔄 Side-by-side country comparison
+- 📊 Visual comparison highlights
 - 📊 Population and area visualizations
 - 🗺️ Interactive world map
 - ⭐ Favorite countries

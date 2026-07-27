@@ -34,9 +34,20 @@
 
 ---
 
-## v0.4 - Country Comparison
+## v0.4 - Dynamic Country Comparison ✅
 
-- [ ] Compare two countries side by side
+- [x] Dynamic comparison panels
+- [x] Add comparison slots
+- [x] Remove comparison slots
+- [x] Independent panel state management
+- [x] Recent searches integration
+- [x] Automatic first-empty-slot assignment
+
+---
+
+## v0.5 - Advanced Comparison
+
+- [ ] Side-by-side comparison highlighting
 - [ ] Compare population
 - [ ] Compare area
 - [ ] Compare capital
@@ -46,7 +57,7 @@
 
 ---
 
-## v0.5 - Data Visualization
+## v0.6 - Data Visualization
 
 - [ ] Population charts
 - [ ] Area comparison charts
@@ -55,7 +66,7 @@
 
 ---
 
-## v0.6 - Interactive Map
+## v0.7 - Interactive Map
 
 - [ ] Interactive world map
 - [ ] Click countries
@@ -64,7 +75,7 @@
 
 ---
 
-## v0.7 - User Features
+## v0.8 - User Features
 
 - [ ] Favorite countries
 - [ ] Export favorites
@@ -73,7 +84,7 @@
 
 ---
 
-## v0.8 - UX Improvements
+## v0.9 - UX Improvements
 
 - [ ] Dark mode
 - [ ] Animations
@@ -83,19 +94,14 @@
 
 ---
 
-## v0.9 - Performance
+## v1.0 - Production Release
 
 - [ ] Code splitting
 - [ ] Lazy loading
 - [ ] Image optimization
 - [ ] Performance optimizations
-
----
-
-## v1.0 - Production Release
-
-- [ ] Final UI polish
 - [ ] Cross-browser testing
 - [ ] Accessibility audit
+- [ ] Final UI polish
 - [ ] Documentation updates
 - [ ] Production-ready release

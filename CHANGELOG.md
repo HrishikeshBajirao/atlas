@@ -6,6 +6,28 @@ The format follows Keep a Changelog and Semantic Versioning.
 
 ---
 
+## [0.4.0] - 2026-07-27
+
+### Added
+- Added dynamic comparison panels that can display any number of countries.
+- Added "Add Comparison Slot" functionality.
+- Added the ability to remove individual comparison panels.
+- Extended recent searches to work with the new comparison workflow.
+- Automatically fills the first available comparison slot when selecting a recent search.
+
+### Changed
+- Refactored application state from a single-country model to an array-based comparison architecture.
+- Reworked rendering logic to dynamically generate comparison panels.
+- Improved component reusability by making country panels independent of one another.
+- Simplified future feature development by adopting a scalable state structure.
+
+### Fixed
+- Fixed state synchronization across multiple comparison panels.
+- Improved recent search behavior when comparison slots are full.
+- Improved overall application stability after extensive stress testing.
+
+---
+
 ## [0.3.0] - 2026-07-22
 
 ### Added
