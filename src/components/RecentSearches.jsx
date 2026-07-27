@@ -1,16 +1,37 @@
 import getCountry from "../api/restcountries"
 
 export default function RecentSearches({recentSearches, setRecentSearches,
-    setSearched, setLoading, setCountryInfo})
+    countries, setCountries})
 {    
     const handleRecentSearchItemClick = async (name) => {
-        setSearched(true);
-        setLoading(true);
-        setCountryInfo(null);
+        let index = -1
+        // get the index of a free slot
+        for(let i = 0; i < countries.length; i++){
+            if(!countries[i].searched){
+                index = i
+            }
+        }
+        //return if all slots are full
+        if(index === -1){
+            alert("Comparison slots are full, add a new slot or click searchanother country in any slot.")
+            return
+        }
+
+        //set the loading, searched and countryInfo values of the free slot index to default values
+        setCountries((currCountries) => {
+            const newCountries = [...currCountries]
+            newCountries[index] = {...newCountries[index], searched:true, loading: true, countryInfo:null}
+            return newCountries
+        })
     
+        //fetch the country data and set the countries[index] to the fetched data
         try {
             const foundCountry = await getCountry(name); 
-            setCountryInfo(foundCountry);
+            setCountries((currCountries) => {
+                const newCountries = [...currCountries]
+                newCountries[index] = {...newCountries[index], countryInfo: foundCountry}
+                return newCountries
+            })
             console.log(foundCountry);
             if(foundCountry){
             setRecentSearches((currentRecentSearches) => [
@@ -23,7 +44,11 @@ export default function RecentSearches({recentSearches, setRecentSearches,
         } catch (err) {
             console.error(err);
         } finally {
-            setLoading(false);
+            setCountries((currCountries) => {
+                const newCountries = [...currCountries]
+                newCountries[index] = {...newCountries[index], loading: false}
+                return newCountries
+            })
         }
     }
 

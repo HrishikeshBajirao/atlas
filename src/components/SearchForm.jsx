@@ -1,18 +1,24 @@
 import Button1 from "./Button1"
 import getCountry from "../api/restcountries"
 
-export default function SearchForm({countryInput, setSearched, 
-      setLoading, setCountryInfo, setCountryInput, setRecentSearches}){
+export default function SearchForm({index, setCountries, countryInput, setRecentSearches}){
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setSearched(true);
-    setLoading(true);
-    setCountryInfo(null);
+
+    setCountries((currCountries) => {
+      const newCountries = [...currCountries]
+      newCountries[index] = {...newCountries[index], searched:true, loading: true, countryInfo:null}
+      return newCountries
+    })
 
     try {
       const foundCountry = await getCountry(countryInput); 
-      setCountryInfo(foundCountry);
+      setCountries((currCountries) => {
+        const newCountries = [...currCountries]
+        newCountries[index] = {...newCountries[index], countryInfo: foundCountry}
+        return newCountries
+      })
       console.log(foundCountry);
       if(foundCountry){
         setRecentSearches((currentRecentSearches) => [
@@ -25,7 +31,11 @@ export default function SearchForm({countryInput, setSearched,
     } catch (err) {
       console.error(err);
     } finally {
-      setLoading(false);
+      setCountries((currCountries) => {
+        const newCountries = [...currCountries]
+        newCountries[index] = {...newCountries[index], loading: false}
+        return newCountries
+      })
     }    
   }
 
@@ -37,7 +47,11 @@ export default function SearchForm({countryInput, setSearched,
             id="country-input"
             type="text" 
             value={countryInput} 
-            onChange={(e) => setCountryInput(e.target.value)} 
+            onChange={(e) => setCountries((currCountries) => {
+              const newCountries = [...currCountries]
+              newCountries[index] = {...newCountries[index], countryInput: e.target.value}
+              return newCountries
+            })} 
             className="w-2/3 bg-slate-700  rounded-xl shadow-2xl py-3 px-2.5 
               text-white text-xl text-center placeholder:text-slate-400"
             placeholder="Search country"

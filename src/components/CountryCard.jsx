@@ -1,6 +1,6 @@
 export default function CountryCard({countryInfo}){
     return (
-        <div className="country-card w-full bg-slate-800 text-white px-[50px] py-5 rounded-lg">
+        <div className="country-card w-full bg-slate-800 text-white px-[50px] py-5 rounded-lg border-1">
             <img src={countryInfo.flag.url_svg} alt={`Flag of ${countryInfo.names.common}`} width="200" className="mx-auto rounded-lg" />
             <h2 id="card-title" className="text-center text-3xl my-3">{countryInfo.names.common}</h2>
               <div className="card-contents grid grid-cols-1 gap-4 md:grid-cols-[1fr_2px_1fr]">
