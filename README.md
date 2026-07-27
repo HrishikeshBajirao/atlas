@@ -8,6 +8,16 @@ Atlas is being built as a portfolio project while learning modern frontend devel
 
 ---
 
+## 🎥 Demo
+
+<p align="center">
+  <img src="assets/screenshots/atlas-demo.gif" alt="Atlas Demo" width="800">
+</p>
+
+*A quick demonstration of Atlas: search countries, compare multiple countries, manage comparison slots, and use recent searches.*
+
+---
+
 ## 📸 Screenshots
 
 <details>
