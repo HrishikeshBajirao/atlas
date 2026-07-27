@@ -8,6 +8,44 @@ Atlas is being built as a portfolio project while learning modern frontend devel
 
 ---
 
+## Screenshots
+
+### v0.4.0 — Dynamic Comparison
+
+<img src="assets/screenshots/atlas-v0.4.0-two-comparison-slots.png" width="500" >
+<img src="assets/screenshots/atlas-v0.4.0-four-comparison-slots.png" width="500" >
+
+
+Dynamic comparison panels with independent state management.
+
+---
+
+### v0.3.0 — Recent Searches using localStorage API
+
+<img src="assets/screenshots/atlas-v0.3.0-recent-searches.png" width="500" >
+
+Persistent search history using localStorage.
+
+---
+
+### v0.2.0 — UI Redesign
+
+<img src="assets/screenshots/atlas-v0.2.0-ui1.png" width="500" >
+<img src="assets/screenshots/atlas-v0.2.0-ui2.png" width="500" >
+
+Reusable components and improved interface.
+
+---
+
+### v0.1.0 — Initial Search
+
+<img src="assets/screenshots/atlas-v0.1.0-home.png" width="500" >
+<img src="assets/screenshots/atlas-v0.1.0-search-result.png" width="500" >
+
+First working version using the REST Countries API.
+
+---
+
 ## Version History
 
 | Version | Release Date | Status | Highlights |
