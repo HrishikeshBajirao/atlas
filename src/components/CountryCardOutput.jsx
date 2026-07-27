@@ -1,7 +1,17 @@
-export default function CountryCard({countryInfo}){
+export default function CountryCardOutput({countryInfo, index, setCountries, setNumberOfSlots}){
+    const handleDeleteSlotClick = () => {
+      setCountries((currCountries) => currCountries.filter((_, i) => i !== index))
+      setNumberOfSlots((currSlots) => currSlots - 1)
+    }
+
     return (
-        <div className="country-card w-full bg-slate-800 text-white px-[50px] py-5 rounded-lg border-1">
+        <div className="country-card w-full bg-slate-800 text-white px-[50px] py-5 rounded-lg border-1 relative ">
             <img src={countryInfo.flag.url_svg} alt={`Flag of ${countryInfo.names.common}`} width="200" className="mx-auto rounded-lg" />
+            <button type="button" 
+              className="text-red-500 text-xl bg-red-200 py-2 px-3 rounded-md font-bold absolute top-5 right-5  
+                hover:scale-105 hover:text-red-800 hover:cursor-pointer"
+              onClick={handleDeleteSlotClick}
+            >X</button>
             <h2 id="card-title" className="text-center text-3xl my-3">{countryInfo.names.common}</h2>
               <div className="card-contents grid grid-cols-1 gap-4 md:grid-cols-[1fr_2px_1fr]">
               <div className="card-column grid gap-4">

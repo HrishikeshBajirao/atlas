@@ -5,9 +5,10 @@ import RecentSearches from "./components/RecentSearches"
 const RECENT_SEARCHES_KEY = "atlas-recent-searches";
 
 function App() {
-  const numberOfCountries = 2
+  const [numberOfSlots, setNumberOfSlots] = useState(2)
+  const [recentSearches, setRecentSearches] = useState(JSON.parse(localStorage.getItem(RECENT_SEARCHES_KEY)) || []);
   const [countries, setCountries] = useState(
-    [...Array(numberOfCountries)].map(() => {
+    [...Array(numberOfSlots)].map(() => {
       return {
         countryInput: "",
         loading: false,
@@ -16,11 +17,26 @@ function App() {
       }
     })
   );
-  const [recentSearches, setRecentSearches] = useState(JSON.parse(localStorage.getItem(RECENT_SEARCHES_KEY)) || []);
 
+  //store in local storage whenever recentStorage state changes
   useEffect(() => {
     localStorage.setItem(RECENT_SEARCHES_KEY, JSON.stringify(recentSearches));
   }, [recentSearches])
+
+  //add a new slot to the comparison panel
+  const handleAddSlotClick = () => {
+    setNumberOfSlots((currSlots) => currSlots + 1)
+    setCountries((currCountries) => {
+      return [...currCountries,
+        {
+          countryInput: "",
+          loading: false,
+          searched: false,
+          countryInfo: null
+        }
+      ]
+    })
+  }
 
   return (
     <>
@@ -28,16 +44,26 @@ function App() {
       <h1 className="text-center my-6 text-5xl text-white tracking-widest">ATLAS</h1>
       <p className="text-3xl text-center text-slate-400 my-6">Explore countries of the world</p>
       <div className="country-blocks flex justify-center gap-10 flex-wrap">
-        {[...Array(numberOfCountries)].map((_, index) => (
+        {[...Array(numberOfSlots)].map((_, index) => (
           <CountryBlock
             key = {index}
             index = {index}
             countries = {countries}
             setCountries = {setCountries}
             setRecentSearches = {setRecentSearches}
+            setNumberOfSlots = {setNumberOfSlots}
           />
         ))}
       </div>
+      <button
+        className="block mx-auto my-3 bg-emerald-600 text-white px-4 py-3 rounded-lg font-medium
+                  transition duration-300 ease-in-out transform
+                  hover:bg-emerald-500 hover:scale-105
+                  active:scale-95 hover:cursor-pointer"
+        onClick={handleAddSlotClick}
+      >
+        + Add Comparison Slot
+      </button>
       <RecentSearches 
         recentSearches = {recentSearches}
         setRecentSearches = {setRecentSearches}

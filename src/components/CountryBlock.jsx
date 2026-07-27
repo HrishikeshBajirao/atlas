@@ -1,9 +1,9 @@
 import SearchForm from "./SearchForm"
 import Loading from "./Loading"
-import CountryCard from "./CountryCard"
+import CountryCard from "./CountryCardOutput"
 import Button1 from "./Button1"
 
-export default function CountryBlock({ index, countries, setCountries, setRecentSearches}) {
+export default function CountryBlock({ index, countries, setCountries, setRecentSearches, setNumberOfSlots}) {
   const { countryInput, countryInfo, searched, loading } = countries[index] || {}
 
   const handleMoreBtn = () => {
@@ -41,7 +41,12 @@ export default function CountryBlock({ index, countries, setCountries, setRecent
           <Loading countryInput={countryInput} />
         ) : countryInfo ? (
           <>
-            <CountryCard countryInfo={countryInfo} />
+            <CountryCard 
+              countryInfo={countryInfo} 
+              index={index}
+              setCountries = {setCountries}
+              setNumberOfSlots = {setNumberOfSlots}
+            />
             <Button1 buttonText="Search More" handleClick={handleMoreBtn} />
           </>
         ) : (
