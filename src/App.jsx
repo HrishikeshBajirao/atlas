@@ -6,7 +6,7 @@ const RECENT_SEARCHES_KEY = "atlas-recent-searches";
 
 function App() {
   const numberOfCountries = 2
-  const [countries, setCountries] = useState([
+  const [countries, setCountries] = useState(
     [...Array(numberOfCountries)].map(() => {
       return {
         countryInput: "",
@@ -15,7 +15,7 @@ function App() {
         countryInfo: null
       }
     })
-  ]);
+  );
   const [recentSearches, setRecentSearches] = useState(JSON.parse(localStorage.getItem(RECENT_SEARCHES_KEY)) || []);
 
   useEffect(() => {

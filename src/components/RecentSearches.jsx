@@ -4,13 +4,11 @@ export default function RecentSearches({recentSearches, setRecentSearches,
     countries, setCountries})
 {    
     const handleRecentSearchItemClick = async (name) => {
-        let index = -1
+        
         // get the index of a free slot
-        for(let i = 0; i < countries.length; i++){
-            if(!countries[i].searched){
-                index = i
-            }
-        }
+        let index = -1
+        index = countries.findIndex((slot) => !slot.searched)
+        console.log(index)
         //return if all slots are full
         if(index === -1){
             alert("Comparison slots are full, add a new slot or click searchanother country in any slot.")
@@ -32,7 +30,6 @@ export default function RecentSearches({recentSearches, setRecentSearches,
                 newCountries[index] = {...newCountries[index], countryInfo: foundCountry}
                 return newCountries
             })
-            console.log(foundCountry);
             if(foundCountry){
             setRecentSearches((currentRecentSearches) => [
                 { name: foundCountry.names.common, code: foundCountry.codes.alpha_2 },
