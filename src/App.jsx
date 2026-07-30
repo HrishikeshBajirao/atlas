@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react"
 import CountryBlock from './components/CountryBlock'
 import RecentSearches from "./components/RecentSearches"
+import SelectDisplayMode from './components/SelectDisplayMode'
+import TableView from './components/TableView'
 
 const RECENT_SEARCHES_KEY = "atlas-recent-searches";
 
@@ -17,6 +19,7 @@ function App() {
       }
     })
   );
+  const [displayMode, setDisplayMode] = useState("cards")
 
   //store in local storage whenever recentStorage state changes
   useEffect(() => {
@@ -43,18 +46,33 @@ function App() {
       <p className=" my-5 text-7xl text-center">🌍</p>
       <h1 className="text-center my-6 text-5xl text-white tracking-widest">ATLAS</h1>
       <p className="text-3xl text-center text-slate-400 my-6">Explore countries of the world</p>
-      <div className="country-blocks flex justify-center gap-10 flex-wrap">
-        {[...Array(numberOfSlots)].map((_, index) => (
-          <CountryBlock
-            key = {index}
-            index = {index}
+
+      <SelectDisplayMode 
+        displayMode = {displayMode}
+        setDisplayMode = {setDisplayMode}
+      />
+
+      {displayMode === 'cards' 
+        ? <div className="country-blocks flex justify-center gap-10 flex-wrap">
+            {[...Array(numberOfSlots)].map((_, index) => (
+              <CountryBlock
+                key = {index}
+                index = {index}
+                countries = {countries}
+                setCountries = {setCountries}
+                setRecentSearches = {setRecentSearches}
+                setNumberOfSlots = {setNumberOfSlots}
+              />
+            ))}
+          </div>
+        :
+          <TableView 
             countries = {countries}
             setCountries = {setCountries}
             setRecentSearches = {setRecentSearches}
-            setNumberOfSlots = {setNumberOfSlots}
           />
-        ))}
-      </div>
+      }
+      
       <button
         className="block mx-auto my-3 bg-emerald-600 text-white px-4 py-3 rounded-lg font-medium
                   transition duration-300 ease-in-out transform
@@ -64,6 +82,7 @@ function App() {
       >
         + Add Comparison Slot
       </button>
+
       <RecentSearches 
         recentSearches = {recentSearches}
         setRecentSearches = {setRecentSearches}

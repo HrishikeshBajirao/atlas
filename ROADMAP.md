@@ -54,7 +54,9 @@
 - [ ] Compare currencies
 - [ ] Compare languages
 - [ ] Compare time zones
-
+┌──────────────────────────────────────────┐
+│  🃏 Cards   📋 Table   📊 Insights (Soon) │
+└──────────────────────────────────────────┘
 ---
 
 ## v0.6 - Data Visualization
