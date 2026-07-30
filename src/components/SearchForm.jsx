@@ -1,10 +1,10 @@
 import Button1 from "./Button1"
-import { handleSubmit } from '../utils/handleCountrySubmit.js'
+import { handleCountrySubmit } from '../utils/handleCountrySubmit.js'
 
 export default function SearchForm({index, setCountries, countryInput, setRecentSearches}){
   return (
       <form id="country-form" className="w-full flex items-center justify-around mt-20" 
-        onSubmit={(e) => handleSubmit(e, index, countryInput, setCountries, setRecentSearches)}>
+        onSubmit={(e) => handleCountrySubmit(e, index, countryInput, setCountries, setRecentSearches)}>
           <label htmlFor="country-input" className="sr-only">Country name</label>
           <input 
             id="country-input"

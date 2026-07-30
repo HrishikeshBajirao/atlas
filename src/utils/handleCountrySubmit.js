@@ -1,6 +1,6 @@
 import getCountry from "../api/restcountries"
 
-export async function handleSubmit (e, index, countryInput, setCountries, setRecentSearches){
+export async function handleCountrySubmit (e, index, countryInput, setCountries, setRecentSearches){
     e.preventDefault();
 
     setCountries((currCountries) => {
