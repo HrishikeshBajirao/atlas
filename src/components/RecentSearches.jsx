@@ -1,6 +1,6 @@
-import getCountry from "../api/restcountries"
+import { getCountry } from "../api/restcountries"
 
-export default function RecentSearches({recentSearches, setRecentSearches,
+export function RecentSearches({recentSearches, setRecentSearches,
     countries, setCountries})
 {    
     const handleRecentSearchItemClick = async (name) => {

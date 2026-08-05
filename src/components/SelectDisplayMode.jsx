@@ -1,4 +1,4 @@
-export default function SelectDisplayMode({displayMode, setDisplayMode}){
+export function SelectDisplayMode({displayMode, setDisplayMode}){
     return (
         <div className="mt-15 text-slate-400 text-2xl mx-auto flex justify-center gap-5 relative">
         <input 

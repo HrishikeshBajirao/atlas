@@ -1,4 +1,4 @@
-export default function CountryCardOutput({countryInfo, index, setCountries, setNumberOfSlots}){
+export function CountryCard({countryInfo, index, setCountries, setNumberOfSlots}){
     const handleDeleteSlotClick = () => {
       setCountries((currCountries) => currCountries.filter((_, i) => i !== index))
       setNumberOfSlots((currSlots) => currSlots - 1)

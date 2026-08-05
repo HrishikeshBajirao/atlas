@@ -1,7 +1,7 @@
-import Button1 from "./Button1"
+import { Button1 } from "./Button1"
 import { handleCountrySubmit } from '../utils/handleCountrySubmit.js'
 
-export default function SearchForm({index, setCountries, countryInput, setRecentSearches}){
+export function SearchForm({index, setCountries, countryInput, setRecentSearches}){
   return (
       <form id="country-form" className="w-full flex items-center justify-around mt-20" 
         onSubmit={(e) => handleCountrySubmit(e, index, countryInput, setCountries, setRecentSearches)}>

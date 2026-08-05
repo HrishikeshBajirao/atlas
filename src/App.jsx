@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react"
-import CountryBlock from './components/CountryBlock'
-import RecentSearches from "./components/RecentSearches"
-import SelectDisplayMode from './components/SelectDisplayMode'
-import TableView from './components/TableView'
+import { CountryBlock } from './components/CountryBlock'
+import { RecentSearches } from "./components/RecentSearches"
+import { SelectDisplayMode } from './components/SelectDisplayMode'
+import { TableView } from './components/TableView'
 
 const RECENT_SEARCHES_KEY = "atlas-recent-searches";
 

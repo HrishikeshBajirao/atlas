@@ -1,7 +1,7 @@
-import Loading from './Loading'
+import { Loading } from './Loading'
 import { handleCountrySubmit } from '../utils/handleCountrySubmit.js'
 
-export default function TableView({countries, setCountries, setRecentSearches}){
+export function TableView({countries, setCountries, setRecentSearches}){
 
     const comparisonPanels = [
         {
