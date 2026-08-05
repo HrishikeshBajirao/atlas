@@ -23,7 +23,7 @@ export async function getCountriesList(){
         }
     );
     const data = await response.json();
-    console.log(data)
-    return data;
+    console.log(data.data.objects)
+    return data.data.objects;
 }
 

@@ -1,4 +1,4 @@
-import { getCountry } from "../api/restcountries"
+import { getCountry } from "../data/restcountries.js"
 
 export function RecentSearches({recentSearches, setRecentSearches,
     countries, setCountries})

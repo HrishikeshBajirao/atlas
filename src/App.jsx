@@ -4,7 +4,12 @@ import { RecentSearches } from "./components/RecentSearches"
 import { SelectDisplayMode } from './components/SelectDisplayMode'
 import { TableView } from './components/TableView'
 
+import { getCountriesList } from './data/restcountries.js'
+
+getCountriesList()
+
 const RECENT_SEARCHES_KEY = "atlas-recent-searches";
+
 
 function App() {
   const [numberOfSlots, setNumberOfSlots] = useState(2)

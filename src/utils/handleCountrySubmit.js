@@ -1,4 +1,4 @@
-import { getCountry } from "../api/restcountries"
+import { getCountry } from "../data/restcountries.js"
 
 export async function handleCountrySubmit (e, index, countryInput, setCountries, setRecentSearches){
     e.preventDefault();
