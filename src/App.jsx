@@ -3,13 +3,11 @@ import { CountryBlock } from './components/CountryBlock'
 import { RecentSearches } from "./components/RecentSearches"
 import { SelectDisplayMode } from './components/SelectDisplayMode'
 import { TableView } from './components/TableView'
-
 import { getCountriesList } from './data/restcountries.js'
-
-getCountriesList()
 
 const RECENT_SEARCHES_KEY = "atlas-recent-searches";
 
+getCountriesList()
 
 function App() {
   const [numberOfSlots, setNumberOfSlots] = useState(2)
@@ -25,6 +23,20 @@ function App() {
     })
   );
   const [displayMode, setDisplayMode] = useState("cards")
+  const [countriesList, setCountriesList] = useState([])
+
+  //fetch all countries list once after app loads to populate the Select input searchable input
+  useEffect(() => {
+    async function loadCountries(){
+      try{
+        const data = await getCountriesList()
+        setCountriesList(data)
+      } catch (err) {
+        console.error("Failed to load countries:", err);
+      }
+    }
+    loadCountries()
+  }, [])
 
   //store in local storage whenever recentStorage state changes
   useEffect(() => {
@@ -67,6 +79,7 @@ function App() {
                 setCountries = {setCountries}
                 setRecentSearches = {setRecentSearches}
                 setNumberOfSlots = {setNumberOfSlots}
+                countriesList = {countriesList}
               />
             ))}
           </div>

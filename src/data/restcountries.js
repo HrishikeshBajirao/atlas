@@ -14,16 +14,24 @@ export async function getCountry(name){
 }
 
 export async function getCountriesList(){
-    const response = await fetch(
-        "https://api.restcountries.com//countries/v5?response_fields=names.common",
-        {
-            headers: {
-                Authorization: `Bearer ${API_KEY}`,
-            },
-        }
-    );
-    const data = await response.json();
-    console.log(data.data.objects)
-    return data.data.objects;
+    let countries = []
+    for(let i=0;i<3;i++){
+        let response = await fetch(
+            `https://api.restcountries.com/countries/v5?limit=100&offset=${100 * i}&response_fields=names.common`,
+            {
+                headers: {
+                    Authorization: `Bearer ${API_KEY}`,
+                },
+            }
+        );
+        let data = await response.json();
+        countries = [...countries, ...data.data.objects.map((country) => {
+            return {
+                value: country.names.common.toLowerCase(), label: country.names.common
+            }
+        })]
+    }
+    console.log(countries)
+    return countries;
 }
 

@@ -3,7 +3,7 @@ import { Loading } from "./Loading"
 import { CountryCard } from "./CountryCardOutput"
 import { Button1 } from "./Button1"
 
-export function CountryBlock({ index, countries, setCountries, setRecentSearches, setNumberOfSlots}) {
+export function CountryBlock({ index, countries, setCountries, setRecentSearches, setNumberOfSlots, countriesList}) {
   const { countryInput, countryInfo, searched, loading } = countries[index] || {}
 
   const handleMoreBtn = () => {
@@ -30,6 +30,7 @@ export function CountryBlock({ index, countries, setCountries, setRecentSearches
           setCountries={setCountries}
           countryInput={countryInput}
           setRecentSearches={setRecentSearches}
+          countriesList = {countriesList}
         />
       </div>
 
