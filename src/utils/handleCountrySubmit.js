@@ -1,8 +1,7 @@
 import { getCountry } from "../data/restcountries.js"
 
-export async function handleCountrySubmit (e, index, countryInput, setCountries, setRecentSearches){
-    e.preventDefault();
-
+export async function handleCountrySubmit (index, country, setCountries, setRecentSearches){
+    console.log(country)
     setCountries((currCountries) => {
         const newCountries = [...currCountries]
         newCountries[index] = {...newCountries[index], searched:true, loading: true, countryInfo:null}
@@ -10,7 +9,7 @@ export async function handleCountrySubmit (e, index, countryInput, setCountries,
     })
 
     try {
-        const foundCountry = await getCountry(countryInput); 
+        const foundCountry = await getCountry(country); 
         setCountries((currCountries) => {
         const newCountries = [...currCountries]
         newCountries[index] = {...newCountries[index], countryInfo: foundCountry}

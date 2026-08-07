@@ -8,7 +8,6 @@ export function RecentSearches({recentSearches, setRecentSearches,
         // get the index of a free slot
         let index = -1
         index = countries.findIndex((slot) => !slot.searched)
-        console.log(index)
         //return if all slots are full
         if(index === -1){
             alert("Comparison slots are full, add a new slot or click searchanother country in any slot.")

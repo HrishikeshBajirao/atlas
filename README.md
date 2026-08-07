@@ -132,12 +132,47 @@ First working version using the REST Countries API.
 
 ## Tech Stack
 
+### Frontend
 - React
 - Vite
 - Tailwind CSS
 - JavaScript (ES6+)
+
+### APIs
 - REST Countries API
+
+### Browser APIs
 - localStorage
+
+---
+
+## Skills Demonstrated
+
+- React component architecture
+- State management with React Hooks
+- REST API integration
+- Asynchronous programming (`fetch`, `async/await`)
+- Dynamic rendering of API data
+- Reusable component design
+- Responsive UI development with Tailwind CSS
+- Client-side data persistence using `localStorage`
+- Scalable state management for dynamic comparison panels
+- Array and object state manipulation
+- Modern JavaScript (ES6+)
+
+---
+
+## 📈 Development Statistics
+
+This project is actively maintained and tracked using GitHub and WakaTime.
+
+<p align="center">
+
+[![GitHub last commit](https://img.shields.io/github/last-commit/HrishikeshBajirao/atlas?style=for-the-badge)](https://github.com/HrishikeshBajirao/atlas/commits/main)
+
+[![WakaTime](https://wakatime.com/badge/user/7864a36e-34fb-462c-a73d-d8c410aed4dc/project/07504929-ef89-4d0d-b2d1-7784474d4795.svg?style=for-the-badge)](https://wakatime.com/badge/user/7864a36e-34fb-462c-a73d-d8c410aed4dc/project/07504929-ef89-4d0d-b2d1-7784474d4795)
+
+</p>
 
 ---
 
