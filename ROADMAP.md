@@ -45,26 +45,22 @@
 
 ---
 
-## v0.5 - Advanced Comparison
+## v0.5 - Enhanced Comparison Experience ✅
 
-- [ ] Side-by-side comparison highlighting
-- [ ] Compare population
-- [ ] Compare area
-- [ ] Compare capital
-- [ ] Compare currencies
-- [ ] Compare languages
-- [ ] Compare time zones
-┌──────────────────────────────────────────┐
-│  🃏 Cards   📋 Table   📊 Insights (Soon) │
-└──────────────────────────────────────────┘
+- [x] Searchable country selector (react-select)
+- [x] Improved comparison table UI
+- [x] Categorized comparison sections
+- [x] Better comparison workflow
+
 ---
 
 ## v0.6 - Data Visualization
 
-- [ ] Population charts
-- [ ] Area comparison charts
+- [ ] Population bar chart
+- [ ] Area comparison chart
+- [ ] Interactive D3 visualizations
 - [ ] Regional statistics
-- [ ] Interactive comparison graphs
+- [ ] Animated chart transitions
 
 ---
 

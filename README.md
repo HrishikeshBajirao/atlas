@@ -89,7 +89,7 @@ First working version using the REST Countries API.
 | **v0.2.0** | Jul 21, 2026 | ✅ Released | Component-based architecture, reusable UI components, responsive improvements |
 | **v0.3.0** | Jul 22, 2026 | ✅ Released | Recent searches, localStorage persistence, clickable search history, delete history |
 | **v0.4.0** | Jul 27, 2026 | ✅ Released | Dynamic comparison panels, add/remove slots, scalable architecture |
-| **v0.5.0** | TBD | 🚧 Planned | Advanced country comparison & visualizations |
+| **v0.5.0** | Aug 7, 2026 | ✅ Released | Advanced comparison table, searchable country selector, improved comparison experience |
 | **v0.6.0** | TBD | 🚧 Planned | Interactive world map |
 | **v1.0.0** | TBD | 🎯 Goal | Production-ready portfolio release |
 
@@ -99,27 +99,25 @@ First working version using the REST Countries API.
 
 ### Current
 
-- 🔍 Live country search
+- 🔍 Live country search with autocomplete
 - 🌐 REST Countries API integration
-- 🏳️ Country flags and detailed information
+- 🏳️ Detailed country information (flags, geography, demographics, economy)
+- 🆚 Dynamic side-by-side country comparison
+- 📋 Enhanced comparison table with categorized sections
 - 💾 Persistent recent searches using localStorage
-- 🖱️ Clickable recent search history
-- ❌ Delete individual recent searches
-- 🚫 Duplicate prevention for search history
-- ⏳ Loading indicator
-- ⚠️ Error handling
-- 📱 Responsive interface
-- 🧩 Component-based architecture
-- 🆚 Dynamic country comparison panels
-- ➕ Add unlimited comparison slots
-- ❌ Remove individual comparison slots
-- 🧠 Scalable array-based comparison architecture
+- ➕ Add and remove comparison slots
+- ⏳ Loading states and error handling
+- 📱 Responsive React interface
 
 ---
 
 ## Planned
 
-- 📊 Visual comparison highlights
+- 📊 Interactive D3 visualizations
+- 📈 Population comparison charts
+- 📏 Area comparison charts
+- 📊 Sorting and ranking by metric
+- 🗺️ Interactive world map
 - 📊 Population and area visualizations
 - 🗺️ Interactive world map
 - ⭐ Favorite countries
@@ -148,16 +146,13 @@ First working version using the REST Countries API.
 
 ## Skills Demonstrated
 
-- React component architecture
-- State management with React Hooks
-- REST API integration
-- Asynchronous programming (`fetch`, `async/await`)
-- Dynamic rendering of API data
-- Reusable component design
+- React component architecture & Hooks
+- Dynamic state management
+- REST API integration & asynchronous programming
+- Reusable and scalable component design
+- Third-party library integration (react-select)
 - Responsive UI development with Tailwind CSS
-- Client-side data persistence using `localStorage`
-- Scalable state management for dynamic comparison panels
-- Array and object state manipulation
+- Client-side persistence using localStorage
 - Modern JavaScript (ES6+)
 
 ---

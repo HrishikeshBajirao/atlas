@@ -6,6 +6,26 @@ The format follows Keep a Changelog and Semantic Versioning.
 
 ---
 
+## [0.5.0] - 2026-08-07
+
+### Added
+- Added searchable country selection using react-select.
+- Added categorized comparison sections for improved readability.
+- Added clearable comparison selector workflow.
+
+### Changed
+- Redesigned the comparison table for a cleaner and more scalable layout.
+- Replaced text-based country input with an autocomplete search experience.
+- Improved spacing, typography, and overall comparison UI.
+
+### Fixed
+- Fixed state synchronization between recent searches and comparison slots.
+- Fixed controlled component synchronization for react-select.
+- Fixed comparison slot clearing behavior.
+- Improved consistency of country selection across different workflows.
+
+---
+
 ## [0.4.0] - 2026-07-27
 
 ### Added
