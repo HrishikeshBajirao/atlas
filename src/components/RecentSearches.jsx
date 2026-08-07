@@ -17,7 +17,7 @@ export function RecentSearches({recentSearches, setRecentSearches,
         //set the loading, searched and countryInfo values of the free slot index to default values
         setCountries((currCountries) => {
             const newCountries = [...currCountries]
-            newCountries[index] = {...newCountries[index], searched:true, loading: true, countryInfo:null}
+            newCountries[index] = {...newCountries[index], countryInput:name, searched:true, loading: true, countryInfo:null}
             return newCountries
         })
     
