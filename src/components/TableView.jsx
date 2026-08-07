@@ -1,7 +1,7 @@
 import { Loading } from './Loading'
-import { handleCountrySubmit } from '../utils/handleCountrySubmit.js'
+import { SearchForm } from './SearchForm'
 
-export function TableView({countries, setCountries, setRecentSearches}){
+export function TableView({countries, setCountries, setRecentSearches, countriesList}){
 
     const comparisonPanels = [
         {
@@ -38,34 +38,29 @@ export function TableView({countries, setCountries, setRecentSearches}){
         <div className="grid border text-white"
         style={{ gridTemplateColumns: `repeat(${countries.length + 1}, minmax(0, 1fr))` }}>
 
+            {/* ------- FIRST ROW ------- */}
             <div></div>
-            
+            {/* first cell of every column excapt first will be the search box */}
             {countries.map((country, index) => {
                 const { countryInput } = country;
-                return <input 
-                    type="text"
-                    value={countryInput} 
-                    onChange={(e) => setCountries((currCountries) => {
-                        const newCountries = [...currCountries]
-                        newCountries[index] = {...newCountries[index], countryInput: e.target.value}
-                        return newCountries
-                    })}
-                    onKeyDown={(e) => {
-                        if(e.key === "Enter"){
-                            handleCountrySubmit(e, index, countryInput, setCountries, setRecentSearches)
-                        }
-                    }}
-                    className="w-2/3 bg-slate-700  rounded-xl shadow-2xl py-3 px-2.5 
-                    text-white text-xl text-center placeholder:text-slate-400"
-                    placeholder="Search country"
-                    required 
+                return <SearchForm 
+                    key={index}
+                    index = {index}
+                    setCountries = {setCountries}
+                    countryInput = {countryInput}
+                    setRecentSearches = {setRecentSearches}
+                    countriesList = {countriesList}
                 />
             })}
             
+            {/* ------- OTHER ROWS -------- */}
             {comparisonPanels.map((panel) => {
                 return (
                 <>
+                    {/* First cell of every row except first is the property name, e.g. population, capital... */}
                     <div key={panel.label}>{panel.label}</div>
+
+                    {/* the values for a property for all countries is put in this row-wise manner */}
                     {
                         panel.label === "Name" 
                         ? 

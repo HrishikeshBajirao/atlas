@@ -88,6 +88,7 @@ function App() {
             countries = {countries}
             setCountries = {setCountries}
             setRecentSearches = {setRecentSearches}
+            countriesList = {countriesList}
           />
       }
       

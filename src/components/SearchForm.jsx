@@ -11,11 +11,30 @@ export function SearchForm({index, setCountries, countryInput, setRecentSearches
             option => option.value === countryInput
         )}
         onChange={(selectedOption) => {
+
+            // WHEN CLEAR SELECTION BUTTON IS CLICKED THE STATE OBJECT FOR THAT SLOT CLEARs TOO 
+            if(!selectedOption){
+              setCountries((currCountries) => {
+                const newCountries = [...currCountries]
+
+                newCountries[index] = {
+                  countryInput: "",
+                  loading: false,
+                  searched: false,
+                  countryInfo: null
+                };
+                
+                return newCountries;
+              })
+              return;
+            }
+            
             setCountries((currCountries) => {
                 const newCountries = [...currCountries];
                 newCountries[index] = {...newCountries[index], countryInput: selectedOption?.value || ""};
                 return newCountries;
             });
+            // When selectOption is not null, go forward and submit and fetch the country data
             if(selectedOption){
               handleCountrySubmit(index, selectedOption?.value, setCountries, setRecentSearches)
             }

@@ -33,7 +33,7 @@ export async function getCountriesList(){
             let data = await response.json();
             countries = [...countries, ...data.data.objects.map((country) => {
                 return {
-                    value: country.names.common.toLowerCase(), label: country.names.common
+                    value: country.names.common, label: country.names.common
                 }
             })]
         }
