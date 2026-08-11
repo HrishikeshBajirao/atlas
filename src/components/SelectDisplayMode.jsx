@@ -22,8 +22,7 @@ export function SelectDisplayMode({displayMode, setDisplayMode}){
                 className="appearance-none w-8 h-8 rounded-lg bg-slate-700 font-semibold 
                 checked:after:content-['✓'] checked:text-white checked:text-xl checked:flex checked:justify-center checked:items-center"
             />
-            <label htmlFor="insights-display">📋Table</label>
-            <input 
+            <label htmlFor="table-display">📋Table</label>            <input 
                 id="insights-display" 
                 type="radio" 
                 name="display-type" 

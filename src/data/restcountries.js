@@ -1,6 +1,6 @@
 export async function getCountry(code){
     try{
-        const response = await fetch(`http://countries.dev/alpha/${code}`);
+        const response = await fetch(`https://countries.dev/alpha/${code}`);
         const data = await response.json();
         // console.log(data)
         const country = {
@@ -24,6 +24,11 @@ export async function getCountry(code){
 export async function getCountriesList(){
     try{
         const response = await fetch("http://countries.dev/countries");
+
+        if (!response.ok) {
+            throw new Error(`Failed to fetch countries: ${response.status}`);
+        }
+
         const data = await response.json();
         // console.log(data)
         const countries = data.map((country) => {
@@ -37,6 +42,7 @@ export async function getCountriesList(){
         return countries;
     } catch (err) {
         console.log(err)
+        throw err
     }
 }
 
