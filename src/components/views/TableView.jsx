@@ -1,7 +1,7 @@
 import { Loading } from '../Loading'
 import { SearchForm } from '../SearchForm'
 
-export function TableView({countries, setCountries, setRecentSearches, countriesList}){
+export function TableView({countries, setCountries, setRecentSearches, countriesList, setNumberOfSlots}){
 
     const comparisonGroups = [
         {
@@ -70,6 +70,7 @@ export function TableView({countries, setCountries, setRecentSearches, countries
                                 countryInput = {countryInput}
                                 setRecentSearches = {setRecentSearches}
                                 countriesList = {countriesList}
+                                setNumberOfSlots={setNumberOfSlots}
                             />
                         </div>
                     )
@@ -145,31 +146,3 @@ export function TableView({countries, setCountries, setRecentSearches, countries
         </div>
     )
 }
-
-// ------- OTHER ROWS --------
-//                 {comparisonPanels.map((panel) => {
-//                     return (
-//                     <>
-//                         {/* First cell of every row except first is the property name, e.g. population, capital... */}
-//                         <div key={panel.label}
-//                         className="sticky left-0 z-10 bg-slate-800 text-2xl py-1.5 font-semibold text-gray-300 pr-5 rounded-md px-4">{panel.label}</div>
-
-//                         {/* the values for a property for all countries is put in this row-wise manner */}
-//                         {
-//                             panel.label === "Name" 
-//                             ? 
-//                                 panel.values.map((value, index) => {
-//                                     return countries[index].loading ? 
-//                                         <Loading countryInput={countries[index].countryInput} />
-//                                            : !countries[index].searched || countries[index].countryInfo ?
-//                                         <div key={index}>{value}</div>
-//                                         : <div key={index}>Invalid Country</div>
-//                                 })
-//                             :  
-//                                 panel.values.map((value, index) => {
-//                                     return <div key={index}>{value}</div>
-//                                 })
-//                         }
-//                     </>
-//                     )
-//                 })}

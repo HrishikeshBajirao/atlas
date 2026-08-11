@@ -31,6 +31,7 @@ export function CardsView({ index, countries, setCountries, setRecentSearches, s
           countryInput={countryInput}
           setRecentSearches={setRecentSearches}
           countriesList = {countriesList}
+          setNumberOfSlots={setNumberOfSlots}
         />
       </div>
 

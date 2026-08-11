@@ -1,10 +1,26 @@
 import { handleCountrySubmit } from '../utils/handleCountrySubmit.js'
 import Select from 'react-select'
 
-export function SearchForm({index, setCountries, countryInput, setRecentSearches, countriesList}){
-  return (
-      <Select
+export function SearchForm({index, setCountries, countryInput, setRecentSearches, countriesList, setNumberOfSlots}){
 
+  const handleRemoveSearchBox = () => {
+    
+    setCountries((currCountries) => currCountries.filter((_, i) => i !== index))
+    setNumberOfSlots((currSlots) => currSlots - 1)
+
+  }
+
+  return (
+    <div className="w-2/3 max-w-[300px] relative">
+
+      <button 
+        type="button"
+        onClick={handleRemoveSearchBox}
+        className="w-10 h-10 rounded-full bg-slate-800
+        absolute -top-5 -right-5 z-5 hover:bg-red-500 hover:cursor-pointer"
+      >🗑️</button>
+
+      <Select
         unstyled
         options={countriesList}
         value={countriesList.find(
@@ -40,7 +56,7 @@ export function SearchForm({index, setCountries, countryInput, setRecentSearches
             }
         }}
         classNames={{
-          container: () => "w-2/3 max-w-[300px]",
+          container: () => "w-full",
           control: ({ isFocused }) =>
             `bg-slate-700 rounded-xl shadow-2xl py-3 px-2.5 border ${
               isFocused ? "border-blue-500" : "border-slate-700"
@@ -59,37 +75,13 @@ export function SearchForm({index, setCountries, countryInput, setRecentSearches
                 : "bg-slate-700"
             } text-white cursor-pointer `,
           dropdownIndicator: () => "text-slate-400 hover:text-white",
-          clearIndicator: () => "text-red-600 hover:text-red-400",
+          clearIndicator: () => "text-red-400 hover:text-red-600 hover:cursor-pointer",
           indicatorSeparator: () => "bg-slate-500",
         }}
         isSearchable={true}
         placeholder="Type to search..."
         isClearable={true}
-
       />
-
-      // <form id="country-form" className="w-full flex items-center justify-around mt-20" 
-      //   onSubmit={(e) => handleCountrySubmit(e, index, countryInput, setCountries, setRecentSearches)}>
-      //     <label htmlFor="country-input" className="sr-only">Country name</label>\
-
-          
-
-      //     <input 
-      //       id="country-input"
-      //       type="text" 
-      //       value={countryInput} 
-      //       onChange={(e) => setCountries((currCountries) => {
-      //         const newCountries = [...currCountries]
-      //         newCountries[index] = {...newCountries[index], countryInput: e.target.value}
-      //         return newCountries
-      //       })} 
-      //       className="w-2/3 bg-slate-700  rounded-xl shadow-2xl py-3 px-2.5 
-      //         text-white text-xl text-center placeholder:text-slate-400"
-      //       placeholder="Search country"
-      //       required />
-      //   <Button1 
-      //     buttonText="Search"
-      //   />
-      // </form>
+    </div>
   )
 }

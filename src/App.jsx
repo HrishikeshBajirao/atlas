@@ -90,6 +90,7 @@ function App() {
             setCountries = {setCountries}
             setRecentSearches = {setRecentSearches}
             countriesList = {countriesList}
+            setNumberOfSlots = {setNumberOfSlots}
           />
         :
           <InsightsView
@@ -97,6 +98,7 @@ function App() {
             setCountries = {setCountries}
             setRecentSearches = {setRecentSearches}
             countriesList = {countriesList}
+            setNumberOfSlots = {setNumberOfSlots}
           />
       }
       

@@ -2,7 +2,7 @@ import * as d3 from 'd3'
 import { useRef, useEffect } from 'react'
 import { SearchForm } from '../SearchForm.jsx'
 
-export function InsightsView({countries, setCountries, setRecentSearches, countriesList}){
+export function InsightsView({countries, setCountries, setRecentSearches, countriesList, setNumberOfSlots}){
     const svgRef = useRef()
     const tooltipRef = useRef()    
 
@@ -15,7 +15,6 @@ export function InsightsView({countries, setCountries, setRecentSearches, countr
                     value: country.countryInfo.population
                 }
             })
-        console.log(populationData)
 
         const w = 1000
         const h = 400
@@ -98,6 +97,7 @@ export function InsightsView({countries, setCountries, setRecentSearches, countr
                         countryInput={country.countryInput}
                         setRecentSearches={setRecentSearches}
                         countriesList = {countriesList}
+                        setNumberOfSlots={setNumberOfSlots}
                     />
                 ))}
             </div>
