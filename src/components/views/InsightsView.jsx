@@ -69,10 +69,14 @@ export function InsightsView({countries, setCountries, setRecentSearches, countr
             .attr('fill', 'steelblue')
             .on("mouseenter", (e, d) => {
                 const [x, y] = d3.pointer(e, svgRef.current)
+
+                const svgRect = svgRef.current.getBoundingClientRect()
+                const containerRect = svgRef.current.parentElement.getBoundingClientRect()
+
                 tooltip
                     .classed("hidden", false)
-                    .style("left", x + "px")
-                    .style("top", y + "px")
+                    .style("left", `${x + svgRect.left - containerRect.left}px`)
+                    .style("top", `${y + svgRect.top - containerRect.top}px`)
                     .text(`${d.name}: ${d.value.toLocaleString()}`)
 
             })
