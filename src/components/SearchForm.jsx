@@ -36,7 +36,7 @@ export function SearchForm({index, setCountries, countryInput, setRecentSearches
             });
             // When selectOption is not null, go forward and submit and fetch the country data
             if(selectedOption){
-              handleCountrySubmit(index, selectedOption?.value, setCountries, setRecentSearches)
+              handleCountrySubmit(index, selectedOption?.alpha3, setCountries, setRecentSearches)
             }
         }}
         classNames={{

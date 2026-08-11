@@ -9,19 +9,19 @@ export function TableView({countries, setCountries, setRecentSearches, countries
             panels: [
                 {
                     label: "Name",
-                    values: countries.map(c => c.countryInfo?.names.common)
+                    values: countries.map(c => c.countryInfo?.name)
                 },
                 {
                     label: "Continent",
-                    values: countries.map(c => c.countryInfo?.continents.join(", "))
+                    values: countries.map(c => c.countryInfo?.region)
                 },
                 {
                     label: "Capital",
-                    values: countries.map(c => c.countryInfo?.capitals[0].name)
+                    values: countries.map(c => c.countryInfo?.capital)
                 },
                 {
                     label: "Area (sqkm)",
-                    values: countries.map(c => c.countryInfo?.area.kilometers.toLocaleString())
+                    values: countries.map(c => c.countryInfo?.area.toLocaleString())
                 }
             ]
         },
@@ -34,7 +34,7 @@ export function TableView({countries, setCountries, setRecentSearches, countries
                 },
                 {
                     label: "Languages",
-                    values: countries.map(c => c.countryInfo?.languages[0].name)
+                    values: countries.map(c => c.countryInfo?.languages[0])
                 }
             ]
         },
@@ -43,7 +43,7 @@ export function TableView({countries, setCountries, setRecentSearches, countries
             panels: [
                 {
                     label: "Currency",
-                    values: countries.map(c => c.countryInfo?.currencies[0].name)
+                    values: countries.map(c => c.countryInfo?.currency[0])
                 }
             ]
         }

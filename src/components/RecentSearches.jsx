@@ -3,7 +3,7 @@ import { getCountry } from "../data/restcountries.js"
 export function RecentSearches({recentSearches, setRecentSearches,
     countries, setCountries})
 {    
-    const handleRecentSearchItemClick = async (name) => {
+    const handleRecentSearchItemClick = async (code) => {
         
         // get the index of a free slot
         let index = -1
@@ -23,7 +23,8 @@ export function RecentSearches({recentSearches, setRecentSearches,
     
         //fetch the country data and set the countries[index] to the fetched data
         try {
-            const foundCountry = await getCountry(name); 
+            const foundCountry = await getCountry(code); 
+            console.log(foundCountry)
             setCountries((currCountries) => {
                 const newCountries = [...currCountries]
                 newCountries[index] = {...newCountries[index], countryInfo: foundCountry}
@@ -31,9 +32,9 @@ export function RecentSearches({recentSearches, setRecentSearches,
             })
             if(foundCountry){
             setRecentSearches((currentRecentSearches) => [
-                { name: foundCountry.names.common, code: foundCountry.codes.alpha_2 },
+                { name: foundCountry.name, code: foundCountry.alpha3Code },
                 ...currentRecentSearches
-                .filter((item) => item.name !== foundCountry.names.common)
+                .filter((item) => item.name !== foundCountry.name)
                 .slice(0, 4),
             ]);
             }
@@ -61,7 +62,7 @@ export function RecentSearches({recentSearches, setRecentSearches,
             {recentSearches.map((item) => (
                 <div key={item.code} className="recent-search-item flex justify-center items-center">
                     <button className="text-center text-md text-slate-300 hover:cursor-pointer hover:scale-105"
-                        onClick={() => handleRecentSearchItemClick(item.name)}>
+                        onClick={() => handleRecentSearchItemClick(item.code)}>
                         [ {item.code} {item.name} ]
                     </button>
                     <button 

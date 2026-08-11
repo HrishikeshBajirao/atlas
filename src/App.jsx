@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { CountryBlock } from './components/CountryBlock'
+import { CardsView } from './components/CardsView.jsx'
 import { RecentSearches } from "./components/RecentSearches"
 import { SelectDisplayMode } from './components/SelectDisplayMode'
 import { TableView } from './components/TableView'
@@ -72,7 +72,7 @@ function App() {
       {displayMode === 'cards' 
         ? <div className="country-blocks flex justify-center gap-10 flex-wrap">
             {[...Array(numberOfSlots)].map((_, index) => (
-              <CountryBlock
+              <CardsView
                 key = {index}
                 index = {index}
                 countries = {countries}
