@@ -94,6 +94,9 @@ function App() {
         :
           <InsightsView
             countries = {countries}
+            setCountries = {setCountries}
+            setRecentSearches = {setRecentSearches}
+            countriesList = {countriesList}
           />
       }
       

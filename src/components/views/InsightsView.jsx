@@ -1,12 +1,10 @@
 import * as d3 from 'd3'
 import { useRef, useEffect } from 'react'
+import { SearchForm } from '../SearchForm.jsx'
 
-export function InsightsView({countries}){
+export function InsightsView({countries, setCountries, setRecentSearches, countriesList}){
     const svgRef = useRef()
-    const tooltipRef = useRef()
-
-
-    
+    const tooltipRef = useRef()    
 
     useEffect(() => {
         
@@ -26,7 +24,7 @@ export function InsightsView({countries}){
             .select(svgRef.current)
             .attr('width', w)
             .attr('height', h)
-            
+
         svg.selectAll("*").remove()
 
         const tooltip = d3.select(tooltipRef.current)
@@ -86,6 +84,20 @@ export function InsightsView({countries}){
 
     return (
         <div className="relative">
+
+            <div className="max-w-[800px] mx-auto my-5 flex flex-wrap gap-4 justify-center">
+                {countries.map((country, index) => (
+                    <SearchForm
+                        key={index}
+                        index={index}
+                        setCountries={setCountries}
+                        countryInput={country.countryInput}
+                        setRecentSearches={setRecentSearches}
+                        countriesList = {countriesList}
+                    />
+                ))}
+            </div>
+
             <svg 
                 ref={svgRef} 
                 className="bg-white mx-auto my-10 rounded-lg"

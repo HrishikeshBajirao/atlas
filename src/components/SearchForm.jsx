@@ -40,7 +40,7 @@ export function SearchForm({index, setCountries, countryInput, setRecentSearches
             }
         }}
         classNames={{
-          container: () => "w-2/3",
+          container: () => "w-2/3 max-w-[300px]",
           control: ({ isFocused }) =>
             `bg-slate-700 rounded-xl shadow-2xl py-3 px-2.5 border ${
               isFocused ? "border-blue-500" : "border-slate-700"
