@@ -15,7 +15,7 @@ export async function handleCountrySubmit (index, countryCode, setCountries, set
             newCountries[index] = {...newCountries[index], countryInfo: foundCountry}
             return newCountries
         })
-        console.log(foundCountry);
+        // console.log(foundCountry);
         if(foundCountry){
         setRecentSearches((currentRecentSearches) => [
             { name: foundCountry.name, code: foundCountry.alpha3Code },

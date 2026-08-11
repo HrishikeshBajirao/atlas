@@ -1,5 +1,5 @@
-import { Loading } from './Loading'
-import { SearchForm } from './SearchForm'
+import { Loading } from '../Loading'
+import { SearchForm } from '../SearchForm'
 
 export function TableView({countries, setCountries, setRecentSearches, countriesList}){
 
@@ -62,7 +62,6 @@ export function TableView({countries, setCountries, setRecentSearches, countries
                 {countries.map((country, index) => {
                     const { countryInput } = country;
                     return (
-                        <>
                         <div key={index} className="flex justify-center items-center">
                             <SearchForm 
                                 key={index}
@@ -73,7 +72,6 @@ export function TableView({countries, setCountries, setRecentSearches, countries
                                 countriesList = {countriesList}
                             />
                         </div>
-                        </>
                     )
                     
                 })}

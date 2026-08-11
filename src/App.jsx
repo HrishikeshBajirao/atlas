@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react"
-import { CardsView } from './components/CardsView.jsx'
+import { CardsView } from './components/views/CardsView.jsx'
 import { RecentSearches } from "./components/RecentSearches"
 import { SelectDisplayMode } from './components/SelectDisplayMode'
-import { TableView } from './components/TableView'
+import { TableView } from './components/views/TableView'
+import { InsightsView } from './components/views/InsightsView'
 import { getCountriesList } from './data/restcountries.js'
 
 const RECENT_SEARCHES_KEY = "atlas-recent-searches";
@@ -22,7 +23,7 @@ function App() {
       }
     })
   );
-  const [displayMode, setDisplayMode] = useState("cards")
+  const [displayMode, setDisplayMode] = useState("insights")
   const [countriesList, setCountriesList] = useState([])
 
   //fetch all countries list once after app loads to populate the Select input searchable input
@@ -83,12 +84,16 @@ function App() {
               />
             ))}
           </div>
-        :
+        : displayMode === 'table' ?
           <TableView 
             countries = {countries}
             setCountries = {setCountries}
             setRecentSearches = {setRecentSearches}
             countriesList = {countriesList}
+          />
+        :
+          <InsightsView
+            countries = {countries}
           />
       }
       

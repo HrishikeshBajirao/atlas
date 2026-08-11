@@ -1,7 +1,7 @@
-import { SearchForm } from "./SearchForm"
-import { Loading } from "./Loading"
-import { CountryCardOutput } from "./CountryCardOutput"
-import { Button1 } from "./Button1"
+import { SearchForm } from "../SearchForm"
+import { Loading } from "../Loading"
+import { CountryCardOutput } from "../CountryCardOutput"
+import { Button1 } from "../Button1"
 
 export function CardsView({ index, countries, setCountries, setRecentSearches, setNumberOfSlots, countriesList}) {
   const { countryInput, countryInfo, searched, loading } = countries[index] || {}
