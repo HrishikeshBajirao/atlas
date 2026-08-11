@@ -27,7 +27,7 @@ export function RecentSearches({recentSearches, setRecentSearches,
             console.log(foundCountry)
             setCountries((currCountries) => {
                 const newCountries = [...currCountries]
-                newCountries[index] = {...newCountries[index], countryInfo: foundCountry}
+                newCountries[index] = {...newCountries[index], countryInput: foundCountry.name, countryInfo: foundCountry}
                 return newCountries
             })
             if(foundCountry){
