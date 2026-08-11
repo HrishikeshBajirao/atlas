@@ -23,7 +23,7 @@ export async function getCountry(code){
 
 export async function getCountriesList(){
     try{
-        const response = await fetch("http://countries.dev/countries");
+        const response = await fetch("https://countries.dev/countries");
 
         if (!response.ok) {
             throw new Error(`Failed to fetch countries: ${response.status}`);

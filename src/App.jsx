@@ -23,7 +23,7 @@ function App() {
       }
     })
   );
-  const [displayMode, setDisplayMode] = useState("insights")
+  const [displayMode, setDisplayMode] = useState("cards")
   const [countriesList, setCountriesList] = useState([])
 
   //fetch all countries list once after app loads to populate the Select input searchable input
