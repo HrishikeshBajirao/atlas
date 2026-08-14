@@ -19,7 +19,8 @@ function App() {
         countryInput: "",
         loading: false,
         searched: false,
-        countryInfo: null
+        countryInfo: null,
+        requestId: null
       }
     })
   );
