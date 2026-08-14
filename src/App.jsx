@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import './styles/App.css'
 import { CardsView } from './components/views/CardsView.jsx'
 import { RecentSearches } from "./components/RecentSearches"
 import { SelectDisplayMode } from './components/SelectDisplayMode'
@@ -11,7 +12,7 @@ const RECENT_SEARCHES_KEY = "atlas-recent-searches";
 getCountriesList()
 
 function App() {
-  const [numberOfSlots, setNumberOfSlots] = useState(2)
+  const [numberOfSlots, setNumberOfSlots] = useState(6)
   const [recentSearches, setRecentSearches] = useState(JSON.parse(localStorage.getItem(RECENT_SEARCHES_KEY)) || []);
   const [countries, setCountries] = useState(
     [...Array(numberOfSlots)].map(() => {
@@ -24,7 +25,7 @@ function App() {
       }
     })
   );
-  const [displayMode, setDisplayMode] = useState("cards")
+  const [displayMode, setDisplayMode] = useState("insights")
   const [countriesList, setCountriesList] = useState([])
 
   //fetch all countries list once after app loads to populate the Select input searchable input

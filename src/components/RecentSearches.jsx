@@ -24,7 +24,7 @@ export function RecentSearches({recentSearches, setRecentSearches,
         //fetch the country data and set the countries[index] to the fetched data
         try {
             const foundCountry = await getCountry(code); 
-            console.log(foundCountry)
+            // console.log(foundCountry)
             setCountries((currCountries) => {
                 const newCountries = [...currCountries]
                 newCountries[index] = {...newCountries[index], countryInput: foundCountry.name, countryInfo: foundCountry}

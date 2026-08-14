@@ -1,0 +1,13 @@
+.dot, .rect{
+    transition: transform 0.3s ease;
+    transform-box: fill-box;
+    transform-origin: center;
+}
+.dot:hover{
+    transform: scale(1.2);
+    cursor:pointer;
+}
+.rect:hover{
+    cursor: pointer;
+    transform: scaleY(1.15);
+}
