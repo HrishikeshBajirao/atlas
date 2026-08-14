@@ -6,9 +6,9 @@ export function InsightsView({countries, setCountries, setRecentSearches, countr
     
 
     return (
-        <div className="relative">
+        <div className="flex gap-4 justify-around mt-10">
 
-            <div className="max-w-[800px] mx-auto my-5 flex flex-wrap gap-4 justify-center">
+            <div className="w-[30%] max-w-[350px] max-h-[600px] flex flex-col overflow-y-auto gap-4 justify-start items-center p-1 bg-[#1E293B] rounded-lg">
                 {countries.map((country, index) => (
                     <SearchForm
                         key={index}
@@ -22,13 +22,17 @@ export function InsightsView({countries, setCountries, setRecentSearches, countr
                 ))}
             </div>
 
-            <PopulationHorizontalBarChart 
-                countries = {countries}
-            />
+            <div className="relative w-[69%] bg-[#1E293B] rounded-lg">
 
-            <AreaScatterPlot 
-                countries = {countries}
-            />
+                <PopulationHorizontalBarChart 
+                    countries = {countries}
+                />
+
+                <AreaScatterPlot 
+                    countries = {countries}
+                />
+
+            </div>
         </div>
     )
 }

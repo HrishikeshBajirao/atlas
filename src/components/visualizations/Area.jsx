@@ -29,7 +29,8 @@ export function AreaScatterPlot({countries}){
         ))
 
     //measurements and initialization
-        const w = 1000
+        const parent = svgRef.current.parentElement;
+        const w = parent.clientWidth * 0.9;
         const h = 400
         const padding = 100
 

@@ -11,7 +11,7 @@ export function SearchForm({index, setCountries, countryInput, setRecentSearches
   }
 
   return (
-    <div className="w-2/3 max-w-[300px] relative mt-6 mx-3">
+    <div className="w-[80%] max-w-[300px] relative mt-6 mx-3">
 
       <button 
         type="button"
