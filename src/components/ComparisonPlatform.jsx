@@ -2,19 +2,20 @@ import { Header } from './Header'
 import { LeftPanelAside } from './LeftPanelAside'
 import { TableView } from './views/TableView'
 import { InsightsView } from './views/InsightsView'
+import { CardsView } from './views/CardsView'
 
 export function ComparisonPlatform({
     countries, setCountries, recentSearches, setRecentSearches, countriesList, setNumberOfSlots, displayMode, setDisplayMode
 }){
 
     return (
-        <div className="h-screen bg-slate-900">
+        <div className="h-screen bg-slate-900 flex flex-col">
             
             <Header
                 setDisplayMode = {setDisplayMode}
             />
 
-            <div className="flex h-[90%]">
+            <div className="flex flex-1 min-h-0 h-[90%]">
 
                 <LeftPanelAside
                     setNumberOfSlots = {setNumberOfSlots}
@@ -25,11 +26,23 @@ export function ComparisonPlatform({
                     countriesList = {countriesList}
                 />
 
-                <main className="w-4/5 bg-white">
+                <main className="w-4/5 bg-white overflow-y-auto">
                 
                     {
                         displayMode === "cards" ?
-                            <h1>cards</h1>
+                            <div className="country-blocks flex justify-center gap-10 flex-wrap">
+                                {[...Array(countries.length)].map((_, index) => (
+                                <CardsView
+                                    key = {index}
+                                    index = {index}
+                                    countries = {countries}
+                                    setCountries = {setCountries}
+                                    setRecentSearches = {setRecentSearches}
+                                    setNumberOfSlots = {setNumberOfSlots}
+                                    countriesList = {countriesList}
+                                />
+                                ))}
+                            </div>
                         : displayMode === "table" ?
                             <TableView 
                                 countries = {countries}

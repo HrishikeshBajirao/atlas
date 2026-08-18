@@ -1,6 +1,6 @@
 export function Header({setDisplayMode}){
     return (
-        <header className="h-[10%] border-b-2 border-slate-600 flex justify-between items-center">
+        <header className="shrink-0 h-[10%] border-b-2 border-slate-600 flex justify-between items-center">
             <h1 className="h-full p-5 text-center text-2xl text-white ml-10">
             🌍 A T L A S
             </h1>

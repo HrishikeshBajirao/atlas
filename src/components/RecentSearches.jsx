@@ -1,17 +1,33 @@
 import { getCountry } from "../data/restcountries.js"
 
 export function RecentSearches({recentSearches, setRecentSearches,
-    countries, setCountries})
+    countries, setCountries, setNumberOfSlots})
 {    
     const handleRecentSearchItemClick = async (code) => {
+
+        //see if the select recent search item is already in the view
+        if(countries.find((country) => country.countryInfo.alpha3Code === code)){
+            alert(`This country is already shown`)
+            return
+        }
         
         // get the index of a free slot
         let index = -1
         index = countries.findIndex((slot) => !slot.searched)
         //return if all slots are full
         if(index === -1){
-            alert("Comparison slots are full, add a new slot or click searchanother country in any slot.")
-            return
+            setNumberOfSlots((currSlots) => currSlots + 1)
+            setCountries((currCountries) => {
+                return [...currCountries,
+                    {
+                        countryInput: "",
+                        loading: false,
+                        searched: false,
+                        countryInfo: null
+                    }
+                ]
+            })
+            index = countries.length
         }
 
         //set the loading, searched and countryInfo values of the free slot index to default values

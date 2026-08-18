@@ -3,7 +3,7 @@ export async function getCountry(code){
         const response = await fetch(`https://countries.dev/alpha/${code}`);
         const data = await response.json();
         // console.log(data)
-        const country = {
+        const countryInfo = {
             alpha3Code: data.alpha3Code,
             name: data.name,
             flag: data.flags,
@@ -15,7 +15,7 @@ export async function getCountry(code){
             currency: data.currencies.map((currency) => `${currency.symbol} - ${currency.name}`)
         }
         // console.log(country)
-        return country
+        return countryInfo
     } catch (err) {
         console.log(err)
     }

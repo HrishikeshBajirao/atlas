@@ -1,7 +1,6 @@
 import { Loading } from '../Loading'
-import { SearchForm } from '../SearchForm'
 
-export function TableView({countries, setCountries, setRecentSearches, countriesList, setNumberOfSlots}){
+export function TableView({countries}){
 
     const comparisonGroups = [
         {
@@ -9,19 +8,19 @@ export function TableView({countries, setCountries, setRecentSearches, countries
             panels: [
                 {
                     label: "Name",
-                    values: countries.map(c => c.countryInfo?.name)
+                    values: countries.filter(c => c.countryInfo !== null).map(c => c.countryInfo?.name)
                 },
                 {
                     label: "Continent",
-                    values: countries.map(c => c.countryInfo?.region)
+                    values: countries.filter(c => c.countryInfo !== null).map(c => c.countryInfo?.region)
                 },
                 {
                     label: "Capital",
-                    values: countries.map(c => c.countryInfo?.capital)
+                    values: countries.filter(c => c.countryInfo !== null).map(c => c.countryInfo?.capital)
                 },
                 {
                     label: "Area (sqkm)",
-                    values: countries.map(c => c.countryInfo?.area.toLocaleString())
+                    values: countries.filter(c => c.countryInfo !== null).map(c => c.countryInfo?.area.toLocaleString())
                 }
             ]
         },
@@ -30,11 +29,11 @@ export function TableView({countries, setCountries, setRecentSearches, countries
             panels: [
                 {
                     label: "Population",
-                    values: countries.map(c => c.countryInfo?.population.toLocaleString())
+                    values: countries.filter(c => c.countryInfo !== null).map(c => c.countryInfo?.population.toLocaleString())
                 },
                 {
                     label: "Languages",
-                    values: countries.map(c => c.countryInfo?.languages[0])
+                    values: countries.filter(c => c.countryInfo !== null).map(c => c.countryInfo?.languages[0])
                 }
             ]
         },
@@ -43,7 +42,7 @@ export function TableView({countries, setCountries, setRecentSearches, countries
             panels: [
                 {
                     label: "Currency",
-                    values: countries.map(c => c.countryInfo?.currency[0])
+                    values: countries.filter(c => c.countryInfo !== null).map(c => c.countryInfo?.currency[0])
                 }
             ]
         }
@@ -53,26 +52,25 @@ export function TableView({countries, setCountries, setRecentSearches, countries
 
     return (
         <div className="overflow-x-auto my-10 mx-10 border border-slate-700 gap-1 rounded-lg">
-            <div className="min-w-[900px] grid text-white"
+            <div className="min-w-[900px] grid text-black"
             style={{ gridTemplateColumns: `200px repeat(${countries.length}, minmax(250px, 1fr))` }}>
 
                 {/* ------- FIRST ROW ------- */}
-                <div></div>
+                <div className="bg-white sticky left-0 z-10"></div>
                 {/* first cell of every column excapt first will be the search box */}
                 {countries.map((country, index) => {
-                    const { countryInput } = country;
+                    const { countryInfo } = country;
                     return (
-                        <div key={index} className="flex justify-center items-center">
-                            <SearchForm 
-                                key={index}
-                                index = {index}
-                                setCountries = {setCountries}
-                                countryInput = {countryInput}
-                                setRecentSearches = {setRecentSearches}
-                                countriesList = {countriesList}
-                                setNumberOfSlots={setNumberOfSlots}
-                            />
-                        </div>
+                        //render only when the country is selected
+                        country.countryInfo !== null ? 
+                            <div key={index} className="flex justify-center items-center">
+                                <img 
+                                    src={countryInfo?.flag.svg}
+                                    width="200"
+                                />
+                            </div>
+                        :
+                            ""
                     )
                     
                 })}
@@ -83,19 +81,22 @@ export function TableView({countries, setCountries, setRecentSearches, countries
                         <div key={group.title} 
                         className="col-span-full
                             mt-8
-                            mb-2
+                            pb-2
+                            pl-4
                             border-b
-                            border-slate-700
+                            border-r border-slate-700/50
                             text-2xl
                             font-semibold
                             tracking-wide
-                            text-slate-300">{group.title}</div>
+                            text-black
+                            bg-gray"><span className="sticky left-0 bg-white pr-4">{group.title}</span></div>
 
                         {group.panels.map((panel) => {
                             return (
                                 <>
                                 <div key={panel.label}
-                                className="sticky left-0 z-10 bg-slate-800 text-lg py-1.5 font-semibold text-gray-300 pr-5 rounded-md px-4">
+                                className="sticky left-0 z-10 text-lg py-1.5 font-semibold 
+                                text-black px-4 border-b border-r border-slate-700/50 bg-white">
                                     {panel.label}
                                 </div>
 
@@ -113,7 +114,7 @@ export function TableView({countries, setCountries, setRecentSearches, countries
                                                     text-center
                                                     text-lg
                                                     font-medium
-                                                    text-slate-100
+                                                    text-black
                                                     border-b
                                                     border-slate-700/50"
                                                 key={index}>{value}</div>
@@ -127,7 +128,7 @@ export function TableView({countries, setCountries, setRecentSearches, countries
                                                         text-center
                                                         text-lg
                                                         font-medium
-                                                        text-slate-100
+                                                        text-black
                                                         border-b
                                                         border-slate-700/50" 
                                                     key={index}>{value}</div>

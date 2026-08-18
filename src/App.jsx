@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react"
 import './styles/App.css'
 import { ComparisonPlatform } from './components/ComparisonPlatform.jsx'
-import { CardsView } from './components/views/CardsView.jsx'
-import { RecentSearches } from "./components/RecentSearches"
 import { SelectDisplayMode } from './components/SelectDisplayMode'
 import { getCountriesList } from './data/restcountries.js'
 

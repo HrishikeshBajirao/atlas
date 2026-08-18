@@ -30,7 +30,7 @@ export function AreaScatterPlot({countries}){
 
     //measurements and initialization
         const parent = svgRef.current.parentElement;
-        const w = parent.clientWidth * 0.9;
+        const w = parent.clientWidth * 0.8;
         const h = 400
         const padding = 100
 
@@ -176,7 +176,7 @@ export function AreaScatterPlot({countries}){
     return (
         <>
         <svg ref={svgRef}
-            className="bg-white mx-auto my-10 rounded-lg"
+            className="bg-white mx-auto my-10 rounded-lg border border-black"
         ></svg>
         <div 
             ref={tooltipRef} 

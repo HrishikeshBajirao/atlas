@@ -19,7 +19,7 @@ export function LeftPanelAside({setNumberOfSlots, setCountries,countries, recent
     }
 
     return (
-        <aside className="w-1/5 border-r border-white">
+        <aside className="shrink-0 w-1/5 border-r border-white">
             <div 
                 className="w-full max-w-[350px] h-[70%] flex flex-col overflow-y-auto gap-4 
                 justify-start items-center p-1 bg-[#1E293B]"
@@ -55,6 +55,7 @@ export function LeftPanelAside({setNumberOfSlots, setCountries,countries, recent
                 setRecentSearches = {setRecentSearches}
                 countries = {countries}
                 setCountries = {setCountries}
+                setNumberOfSlots = {setNumberOfSlots}
             />
 
         </aside>
