@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react"
 import './styles/App.css'
+import { ComparisonPlatform } from './components/ComparisonPlatform.jsx'
 import { CardsView } from './components/views/CardsView.jsx'
 import { RecentSearches } from "./components/RecentSearches"
 import { SelectDisplayMode } from './components/SelectDisplayMode'
-import { TableView } from './components/views/TableView'
-import { InsightsView } from './components/views/InsightsView'
 import { getCountriesList } from './data/restcountries.js'
 
 const RECENT_SEARCHES_KEY = "atlas-recent-searches";
@@ -12,7 +11,7 @@ const RECENT_SEARCHES_KEY = "atlas-recent-searches";
 getCountriesList()
 
 function App() {
-  const [numberOfSlots, setNumberOfSlots] = useState(6)
+  const [numberOfSlots, setNumberOfSlots] = useState(2)
   const [recentSearches, setRecentSearches] = useState(JSON.parse(localStorage.getItem(RECENT_SEARCHES_KEY)) || []);
   const [countries, setCountries] = useState(
     [...Array(numberOfSlots)].map(() => {
@@ -25,7 +24,7 @@ function App() {
       }
     })
   );
-  const [displayMode, setDisplayMode] = useState("insights")
+  const [displayMode, setDisplayMode] = useState("")
   const [countriesList, setCountriesList] = useState([])
 
   //fetch all countries list once after app loads to populate the Select input searchable input
@@ -46,35 +45,36 @@ function App() {
     localStorage.setItem(RECENT_SEARCHES_KEY, JSON.stringify(recentSearches));
   }, [recentSearches])
 
-  //add a new slot to the comparison panel
-  const handleAddSlotClick = () => {
-    setNumberOfSlots((currSlots) => currSlots + 1)
-    setCountries((currCountries) => {
-      return [...currCountries,
-        {
-          countryInput: "",
-          loading: false,
-          searched: false,
-          countryInfo: null
-        }
-      ]
-    })
-  }
-
   return (
     <>
-      <p className=" my-5 text-7xl text-center">🌍</p>
-      <h1 className="text-center my-6 text-5xl text-white tracking-widest">ATLAS</h1>
-      <p className="text-3xl text-center text-slate-400 my-6">Explore countries of the world</p>
 
-      <div className="divider w-[98%] h-[1px] bg-slate-200 mx-auto my-4"></div>
+      {displayMode === "" ?
+        <>
+        <p className=" my-5 text-7xl text-center">🌍</p>
+        <h1 className="text-center my-6 text-5xl text-white tracking-widest">ATLAS</h1>
+        <p className="text-3xl text-center text-slate-400 my-6">Explore countries of the world</p>
 
-      <SelectDisplayMode 
-        displayMode = {displayMode}
-        setDisplayMode = {setDisplayMode}
-      />
+        <div className="divider w-[98%] h-[1px] bg-slate-200 mx-auto my-4"></div>
+        <SelectDisplayMode 
+          setDisplayMode = {setDisplayMode}
+        />
+        </>
+      :
+        
+        <ComparisonPlatform 
+          countries = {countries}
+          setCountries = {setCountries}
+          recentSearches = {recentSearches}
+          setRecentSearches = {setRecentSearches}
+          countriesList = {countriesList}
+          setNumberOfSlots = {setNumberOfSlots}
+          displayMode = {displayMode}
+          setDisplayMode = {setDisplayMode}
+        />
 
-      {displayMode === 'cards' 
+      }
+
+      {/* {displayMode === 'cards' 
         ? <div className="country-blocks flex justify-center gap-10 flex-wrap">
             {[...Array(numberOfSlots)].map((_, index) => (
               <CardsView
@@ -121,7 +121,7 @@ function App() {
         setRecentSearches = {setRecentSearches}
         countries = {countries}
         setCountries = {setCountries}
-      />
+      /> */}
     </>
   )
 }

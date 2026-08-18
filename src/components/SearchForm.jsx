@@ -11,14 +11,14 @@ export function SearchForm({index, setCountries, countryInput, setRecentSearches
   }
 
   return (
-    <div className="w-[80%] max-w-[300px] relative mt-6 mx-3">
+    <div className="w-[80%] max-w-[300px] relative mt-2 mx-3">
 
       <button 
         type="button"
         onClick={handleRemoveSearchBox}
-        className="w-10 h-10 rounded-full bg-slate-800
-        absolute -top-5 -right-5 z-5 hover:bg-red-500 hover:cursor-pointer"
-      >🗑️</button>
+        className="w-5 h-5 rounded-full bg-red-800 text-sm text-white text-centers
+        absolute -top-2.5 -right-2.5 z-5 hover:bg-red-500 hover:cursor-pointer"
+      >X</button>
 
       <Select
         unstyled
@@ -58,14 +58,14 @@ export function SearchForm({index, setCountries, countryInput, setRecentSearches
         classNames={{
           container: () => "w-full",
           control: ({ isFocused }) =>
-            `bg-slate-700 rounded-xl shadow-2xl py-3 px-2.5 border ${
+            `bg-slate-700 rounded-lg shadow-2xl py-1 px-2 border ${
               isFocused ? "border-blue-500" : "border-slate-700"
             } min-h-[52px]`,
-          valueContainer: () => "px-2.5 py-1",
-          input: () => "text-white text-xl",
-          singleValue: () => "text-white text-xl",
-          placeholder: () => "text-slate-400 text-xl",
-          menu: () => "bg-slate-700 rounded-xl shadow-2xl mt-2 py-3 px-2.5",
+          valueContainer: () => "px-2 py-1",
+          input: () => "text-white text-lg",
+          singleValue: () => "text-white text-lg",
+          placeholder: () => "text-slate-400 text-lg",
+          menu: () => "bg-slate-700 rounded-md shadow-2xl mt-2 py-3 px-2.5",
           option: ({ isFocused, isSelected }) =>
             `${
               isSelected
@@ -73,13 +73,13 @@ export function SearchForm({index, setCountries, countryInput, setRecentSearches
                 : isFocused
                 ? "bg-slate-600"
                 : "bg-slate-700"
-            } text-white cursor-pointer `,
+            } text-white cursor-pointer rounded-md p-1`,
           dropdownIndicator: () => "text-slate-400 hover:text-white",
           clearIndicator: () => "text-red-400 hover:text-red-600 hover:cursor-pointer",
           indicatorSeparator: () => "bg-slate-500",
         }}
         isSearchable={true}
-        placeholder="Type to search..."
+        placeholder={`Country ${index + 1}`}
         isClearable={true}
       />
     </div>

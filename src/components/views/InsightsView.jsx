@@ -1,6 +1,6 @@
 import { SearchForm } from '../SearchForm.jsx'
 import { PopulationHorizontalBarChart } from '../visualizations/Population'
-import { AreaScatterPlot } from '../visualizations/Area'
+import { AreaScatterPlot } from '../visualizations/Density'
 
 export function InsightsView({countries, setCountries, setRecentSearches, countriesList, setNumberOfSlots}){
     

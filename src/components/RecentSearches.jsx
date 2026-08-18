@@ -31,12 +31,12 @@ export function RecentSearches({recentSearches, setRecentSearches,
                 return newCountries
             })
             if(foundCountry){
-            setRecentSearches((currentRecentSearches) => [
-                { name: foundCountry.name, code: foundCountry.alpha3Code },
-                ...currentRecentSearches
-                .filter((item) => item.name !== foundCountry.name)
-                .slice(0, 4),
-            ]);
+                setRecentSearches((currentRecentSearches) => [
+                    { name: foundCountry.name, code: foundCountry.alpha3Code },
+                    ...currentRecentSearches
+                    .filter((item) => item.name !== foundCountry.name)
+                    .slice(0, 4),
+                ]);
             }
         } catch (err) {
             console.error(err);
@@ -57,20 +57,25 @@ export function RecentSearches({recentSearches, setRecentSearches,
     }
 
     return (
-        <div id="recent-searches" className={`${recentSearches.length ? "" : "hidden"} w-[300px] mx-auto mt-10`}>
-            <h2 className="text-center text-slate-300 font-semibold text-2xl my-3">Recent Searches</h2>
+        <div id="recent-searches" className={` w-full mx-auto mt-2`}>
+            <h2 className="text-center text-slate-300 font-semibold text-xl my-2">Recents  
+                <button 
+                    className={`${recentSearches.length ? "" : "hidden"} text-sm ml-2 font-normal text-red-300 hover:cursor-pointer hover:scale-105`}
+                    onClick={() => setRecentSearches([])}
+                >[ clear ]</button>
+            </h2>
             {recentSearches.map((item) => (
                 <div key={item.code} className="recent-search-item flex justify-center items-center">
-                    <button className="text-center text-md text-slate-300 hover:cursor-pointer hover:scale-105"
+                    <button className="text-center text-sm text-slate-300 hover:cursor-pointer hover:scale-105"
                         onClick={() => handleRecentSearchItemClick(item.code)}>
-                        [ {item.code} {item.name} ]
+                        {item.code} {item.name.length > 20 ? item.name.slice(0, 21) + "..." : item.name}
                     </button>
                     <button 
                         type="button"
-                        className="bg-inherit text-lg text-slate-500 mx-3 pt-1 font-semibold 
+                        className="bg-inherit text-lg text-slate-500 mx-3 font-semibold 
                             hover:cursor-pointer hover:scale-105 hover:text-red-400"
                         onClick={() => handleDeleteRecent(item.code)}>
-                        X
+                        [X]
                     </button>
                 </div>
                 )
