@@ -49,15 +49,17 @@ export function TableView({countries}){
 
     ]
 
+    const notNullCountriesCount = countries.filter(c => c.countryInfo !== null).length
 
     return (
         <div className="overflow-x-auto my-10 mx-10 border border-slate-700 gap-1 rounded-lg">
             <div className="min-w-[900px] grid text-black"
-            style={{ gridTemplateColumns: `200px repeat(${countries.length}, minmax(250px, 1fr))` }}>
+            style={{ gridTemplateColumns: `200px repeat(${notNullCountriesCount}, minmax(250px, 1fr))` }}>
 
                 {/* ------- FIRST ROW ------- */}
-                <div className="bg-white sticky left-0 z-10"></div>
-                {/* first cell of every column excapt first will be the search box */}
+                <div className="bg-white sticky left-0 z-10" style={{ gridColumn: 1 }}></div>
+
+                {/* first cell of every column excapt first will be the country's flag */}
                 {countries.map((country, index) => {
                     const { countryInfo } = country;
                     return (
@@ -79,6 +81,7 @@ export function TableView({countries}){
                     return (
                         <>
                         <div key={group.title} 
+                        style={{ gridColumn: 1 }}
                         className="col-span-full
                             mt-8
                             pb-2
@@ -95,6 +98,7 @@ export function TableView({countries}){
                             return (
                                 <>
                                 <div key={panel.label}
+                                style={{ gridColumn: 1 }}
                                 className="sticky left-0 z-10 text-lg py-1.5 font-semibold 
                                 text-black px-4 border-b border-r border-slate-700/50 bg-white">
                                     {panel.label}

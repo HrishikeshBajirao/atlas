@@ -6,7 +6,7 @@ export function RecentSearches({recentSearches, setRecentSearches,
     const handleRecentSearchItemClick = async (code) => {
 
         //see if the select recent search item is already in the view
-        if(countries.find((country) => country.countryInfo.alpha3Code === code)){
+        if(countries.find((country) => country.countryInfo?.alpha3Code === code)){
             alert(`This country is already shown`)
             return
         }
@@ -14,6 +14,7 @@ export function RecentSearches({recentSearches, setRecentSearches,
         // get the index of a free slot
         let index = -1
         index = countries.findIndex((slot) => !slot.searched)
+        console.log(index)
         //return if all slots are full
         if(index === -1){
             setNumberOfSlots((currSlots) => currSlots + 1)

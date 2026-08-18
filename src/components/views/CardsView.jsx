@@ -20,7 +20,7 @@ export function CardsView({ index, countries, setCountries, setRecentSearches, s
   }
 
   return (
-    <div>
+    <div className="flex justify-center gap-5 flex-wrap">
       <div
         id="main-page-container"
         className={`${searched ? "hidden" : ""} my-5 mx-auto w-md rounded-sm p-2.5`}
@@ -59,7 +59,6 @@ export function CardsView({ index, countries, setCountries, setRecentSearches, s
             <p className="text-center text-2xl text-red-300">
               Search for another country
             </p>
-            <Button1 buttonText="Search here" handleClick={handleMoreBtn} />
           </>
         )}
       </div>
