@@ -19,7 +19,7 @@ export function PopulationHorizontalBarChart({countries, }){
     
     //Initialization
         const parent = svgRef.current.parentElement;
-        const w = parent.clientWidth * 0.8;
+        const w = parent.clientWidth * 0.9;
         const h = 400
         const padding = 100
         const svg = d3

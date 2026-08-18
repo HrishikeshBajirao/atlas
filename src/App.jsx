@@ -71,55 +71,6 @@ function App() {
         />
 
       }
-
-      {/* {displayMode === 'cards' 
-        ? <div className="country-blocks flex justify-center gap-10 flex-wrap">
-            {[...Array(numberOfSlots)].map((_, index) => (
-              <CardsView
-                key = {index}
-                index = {index}
-                countries = {countries}
-                setCountries = {setCountries}
-                setRecentSearches = {setRecentSearches}
-                setNumberOfSlots = {setNumberOfSlots}
-                countriesList = {countriesList}
-              />
-            ))}
-          </div>
-        : displayMode === 'table' ?
-          <TableView 
-            countries = {countries}
-            setCountries = {setCountries}
-            setRecentSearches = {setRecentSearches}
-            countriesList = {countriesList}
-            setNumberOfSlots = {setNumberOfSlots}
-          />
-        :
-          <InsightsView
-            countries = {countries}
-            setCountries = {setCountries}
-            setRecentSearches = {setRecentSearches}
-            countriesList = {countriesList}
-            setNumberOfSlots = {setNumberOfSlots}
-          />
-      }
-      
-      <button
-        className="block mx-auto my-3 bg-emerald-600 text-white px-4 py-3 rounded-lg font-medium
-                  transition duration-300 ease-in-out transform
-                  hover:bg-emerald-500 hover:scale-105
-                  active:scale-95 hover:cursor-pointer"
-        onClick={handleAddSlotClick}
-      >
-        + Add Comparison Slot
-      </button>
-
-      <RecentSearches 
-        recentSearches = {recentSearches}
-        setRecentSearches = {setRecentSearches}
-        countries = {countries}
-        setCountries = {setCountries}
-      /> */}
     </>
   )
 }

@@ -28,39 +28,6 @@ export function SelectDisplayMode({setDisplayMode}){
                 <h3 className="text-3xl">📊 Explore Countries</h3>
                 <p className="text-xl mt-4"> Discover patterns through interavtive visualizations.</p>
             </button>
-
-            {/* <input 
-                id="cards-display" 
-                type="radio" 
-                name="display-type" 
-                value="cards" 
-                onChange={(e) => setDisplayMode(e.target.value)}
-                checked={displayMode === 'cards'}
-                className="appearance-none w-8 h-8 rounded-lg bg-slate-700 font-semibold 
-                checked:after:content-['✓'] checked:text-white checked:text-xl checked:flex checked:justify-center checked:items-center"
-            />
-            <label htmlFor="cards-display">🃏Cards</label>
-            <input 
-                id="table-display" 
-                type="radio" 
-                name="display-type" 
-                value="table" 
-                onChange={(e) => setDisplayMode(e.target.value)}
-                checked={displayMode === 'table'}
-                className="appearance-none w-8 h-8 rounded-lg bg-slate-700 font-semibold 
-                checked:after:content-['✓'] checked:text-white checked:text-xl checked:flex checked:justify-center checked:items-center"
-            />
-            <label htmlFor="table-display">📋Table</label>            <input 
-                id="insights-display" 
-                type="radio" 
-                name="display-type" 
-                value="insights" 
-                onChange={(e) => setDisplayMode(e.target.value)}
-                checked={displayMode === 'insights'}
-                className="appearance-none w-8 h-8 rounded-lg bg-slate-700 font-semibold 
-                checked:after:content-['✓'] checked:text-white checked:text-xl checked:flex checked:justify-center checked:items-center"
-            />
-            <label htmlFor="insights-display">Insights</label> */}
         </div>
     )
 }

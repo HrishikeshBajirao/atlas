@@ -22,6 +22,7 @@ export function AreaScatterPlot({countries}){
             .map((country) => (
                 {
                     name: country.countryInfo.name,
+                    code: country.countryInfo.alpha3Code,
                     population: country.countryInfo.population / 1000000,
                     area: country.countryInfo.area,
                     density:  (country.countryInfo.population / country.countryInfo.area).toFixed(2)
@@ -30,7 +31,7 @@ export function AreaScatterPlot({countries}){
 
     //measurements and initialization
         const parent = svgRef.current.parentElement;
-        const w = parent.clientWidth * 0.8;
+        const w = parent.clientWidth * 0.9;
         const h = 400
         const padding = 100
 
@@ -121,11 +122,26 @@ export function AreaScatterPlot({countries}){
             .attr('cx', d => xScale(d.area))
             .attr('cy', d => yScale(d.population))
 
+        //country labels
+        svg
+            .selectAll('.country-label')
+            .data(areaPopulationData)
+            .enter()
+            .append('text')
+            .attr('class', 'country-label')
+            .attr('text-anchor', 'middle')
+            .attr('font-size', '10px')
+            .text(d => d.code) 
+            .transition()
+            .duration(750)
+            .attr('x', d => xScale(d.area))
+            .attr('y', d => yScale(d.population) + 20)
+
     //Legend
         const legend = svg
             .append('g')
             .attr("id", "legend")
-            .attr('transform', 'translate(650, 60)')
+            .attr('transform', 'translate(' + w*0.6 + ' , ' + h*0.1 + ')')
 
         const densityColors = [
             "#22c55e",      // green

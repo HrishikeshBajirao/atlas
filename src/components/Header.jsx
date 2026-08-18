@@ -1,9 +1,12 @@
 export function Header({setDisplayMode}){
     return (
         <header className="shrink-0 h-[10%] border-b-2 border-slate-600 flex justify-between items-center">
-            <h1 className="h-full p-5 text-center text-2xl text-white ml-10">
+            <button 
+                onClick={() => setDisplayMode("")}
+                className="h-full p-5 text-center text-2xl text-white ml-10 hover:cursor-pointer"
+            >
             🌍 A T L A S
-            </h1>
+            </button>
 
             <div className="flex justify-center items-center gap-8 mr-20">
                 <button

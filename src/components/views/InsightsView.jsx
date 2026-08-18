@@ -1,5 +1,6 @@
 import { PopulationHorizontalBarChart } from '../visualizations/Population'
 import { AreaScatterPlot } from '../visualizations/Density'
+import { ChartPanel } from '../ChartPanel'
 
 export function InsightsView({countries}){
     
@@ -8,12 +9,16 @@ export function InsightsView({countries}){
 
         <div className="relative">
 
-            <PopulationHorizontalBarChart 
-                countries = {countries}
+            <ChartPanel
+                chartName="Population Bar Chart"
+                chart={PopulationHorizontalBarChart}
+                countries={countries}
             />
 
-            <AreaScatterPlot 
-                countries = {countries}
+            <ChartPanel
+                chartName="Area Population Density Scatter Plot"
+                chart={AreaScatterPlot}
+                countries={countries}
             />
 
         </div>
