@@ -67,6 +67,8 @@ function App() {
       <h1 className="text-center my-6 text-5xl text-white tracking-widest">ATLAS</h1>
       <p className="text-3xl text-center text-slate-400 my-6">Explore countries of the world</p>
 
+      <div className="divider w-[98%] h-[1px] bg-slate-200 mx-auto my-4"></div>
+
       <SelectDisplayMode 
         displayMode = {displayMode}
         setDisplayMode = {setDisplayMode}
