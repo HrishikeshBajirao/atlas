@@ -30,19 +30,13 @@ export function ComparisonPlatform({
                 
                     {
                         displayMode === "cards" ?
-                            <div className="country-blocks flex justify-center gap-10 flex-wrap">
-                                {[...Array(countries.length)].map((_, index) => (
-                                <CardsView
-                                    key = {index}
-                                    index = {index}
-                                    countries = {countries}
-                                    setCountries = {setCountries}
-                                    setRecentSearches = {setRecentSearches}
-                                    setNumberOfSlots = {setNumberOfSlots}
-                                    countriesList = {countriesList}
-                                />
-                                ))}
-                            </div>
+                            <CardsView
+                                countries = {countries}
+                                setCountries = {setCountries}
+                                setRecentSearches = {setRecentSearches}
+                                setNumberOfSlots = {setNumberOfSlots}
+                                countriesList = {countriesList}
+                            />
                         : displayMode === "table" ?
                             <TableView 
                                 countries = {countries}

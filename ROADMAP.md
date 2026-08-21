@@ -67,6 +67,7 @@
 ## v0.7 - Interactive Map
 
 - [ ] Interactive world map
+- [ ] Responsive Design for different screen sizes
 - [ ] Click countries
 - [ ] Highlight searched countries
 - [ ] Highlight regions

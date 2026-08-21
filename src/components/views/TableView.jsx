@@ -64,11 +64,12 @@ export function TableView({countries}){
                     const { countryInfo } = country;
                     return (
                         //render only when the country is selected
-                        country.countryInfo !== null ? 
-                            <div key={index} className="flex justify-center items-center">
+                        country.countryInfo !== null ?
+                            <div key={index} className="w-36 h-18 my-4 flex items-center justify-center mx-auto">
                                 <img 
-                                    src={countryInfo?.flag.svg}
-                                    width="200"
+                                src={countryInfo.flag.svg} 
+                                alt={`Flag of ${countryInfo.name}`} 
+                                className="max-w-full max-h-full object-contain mx-auto rounded-lg" 
                                 />
                             </div>
                         :
@@ -83,11 +84,11 @@ export function TableView({countries}){
                         <div key={group.title} 
                         style={{ gridColumn: 1 }}
                         className="col-span-full
-                            mt-8
+                            mt-1
                             pb-2
                             pl-4
                             border-b
-                            border-r border-slate-700/50
+                            border-slate-700/50
                             text-2xl
                             font-semibold
                             tracking-wide
@@ -113,29 +114,38 @@ export function TableView({countries}){
                                                 <Loading countryInput={countries[index].countryInput} />
                                                 : !countries[index].searched || countries[index].countryInfo ?
                                                 <div 
-                                                    className="px-4
+                                                    className={`
+                                                    ${panel.label === "Name" ||
+                                                        panel.label === "Population" ||
+                                                        panel.label === "Currency" ? "border-t" : ""}
+                                                    px-4
                                                     py-2
                                                     text-center
                                                     text-lg
                                                     font-medium
                                                     text-black
                                                     border-b
-                                                    border-slate-700/50"
+                                                    border-slate-700/50`}
+
                                                 key={index}>{value}</div>
                                                 : <div key={index}>Invalid Country</div>
                                         })
                                     :  
                                         panel.values.map((value, index) => {
                                             return <div 
-                                                        className="px-4
-                                                        py-2
-                                                        text-center
-                                                        text-lg
-                                                        font-medium
-                                                        text-black
-                                                        border-b
-                                                        border-slate-700/50" 
-                                                    key={index}>{value}</div>
+                                                    className={`
+                                                    ${panel.label === "Name" ||
+                                                        panel.label === "Population" ||
+                                                        panel.label === "Currency" ? "border-t" : ""}
+                                                    px-4
+                                                    py-2
+                                                    text-center
+                                                    text-lg
+                                                    font-medium
+                                                    text-black
+                                                    border-b
+                                                    border-slate-700/50`}
+                                                key={index}>{value}</div>
                                         })
                                 }
                                 </>
