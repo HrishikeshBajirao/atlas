@@ -11,14 +11,71 @@ Atlas is being built as a portfolio project while learning modern frontend devel
 ## 🎥 Demo
 
 <p align="center">
-  <img src="assets/screenshots/atlas-demo.gif" alt="Atlas Demo" width="800">
+  <img src="assets/screenshots/atlas-demo-v0.6.0.gif" alt="Atlas Demo" width="800">
 </p>
 
 *A quick demonstration of Atlas: search countries, compare multiple countries, manage comparison slots, and use recent searches.*
 
+## 🎥 Previous Demos
+
+<details>
+<summary><strong>📦 Older Atlas Demo</strong></summary>
+
+<br>
+
+### v0.5.0
+
+<p align="center">
+  <img src="./assets/screenshots/atlas-demo-v0.5.0.gif" alt="Atlas v0.5.0 Demo" width="850">
+</p>
+
+### v0.4.0
+
+<p align="center">
+  <img src="./assets/screenshots/atlas-demo-v0.4.0.gif" alt="Atlas v0.4.0 Demo" width="850">
+</p>
+
+</details>
+
 ---
 
 ## 📸 Screenshots
+
+<details>
+<summary><strong>🌟 v0.6.0 - Insights and Visualizations</strong></summary>
+
+<br>
+
+<p align="center">
+  <img src="assets/screenshots/atlas-v0.6.0-home-page.png" width="500">
+  <img src="assets/screenshots/atlas-v0.6.0-cards-view.png" width="500">
+  <img src="assets/screenshots/atlas-v0.6.0-table-view.png" width="500">
+  <img src="assets/screenshots/atlas-v0.6.0-insights-view-population-bar-chart.png" width="500">
+  <img src="assets/screenshots/atlas-v0.6.0-insights-view-scatter-chart.png" width="500">
+
+</p>
+
+Dynamic comparison panels with independent state management.
+
+</details>
+
+---
+
+<details>
+<summary><strong>🌟 v0.5.0 — Enhanced Comparison Experience</strong></summary>
+
+<br>
+
+<p align="center">
+  <img src="assets/screenshots/atlas-v0.5.0-react-select-dropdown.png" width="500">
+  <img src="assets/screenshots/atlas-v0.5.0-table-view.png" width="500">
+</p>
+
+Dynamic comparison panels with independent state management.
+
+</details>
+
+---
 
 <details>
 <summary><strong>🌟 v0.4.0 — Dynamic Comparison</strong></summary>
@@ -89,57 +146,52 @@ First working version using the REST Countries API.
 | **v0.2.0** | Jul 21, 2026 | ✅ Released | Component-based architecture, reusable UI components, responsive improvements |
 | **v0.3.0** | Jul 22, 2026 | ✅ Released | Recent searches, localStorage persistence, clickable search history, delete history |
 | **v0.4.0** | Jul 27, 2026 | ✅ Released | Dynamic comparison panels, add/remove slots, scalable architecture |
-| **v0.5.0** | Aug 7, 2026 | ✅ Released | Advanced comparison table, searchable country selector, improved comparison experience |
-| **v0.6.0** | TBD | 🚧 Planned | Interactive world map |
+| **v0.5.0** | Aug 7, 2026  | ✅ Released | Advanced comparison table, searchable country selector, improved comparison experience |
+| **v0.6.0** | Aug 21, 2026 | ✅ Released | Major UI redesign, Card/Table/Insights views, D3 visualizations, improved UX |
 | **v1.0.0** | TBD | 🎯 Goal | Production-ready portfolio release |
 
 ---
 
-## Features
+## ✨ Features
 
-### Current
-
-- 🔍 Live country search with autocomplete
-- 🌐 REST Countries API integration
-- 🏳️ Detailed country information (flags, geography, demographics, economy)
-- 🆚 Dynamic side-by-side country comparison
-- 📋 Enhanced comparison table with categorized sections
+- 🔍 Search countries using autocomplete
+- 🌍 Explore detailed country information
+- 🃏 Card View for visual country exploration
+- 📋 Table View for structured country comparison
+- 📊 Insights View for data visualization
+- 📈 Interactive D3.js visualizations
+- 📊 Population comparison
+- 🔵 Population vs. area scatter plot
+- 🎨 Population-density visualization
+- 💬 Interactive chart tooltips
+- 📐 Dynamic comparison slots
 - 💾 Persistent recent searches using localStorage
 - ➕ Add and remove comparison slots
-- ⏳ Loading states and error handling
-- 📱 Responsive React interface
+- ❌ Remove individual recent searches
+- ⏳ Loading and error states
+- 🛡️ Protection against stale/out-of-order API responses
+- ✨ Animated transitions and hover interactions
+- 📱 Responsive interface
 
 ---
 
-## Planned
-
-- 📊 Interactive D3 visualizations
-- 📈 Population comparison charts
-- 📏 Area comparison charts
-- 📊 Sorting and ranking by metric
-- 🗺️ Interactive world map
-- 📊 Population and area visualizations
-- 🗺️ Interactive world map
-- ⭐ Favorite countries
-- 🌍 Region-based filtering
-- 🌙 Dark mode
-- ✨ Animations and loading skeletons
-- ⚡ Performance optimizations
-
----
-
-## Tech Stack
+## 🛠️ Tech Stack
 
 ### Frontend
 - React
 - Vite
-- Tailwind CSS
 - JavaScript (ES6+)
+- Tailwind CSS
+- D3.js
 
 ### APIs
-- REST Countries API
+- countries.dev
+
+### Libraries
+- React Select
 
 ### Browser APIs
+- Fetch API
 - localStorage
 
 ---

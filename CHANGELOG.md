@@ -6,6 +6,42 @@ The format follows Keep a Changelog and Semantic Versioning.
 
 ---
 
+## [0.6.0] - 2026-08-21
+
+### Added
+
+- Added **Insights View** for exploring country data through visualizations.
+- Added interactive D3.js population comparison bar chart.
+- Added population vs. area scatter plot.
+- Added population-density color encoding to the scatter plot.
+- Added interactive chart tooltips.
+- Added chart legends.
+- Added expandable/collapsible chart panels.
+- Added descriptions for individual visualizations.
+- Added three application display modes:
+  - Card View
+  - Table View
+  - Insights View
+
+### Changed
+
+- Completely redesigned the Atlas user interface.
+- Redesigned the home page around the three available display modes.
+- Improved Card View layout and sizing.
+- Improved positioning, spacing, alignment, and visual hierarchy throughout the application.
+- Added smoother transitions and hover interactions.
+- Improved the comparison experience.
+- Migrated country data fetching to `countries.dev`.
+- Updated the README with the current Atlas interface and historical release screenshots.
+
+### Fixed
+
+- Prevented stale API responses from overwriting newer country selections.
+- Improved asynchronous request handling when changing country selections rapidly.
+- Improved chart rendering and interaction behavior.
+
+---
+
 ## [0.5.0] - 2026-08-07
 
 ### Added
