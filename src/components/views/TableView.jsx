@@ -82,11 +82,9 @@ export function TableView({countries}){
                     return (
                         <>
                         <div key={group.title} 
-                        style={{ gridColumn: 1 }}
                         className="col-span-full
                             mt-1
                             pb-2
-                            pl-4
                             border-b
                             border-slate-700/50
                             text-2xl

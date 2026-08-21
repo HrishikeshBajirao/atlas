@@ -48,14 +48,17 @@ function App() {
 
       {displayMode === "" ?
         <>
-        <p className=" my-5 text-7xl text-center">🌍</p>
-        <h1 className="text-center my-6 text-5xl text-white tracking-widest">ATLAS</h1>
-        <p className="text-3xl text-center text-slate-400 my-6">Explore countries of the world</p>
+          <header className="h-[30vh]">
+            <p className="mt-8 mb-5 text-6xl text-center">🌍</p>
+            <h1 className="text-center my-6 text-5xl text-white tracking-widest">ATLAS</h1>
+            <p className="text-2xl text-center text-slate-400 my-6">Explore countries of the world</p>
+          </header>
 
-        <div className="divider w-[98%] h-[1px] bg-slate-200 mx-auto my-4"></div>
-        <SelectDisplayMode 
-          setDisplayMode = {setDisplayMode}
-        />
+          <main className="h-[60vh]">
+            <SelectDisplayMode 
+              setDisplayMode = {setDisplayMode}
+            />
+          </main>
         </>
       :
         

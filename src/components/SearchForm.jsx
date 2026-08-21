@@ -11,7 +11,7 @@ export function SearchForm({index, setCountries, countryInput, setRecentSearches
   }
 
   return (
-    <div className="w-[80%] max-w-[300px] relative mt-2 mx-3">
+    <div className="w-[80%] max-w-[300px] relative my-2 mx-3">
 
       <button 
         type="button"
@@ -28,32 +28,32 @@ export function SearchForm({index, setCountries, countryInput, setRecentSearches
         )}
         onChange={(selectedOption) => {
 
-            // WHEN CLEAR SELECTION BUTTON IS CLICKED THE STATE OBJECT FOR THAT SLOT CLEARs TOO 
-            if(!selectedOption){
-              setCountries((currCountries) => {
-                const newCountries = [...currCountries]
-
-                newCountries[index] = {
-                  countryInput: "",
-                  loading: false,
-                  searched: false,
-                  countryInfo: null
-                };
-                
-                return newCountries;
-              })
-              return;
-            }
-            
+          // WHEN CLEAR SELECTION BUTTON IS CLICKED THE STATE OBJECT FOR THAT SLOT CLEARs TOO 
+          if(!selectedOption){
             setCountries((currCountries) => {
-                const newCountries = [...currCountries];
-                newCountries[index] = {...newCountries[index], countryInput: selectedOption?.value || ""};
-                return newCountries;
-            });
-            // When selectOption is not null, go forward and submit and fetch the country data
-            if(selectedOption){
-              handleCountrySubmit(index, selectedOption?.alpha3, setCountries, setRecentSearches)
-            }
+              const newCountries = [...currCountries]
+
+              newCountries[index] = {
+                countryInput: "",
+                loading: false,
+                searched: false,
+                countryInfo: null
+              };
+              
+              return newCountries;
+            })
+            return;
+          }
+          
+          setCountries((currCountries) => {
+              const newCountries = [...currCountries];
+              newCountries[index] = {...newCountries[index], countryInput: selectedOption?.value || ""};
+              return newCountries;
+          });
+          // When selectOption is not null, go forward and submit and fetch the country data
+          if(selectedOption){
+            handleCountrySubmit(index, selectedOption?.alpha3, setCountries, setRecentSearches)
+          }
         }}
         classNames={{
           container: () => "w-full",

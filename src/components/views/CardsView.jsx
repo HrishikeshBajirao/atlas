@@ -3,7 +3,7 @@ import { CountryCardOutput } from "../CountryCardOutput"
 
 export function CardsView({countries, setCountries, setRecentSearches, setNumberOfSlots, countriesList}){
   return (
-    <div className="flex flex-wrap overflow-auto-y">
+    <div className="h-full flex justify-center items-center flex-wrap">
       {countries.filter((country) => country.countryInfo !== null).map((_, index) => (
         <CountryCard
             key = {index}
@@ -24,7 +24,7 @@ export function CountryCard({ index, countries, setCountries, setNumberOfSlots})
 
   return (
     <div
-      className="my-1 mx-auto w-[33%] h-[380px] max-w-[800px] px-3 rounded-sm"
+      className="my-1 w-[33%] h-[380px] px-3 rounded-sm"
     >
       {loading ? (
         <Loading countryInput={countryInput} />
