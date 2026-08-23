@@ -1,5 +1,7 @@
 # 🌍 Atlas
 
+### 🌐 **Live site:** [https://hrishikeshbajirao.github.io/atlas/](https://hrishikeshbajirao.github.io/atlas/)
+
 Atlas is a modern React application for exploring countries around the world.
 
 Search for any country to instantly discover detailed information including its flag, population, capital, currencies, languages, area, region, time zones, and more.
