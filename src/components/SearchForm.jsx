@@ -1,12 +1,25 @@
+import { useEffect, useRef } from 'react'
 import { handleCountrySubmit } from '../utils/handleCountrySubmit.js'
 import Select from 'react-select'
 
-export function SearchForm({index, setCountries, countryInput, setRecentSearches, countriesList, setNumberOfSlots}){
+export function SearchForm({autoFocus, setFocusedIndex, index, countries, setCountries, countryInput, setRecentSearches, countriesList, setNumberOfSlots}){
+
+  //to autofocus on the new slot search
+  const selectRef = useRef(null)
+  useEffect(() => {
+
+    if(autoFocus){
+      selectRef?.current.focus();
+    }
+
+  }, [autoFocus])
 
   const handleRemoveSearchBox = () => {
     
     setCountries((currCountries) => currCountries.filter((_, i) => i !== index))
     setNumberOfSlots((currSlots) => currSlots - 1)
+    //set the focus to the first empty slot
+    setFocusedIndex(countries.findIndex((slot) => !slot.searched))
 
   }
 
@@ -21,6 +34,7 @@ export function SearchForm({index, setCountries, countryInput, setRecentSearches
       >X</button>
 
       <Select
+        ref={selectRef}
         unstyled
         options={countriesList}
         value={countriesList.find(

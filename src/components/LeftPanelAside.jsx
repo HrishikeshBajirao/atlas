@@ -1,7 +1,11 @@
+import { useState } from 'react'
 import { SearchForm } from './SearchForm'
 import { RecentSearches } from './RecentSearches'
 
 export function LeftPanelAside({setNumberOfSlots, setCountries,countries, recentSearches, setRecentSearches, countriesList}){
+
+    //to autoscroll and autofocus to the newly added search slot or to the first empty slot
+    const [focusedIndex, setFocusedIndex] = useState(0)
 
     //add a new slot to the comparison panel
     const handleAddSlotClick = () => {
@@ -16,6 +20,7 @@ export function LeftPanelAside({setNumberOfSlots, setCountries,countries, recent
                 }
             ]
         })
+        setFocusedIndex(countries.length);
     }
 
     return (
@@ -33,6 +38,7 @@ export function LeftPanelAside({setNumberOfSlots, setCountries,countries, recent
             </button>
 
             <div 
+                // ref={searchPanelRef}
                 className="w-full max-w-[350px] h-[58%] flex flex-col overflow-y-auto gap-4 
                 justify-start items-center p-1 bg-[#1E293B]"
             >
@@ -40,8 +46,11 @@ export function LeftPanelAside({setNumberOfSlots, setCountries,countries, recent
                 {/* input search boxes */}
                 {countries.map((country, index) => (
                     <SearchForm
+                        autoFocus={index === focusedIndex}
+                        setFocusedIndex={setFocusedIndex}
                         key={index}
                         index={index}
+                        countries={countries}
                         setCountries={setCountries}
                         countryInput={country.countryInput}
                         setRecentSearches={setRecentSearches}

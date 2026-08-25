@@ -1,10 +1,23 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 export function ChartPanel({icon, chartName, chart: Chart, countries}){
-    const [expanded, setExpanded] = useState(false)
+    const [expanded, setExpanded] = useState(false);
+    const panelRef = useRef(null);
+
+    //scroll the chart to view the chart in center
+    useEffect(() => {
+
+        if(expanded){
+            panelRef?.current.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            })
+        }
+
+    }, [expanded])
 
     return (
-        <div className="w-full relative">
+        <div ref={panelRef} className="w-full relative">
             <button
                 onClick={() => setExpanded((curr) => !curr)}
                 className={`
