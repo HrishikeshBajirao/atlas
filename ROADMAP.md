@@ -173,6 +173,11 @@ The goal is to build a country exploration platform where users can:
 
 **Visualize**
 → Discover patterns in country data
+Visualizations to add:
+1. world choro;leth population density
+2. multi line graph for gdp over the years
+3. heatmap
+
 
 **Explore**
 → Interact with countries geographically

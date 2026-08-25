@@ -5,6 +5,7 @@ export async function getCountry(code){
         // console.log(data)
         const countryInfo = {
             alpha3Code: data.alpha3Code,
+            numericCode: data.numericCode,
             name: data.name,
             flag: data.flags,
             population: data.population,

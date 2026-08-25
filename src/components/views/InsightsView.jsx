@@ -1,5 +1,7 @@
 import { PopulationHorizontalBarChart } from '../visualizations/Population'
 import { AreaScatterPlot } from '../visualizations/Density'
+import { DensityChoropleth } from '../visualizations/DensityChoropleth'
+import { GdpOverTheYears } from '../visualizations/GdpOverTheYears'
 import { ChartPanel } from '../ChartPanel'
 
 export function InsightsView({countries}){
@@ -36,6 +38,22 @@ export function InsightsView({countries}){
                 chartName="Area Population Density Scatter Plot"
                 chartDescription=""
                 chart={AreaScatterPlot}
+                countries={countries}
+            />
+
+            <ChartPanel
+                icon="🌐"
+                chartName="Population Density World Choropleth"
+                chartDescription=""
+                chart={DensityChoropleth}
+                countries={countries}
+            />
+
+            <ChartPanel
+                icon="💸"
+                chartName="GDP over the years"
+                chartDescription=""
+                chart={GdpOverTheYears}
                 countries={countries}
             />
 
