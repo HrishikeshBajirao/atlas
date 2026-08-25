@@ -26,22 +26,6 @@ export function InsightsView({countries}){
             </span>
 
             <ChartPanel
-                icon="👨‍👩‍👧‍👦"
-                chartName="Population Bar Chart"
-                chartDescription="Compare the Population..."
-                chart={PopulationHorizontalBarChart}
-                countries={countries}
-            />
-
-            <ChartPanel
-                icon="🗺️"
-                chartName="Area Population Density Scatter Plot"
-                chartDescription=""
-                chart={AreaScatterPlot}
-                countries={countries}
-            />
-
-            <ChartPanel
                 icon="🌐"
                 chartName="Population Density World Choropleth"
                 chartDescription=""
@@ -54,6 +38,22 @@ export function InsightsView({countries}){
                 chartName="GDP over the years"
                 chartDescription=""
                 chart={GdpOverTheYears}
+                countries={countries}
+            />
+
+            <ChartPanel
+                icon="👨‍👩‍👧‍👦"
+                chartName="Population Bar Chart"
+                chartDescription="Compare the Population..."
+                chart={PopulationHorizontalBarChart}
+                countries={countries}
+            />
+
+            <ChartPanel
+                icon="🗺️"
+                chartName="Area Population Density Scatter Plot"
+                chartDescription=""
+                chart={AreaScatterPlot}
                 countries={countries}
             />
 
