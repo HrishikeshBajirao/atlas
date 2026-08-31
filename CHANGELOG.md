@@ -6,6 +6,32 @@ The format follows Keep a Changelog and Semantic Versioning.
 
 ---
 
+## [0.7.0] - 2026-08-31
+
+### Added
+
+- Added dedicated Express backend for Atlas.
+- Added Atlas API endpoints for country data and historical GDP data.
+- Added backend integration with external data sources.
+- Added historical GDP multi-line visualization using World Bank data via Our World in Data.
+- Added interactive world choropleth visualization for population density.
+- Added zoom and country hover interactions to the world choropleth.
+
+### Changed
+
+- Moved data-fetching logic from the frontend into the Atlas backend.
+- Connected the React frontend to the Atlas backend API.
+- Separated frontend and backend into `client` and `server` applications.
+- Added environment-based API configuration for local and production environments.
+- Updated production architecture to use GitHub Pages for the frontend and Render for the backend.
+
+### Fixed
+
+- Improved separation of data-fetching and visualization responsibilities.
+- Improved API error handling with a consistent success/error response structure.
+
+---
+
 ## [0.6.0] - 2026-08-21
 
 ### Added

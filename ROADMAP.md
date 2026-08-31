@@ -94,35 +94,63 @@
 
 ---
 
-# 🌍 v0.7.0 — Interactive World Map
+# 🌍 v0.7.0 — Full-Stack Architecture
 
-**Status: Planned**
+**Status: Released**
 
-- [ ] Interactive world map
-- [ ] Country hover interactions
-- [ ] Country selection
-- [ ] Highlight searched countries
-- [ ] Connect map selections with comparison state
-- [ ] Region-based map interactions
-- [ ] Display country information from map interactions
+### Backend
+
+- [x] Node.js + Express backend
+- [x] Atlas API routes
+- [x] Country data API
+- [x] Historical GDP API
+- [x] Centralized API error handling
+- [x] Frontend ↔ backend integration
+
+### Data & Visualization
+
+- [x] Historical GDP dataset integration
+- [x] GDP multi-line visualization
+- [x] Interactive world choropleth
+- [x] Country hover interactions
+- [x] Map zoom interaction
+
+### Deployment
+
+- [x] Frontend deployed to GitHub Pages
+- [x] Backend deployed to Render
+- [x] Production environment configuration
+- [x] Production frontend ↔ backend communication
 
 ---
 
-# 📊 v0.8.0 — Advanced Data Exploration
+# 🗺️ v0.8.0 — Interactive World Exploration
 
 **Status: Planned**
 
-- [ ] More advanced D3 visualizations
+- [ ] Interactive country selection from the world map
+- [ ] Highlight selected countries on the map
+- [ ] Connect map selections with comparison state
+- [ ] Region-based exploration
+- [ ] Display country information from map interactions
+- [ ] Reset map zoom
+
+---
+
+# 📊 v0.9.0 — Advanced Data Exploration
+
+**Status: Planned**
+
+- [ ] Heatmap visualization
+- [ ] Additional historical datasets
 - [ ] Additional statistical visualizations
-- [ ] Sorting by metrics
-- [ ] Filtering by region
 - [ ] Advanced country filtering
 - [ ] Ranking countries by selected metrics
 - [ ] Cross-view interaction between charts and country data
 
 ---
 
-# ⭐ v0.9.0 — Personalization & UX
+# ⭐ v0.10.0 — Personalization & UX
 
 **Status: Planned**
 
@@ -173,16 +201,9 @@ The goal is to build a country exploration platform where users can:
 
 **Visualize**
 → Discover patterns in country data
-Visualizations to add:
-1. world choro;leth population density
-2. multi line graph for gdp over the years
-3. heatmap
-
 
 **Explore**
 → Interact with countries geographically
 
 **Analyze**
 → Use multiple datasets and visualizations to understand relationships and trends
-
-The eventual goal is for Atlas to become an interactive data exploration experience rather than simply a country information viewer.

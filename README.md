@@ -13,7 +13,7 @@ Atlas is being built as a portfolio project while learning modern frontend devel
 ## 🎥 Demo
 
 <p align="center">
-  <img src="assets/screenshots/atlas-demo-v0.6.0.gif" alt="Atlas Demo" width="800">
+  <img src="./client/assets/screenshots/atlas-demo-v0.6.0.gif" alt="Atlas Demo" width="800">
 </p>
 
 *A quick demonstration of Atlas: search countries, compare multiple countries, manage comparison slots, and use recent searches.*
@@ -28,13 +28,13 @@ Atlas is being built as a portfolio project while learning modern frontend devel
 ### v0.5.0
 
 <p align="center">
-  <img src="./assets/screenshots/atlas-demo-v0.5.0.gif" alt="Atlas v0.5.0 Demo" width="850">
+  <img src="./client/assets/screenshots/atlas-demo-v0.5.0.gif" alt="Atlas v0.5.0 Demo" width="850">
 </p>
 
 ### v0.4.0
 
 <p align="center">
-  <img src="./assets/screenshots/atlas-demo-v0.4.0.gif" alt="Atlas v0.4.0 Demo" width="850">
+  <img src="./client/assets/screenshots/atlas-demo-v0.4.0.gif" alt="Atlas v0.4.0 Demo" width="850">
 </p>
 
 </details>
@@ -49,94 +49,98 @@ Atlas is being built as a portfolio project while learning modern frontend devel
 <br>
 
 <p align="center">
-  <img src="assets/screenshots/atlas-v0.6.0-home-page.png" width="500">
-  <img src="assets/screenshots/atlas-v0.6.0-cards-view.png" width="500">
-  <img src="assets/screenshots/atlas-v0.6.0-table-view.png" width="500">
-  <img src="assets/screenshots/atlas-v0.6.0-insights-view-population-bar-chart.png" width="500">
-  <img src="assets/screenshots/atlas-v0.6.0-insights-view-scatter-chart.png" width="500">
-
+  <img src="./client/assets/screenshots/atlas-v0.6.0-home-page.png" width="500">
+  <img src="./client/assets/screenshots/atlas-v0.6.0-cards-view.png" width="500">
+  <img src="./client/assets/screenshots/atlas-v0.6.0-table-view.png" width="500">
+  <img src="./client/assets/screenshots/atlas-v0.6.0-insights-view-population-bar-chart.png" width="500">
+  <img src="./client/assets/screenshots/atlas-v0.6.0-insights-view-scatter-chart.png" width="500">
 </p>
 
-Dynamic comparison panels with independent state management.
+Dynamic comparison panels, Card/Table/Insights views, and interactive D3.js visualizations.
 
 </details>
 
----
+<details>
+<summary><strong>📦 Previous Versions</strong></summary>
+
+<br>
 
 <details>
-<summary><strong>🌟 v0.5.0 — Enhanced Comparison Experience</strong></summary>
+<summary><strong>v0.5.0 - Enhanced Comparison Experience</strong></summary>
 
 <br>
 
 <p align="center">
-  <img src="assets/screenshots/atlas-v0.5.0-react-select-dropdown.png" width="500">
-  <img src="assets/screenshots/atlas-v0.5.0-table-view.png" width="500">
+  <img src="./client/assets/screenshots/atlas-v0.5.0-react-select-dropdown.png" width="500">
+  <img src="./client/assets/screenshots/atlas-v0.5.0-table-view.png" width="500">
 </p>
 
-Dynamic comparison panels with independent state management.
+Enhanced comparison workflow with searchable country selection.
 
 </details>
 
----
+<br>
 
 <details>
-<summary><strong>🌟 v0.4.0 — Dynamic Comparison</strong></summary>
+<summary><strong>v0.4.0 - Dynamic Comparison</strong></summary>
 
 <br>
 
 <p align="center">
-  <img src="assets/screenshots/atlas-v0.4.0-two-comparison-slots.png" width="500">
-  <img src="assets/screenshots/atlas-v0.4.0-four-comparison-slots.png" width="500">
+  <img src="./client/assets/screenshots/atlas-v0.4.0-two-comparison-slots.png" width="500">
+  <img src="./client/assets/screenshots/atlas-v0.4.0-four-comparison-slots.png" width="500">
 </p>
 
-Dynamic comparison panels with independent state management.
+Dynamic multi-country comparison.
 
 </details>
 
----
+<br>
 
 <details>
-<summary><strong>💾 v0.3.0 — Recent Searches using localStorage API</strong></summary>
+<summary><strong>v0.3.0 - Recent Searches</strong></summary>
 
 <br>
 
 <p align="center">
-  <img src="assets/screenshots/atlas-v0.3.0-recent-searches.png" width="500">
+  <img src="./client/assets/screenshots/atlas-v0.3.0-recent-searches.png" width="500">
 </p>
 
-Persistent search history using localStorage.
+Persistent recent searches using localStorage.
 
 </details>
 
----
+<br>
 
 <details>
-<summary><strong>🎨 v0.2.0 — UI Redesign</strong></summary>
+<summary><strong>v0.2.0 - UI Redesign</strong></summary>
 
 <br>
 
 <p align="center">
-  <img src="assets/screenshots/atlas-v0.2.0-ui1.png" width="500">
-  <img src="assets/screenshots/atlas-v0.2.0-ui2.png" width="500">
+  <img src="./client/assets/screenshots/atlas-v0.2.0-ui1.png" width="500">
+  <img src="./client/assets/screenshots/atlas-v0.2.0-ui2.png" width="500">
 </p>
 
 Reusable components and improved interface.
 
 </details>
 
----
+<br>
 
 <details>
-<summary><strong>🚀 v0.1.0 — Initial Search</strong></summary>
+<summary><strong>v0.1.0 - Initial Search</strong></summary>
 
 <br>
 
 <p align="center">
-  <img src="assets/screenshots/atlas-v0.1.0-home.png" width="500">
-  <img src="assets/screenshots/atlas-v0.1.0-search-result.png" width="500">
+  <img src="./client/assets/screenshots/atlas-v0.1.0-home.png" width="500">
+  <img src="./client/assets/screenshots/atlas-v0.1.0-search-result.png" width="500">
 </p>
 
 First working version using the REST Countries API.
+
+</details>
 
 </details>
 
@@ -150,30 +154,20 @@ First working version using the REST Countries API.
 | **v0.4.0** | Jul 27, 2026 | ✅ Released | Dynamic comparison panels, add/remove slots, scalable architecture |
 | **v0.5.0** | Aug 7, 2026  | ✅ Released | Advanced comparison table, searchable country selector, improved comparison experience |
 | **v0.6.0** | Aug 21, 2026 | ✅ Released | Major UI redesign, Card/Table/Insights views, D3 visualizations, improved UX |
+| **v0.7.0** | Aug 31, 2026 | ✅ Released | Express backend, historical GDP data, and interactive world visualization |
 | **v1.0.0** | TBD | 🎯 Goal | Production-ready portfolio release |
 
 ---
 
 ## ✨ Features
 
-- 🔍 Search countries using autocomplete
-- 🌍 Explore detailed country information
-- 🃏 Card View for visual country exploration
-- 📋 Table View for structured country comparison
-- 📊 Insights View for data visualization
-- 📈 Interactive D3.js visualizations
-- 📊 Population comparison
-- 🔵 Population vs. area scatter plot
-- 🎨 Population-density visualization
-- 💬 Interactive chart tooltips
-- 📐 Dynamic comparison slots
-- 💾 Persistent recent searches using localStorage
-- ➕ Add and remove comparison slots
-- ❌ Remove individual recent searches
-- ⏳ Loading and error states
-- 🛡️ Protection against stale/out-of-order API responses
-- ✨ Animated transitions and hover interactions
-- 📱 Responsive interface
+- 🔍 Search and explore countries using autocomplete
+- 🌍 Compare multiple countries across Card, Table, and Insights views
+- 📊 Interactive D3.js visualizations for country data
+- 🗺️ Interactive world choropleth for population density
+- 📈 Historical GDP visualization across countries and years
+- 💾 Persistent recent searches
+- ⚡ Responsive and interactive user interface
 
 ---
 
@@ -186,11 +180,18 @@ First working version using the REST Countries API.
 - Tailwind CSS
 - D3.js
 
-### APIs
+### Backend
+- Node.js
+- Express
+
+### Data Sources
 - countries.dev
+- Our World in Data
+- World Atlas
 
 ### Libraries
 - React Select
+- TopoJSON
 
 ### Browser APIs
 - Fetch API
@@ -198,16 +199,25 @@ First working version using the REST Countries API.
 
 ---
 
+### 🌐 Deployment
+
+- **Frontend:** [GitHub Pages](https://hrishikeshbajirao.github.io/atlas/)
+- **Backend API:** [Render](https://atlas-q289.onrender.com)
+
 ## Skills Demonstrated
 
 - React component architecture & Hooks
 - Dynamic state management
-- REST API integration & asynchronous programming
+- REST API design and integration
+- Node.js & Express backend development
+- Asynchronous programming and data fetching
+- Data transformation and normalization
+- D3.js data visualization
 - Reusable and scalable component design
-- Third-party library integration (react-select)
 - Responsive UI development with Tailwind CSS
-- Client-side persistence using localStorage
-- Modern JavaScript (ES6+)
+- Client-side persistence with localStorage
+- Environment-based configuration
+- Full-stack application deployment
 
 ---
 
