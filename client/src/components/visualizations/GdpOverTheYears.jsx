@@ -120,7 +120,7 @@ export function GdpOverTheYears({countries}){
 
         plotGdp();
 
-    }, [countries])
+    }, [countries, historicalGDP])
 
     return (
         <>

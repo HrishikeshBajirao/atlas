@@ -1,6 +1,11 @@
 export async function getCountry(code){
     try{
         const response = await fetch(`https://countries.dev/alpha/${code}`);
+
+        if (!response.ok) {
+            throw new Error(`Failed to fetch the selected country: ${response.status}`);
+        }
+
         const data = await response.json();
         // console.log(data)
         const countryInfo = {
@@ -19,6 +24,7 @@ export async function getCountry(code){
         return countryInfo
     } catch (err) {
         console.log(err)
+        throw err
     }
 }
 
