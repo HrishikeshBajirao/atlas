@@ -1,21 +1,26 @@
-import { useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import * as d3 from 'd3';
+import { getHistoricalGdp } from '../../data/getHistoricalGdp.js'
 
 export function GdpOverTheYears({countries}){
     const svgRef = useRef();
+    const [historicalGDP, setHistoricalGDP] = useState([]);
+    //get tht historical gdp from OWID just once
+    useEffect(() => {
+        getHistoricalGdp().then(setHistoricalGDP);
+        console.log('ff')
+    }, []);
 
     useEffect(() => {
 
         async function plotGdp(){
-            const data = await d3.csv(
-                "https://ourworldindata.org/grapher/gdp-worldbank.csv"
-            );
+            const data = historicalGDP;
 
             const gdpData = data.filter((item) => (
                 countries.find((country) => country.countryInfo?.alpha3Code === item.Code)
             ))
 
-            console.log(gdpData)
+            // console.log(gdpData)
 
             const parent = svgRef.current.parentElement;
             const w = parent.clientWidth * 0.9;
