@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 
-export function ChartPanel({icon, chartName, chart: Chart, countries}){
+export function ChartPanel({icon = "", title, chart: Chart = "", data}){
     const [expanded, setExpanded] = useState(false);
     const panelRef = useRef(null);
 
@@ -39,7 +39,7 @@ export function ChartPanel({icon, chartName, chart: Chart, countries}){
             >
                 <span className="flex items-center gap-3 transition-all duration-300 ease-out group-hover:transalte-x-1">
                     {icon}
-                    <span className="ml-2 group-hover:text-white">{chartName}</span>
+                    <span className="ml-2 group-hover:text-white">{title}</span>
                 </span>
 
                 <span
@@ -60,7 +60,7 @@ export function ChartPanel({icon, chartName, chart: Chart, countries}){
                 </span>
             </button>
             <div>
-                {expanded && <Chart countries={countries} />}
+                {expanded && <Chart countries={data} />}
             </div>
         </div>
     )

@@ -8,7 +8,7 @@ export function GdpOverTheYears({countries}){
     //get tht historical gdp from OWID just once
     useEffect(() => {
         getHistoricalGdp().then(setHistoricalGDP);
-        console.log('ff')
+        // console.log('ff')
     }, []);
 
     useEffect(() => {

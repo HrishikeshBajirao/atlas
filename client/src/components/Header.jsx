@@ -39,7 +39,7 @@ export function Header({setDisplayMode}){
                     hover:bg-slate-800 hover:cursor-pointer hover:scale-105 hover:bg-slate-900
                     tracking-widest"
                 >
-                    📊 Map
+                    📊 Map (Beta)
                 </button>
             </div>
         </header>

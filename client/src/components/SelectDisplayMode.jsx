@@ -2,7 +2,7 @@ import cardsViewScreenshot from "../../assets/background/cards-view-screenshot.p
 
 export function SelectDisplayMode({setDisplayMode}){
     return (
-        <div className="mt-8 h-full text-slate-400 text-2xl mx-auto flex justify-center gap-10 relative overflow-hidden">
+        <div className="mt-8 h-full text-slate-400 text-2xl mx-auto flex flex-wrap justify-center gap-10 relative overflow-hidden">
 
             {/* Screenshot */}
             <img
@@ -35,9 +35,16 @@ export function SelectDisplayMode({setDisplayMode}){
                 "
             />
 
+            <div 
+                className="mt-10 min-w-[50%] mx-50 p-1 bg-slate-800 text-white border border-gray rounded-md 
+                hover:bg-slate-900 hover:cursor-pointer transition-transform duration-200 ease-in-out z-10"
+                onClick={() => setDisplayMode("map")}
+            >
+                <h3 className="text-3xl text-center">🃏 Interactive World Map (Beta)</h3>
+            </div>
 
             <div 
-                className="mt-10 w-[25%] min-w-[350px] h-[60%] p-5 bg-slate-800 text-white border border-gray rounded-md 
+                className="mt-1 w-[25%] min-w-[350px] h-[60%] p-5 bg-slate-800 text-white border border-gray rounded-md 
                 hover:bg-slate-900 hover:cursor-pointer transition-transform duration-200 ease-in-out z-10"
                 onClick={() => setDisplayMode("cards")}
             >
@@ -46,7 +53,7 @@ export function SelectDisplayMode({setDisplayMode}){
             </div>
 
             <div 
-                className="mt-10 w-[25%] min-w-[350px] h-[60%] p-5 bg-slate-800 text-white border border-gray rounded-md 
+                className="mt-1 w-[25%] min-w-[350px] h-[60%] p-5 bg-slate-800 text-white border border-gray rounded-md 
                 hover:bg-slate-900 hover:cursor-pointer transition-transform duration-200 ease-in-out z-10"
                 onClick={() => setDisplayMode("table")}
             >
@@ -55,7 +62,7 @@ export function SelectDisplayMode({setDisplayMode}){
             </div>
 
             <div 
-                className="mt-10 w-[25%] min-w-[350px] h-[60%] p-5 bg-slate-800 text-white border border-gray rounded-md 
+                className="mt-1 w-[25%] min-w-[350px] h-[60%] p-5 bg-slate-800 text-white border border-gray rounded-md 
                 hover:bg-slate-900 hover:cursor-pointer transition-transform duration-200 ease-in-out z-10"
                 onClick={() => setDisplayMode("insights")}
             >

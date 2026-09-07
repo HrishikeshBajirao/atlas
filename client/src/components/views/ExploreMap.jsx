@@ -13,6 +13,7 @@ export function ExploreMap({setDisplayMode}){
     const mapContainer = useRef(null);
     const mapInstance = useRef(null);
     const [mapCountrySelected, setMapCountrySelected] = useState(null)
+    const [isMapLoading, setIsMapLoading] = useState(true)
     
     useEffect(() => {
         // Prevent a second MapLibre map instance in this component.
@@ -28,99 +29,80 @@ export function ExploreMap({setDisplayMode}){
         });
 
         mapInstance.current = map
-
         let hoveredCountryId = null;
 
         map.on("load", () => {
-            map.addSource("countries", {
+            map.addSource("my-countries", {
                 type: "geojson",
-                data: "/countries.geojson",
+                data: "/atlas/countries.geojson",
                 generateId: true,   // auto-generate numeric IDs for the countries
             });
 
             map.addLayer({
-                id: "countries-fill",
+                id: "my-countries-fill",
                 type: "fill",
-                source: "countries",
+                source: "my-countries",
                 paint: {
-                "fill-color": [
-                    "case",
-                    ["boolean", ["feature-state", "hover"], false],
-                    "#60a5fa",
-                    "#2563eb",
-                ],
-                "fill-opacity": [
-                    "case",
-                    ["boolean", ["feature-state", "hover"], false],
-                    0.75,
-                    0.25,
-                ],
-                },
+                    "fill-color": "#3b82f6", // pick whatever hover tint you like
+                    "fill-opacity": [
+                        "case",
+                        ["boolean", ["feature-state", "hover"], false],
+                        0.4,     // visible tint on hover
+                        0.001    // effectively invisible by default, but still hit-testable
+                    ]
+                }
             });
 
-            map.addLayer({
-                id: "countries-border",
-                type: "line",
-                source: "countries",
-                paint: {
-                "line-color": [
-                    "case",
-                    ["boolean", ["feature-state", "hover"], false],
-                    "#ffffff",
-                    "#1d4ed8",
-                ],
-                "line-width": [
-                    "case",
-                    ["boolean", ["feature-state", "hover"], false],
-                    3,
-                    1,
-                ],
-                },
-            });
+            map.on("mousemove", "my-countries-fill", (e) => {
+                map.getCanvas().style.cursor = "pointer";
 
-            map.on("click", "countries-fill", async (e) => {
+                const id = e.features[0].id;
+
+                if (id !== hoveredCountryId) {
+                    // clear the previously hovered country
+                    if (hoveredCountryId !== null) {
+                        map.setFeatureState(
+                            { source: "my-countries", id: hoveredCountryId },
+                            { hover: false }
+                        );
+                    }
+            
+                    // set hover on the new one
+                    map.setFeatureState(
+                        { source: "my-countries", id: id },
+                        { hover: true }
+                    );
+            
+                    hoveredCountryId = id;
+                }
+            })
+
+            map.on("mouseleave", "my-countries-fill", () => {
+                map.getCanvas().style.cursor = "";
+
+                if (hoveredCountryId !== null) {
+                    map.setFeatureState(
+                        {
+                            source: "my-countries",
+                            id: hoveredCountryId,
+                        },
+                        { hover: false }
+                    );
+                }
+            
+                hoveredCountryId = null;
+
+            })
+
+            map.on("click", "my-countries-fill", async (e) => {
                 const country = e.features?.[0];
                 const data = await getCountry(country.properties.ADM0_A3)
                 const gdp = await getHistoricalGdpByCountry(country.properties.ADM0_A3);
                 console.log(gdp)
-                setMapCountrySelected({...data, gdp: gdp});
+                setMapCountrySelected({countryInfo: data, gdp: gdp});
             })
 
-            map.on("mousemove", "countries-fill", (e) => {
-                const country = e.features?.[0];
-
-                if (!country) return;
-
-                // console.log("hovered country:", country.properties.NAME, "id:", country.id);
-
-                if (hoveredCountryId !== null) {
-                map.setFeatureState(
-                    { source: "countries", id: hoveredCountryId },
-                    { hover: false }
-                );
-                }
-
-                hoveredCountryId = country.id;
-
-                map.setFeatureState(
-                { source: "countries", id: hoveredCountryId },
-                { hover: true }
-                );
-
-                map.getCanvas().style.cursor = "pointer";
-            });
-
-            map.on("mouseleave", "countries-fill", () => {
-                if (hoveredCountryId !== null) {
-                map.setFeatureState(
-                    { source: "countries", id: hoveredCountryId },
-                    { hover: false }
-                );
-                }
-
-                hoveredCountryId = null;
-                map.getCanvas().style.cursor = "";
-            });
+            setIsMapLoading(false)
         });
     
         return () => {
@@ -143,6 +125,15 @@ export function ExploreMap({setDisplayMode}){
                             : ""
                     }`}
                 />
+
+                {isMapLoading && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-white z-10">
+                        <div className="flex flex-col items-center gap-3">
+                            <div className="w-8 h-8 border-4 border-gray-300 border-t-gray-900 rounded-full animate-spin" />
+                            <p className="text-sm text-gray-500">Loading map…</p>
+                        </div>
+                    </div>
+                )}
 
                 {mapCountrySelected && (
                     <MapSideCountryInfo 
