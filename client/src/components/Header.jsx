@@ -33,6 +33,14 @@ export function Header({setDisplayMode}){
                 >
                     📊 Insights
                 </button>
+                <button
+                    onClick={() => setDisplayMode("map")}
+                    className="h-full bg-slate-800 p-3 text-white rounded-md text-lg font-semibold 
+                    hover:bg-slate-800 hover:cursor-pointer hover:scale-105 hover:bg-slate-900
+                    tracking-widest"
+                >
+                    📊 Map
+                </button>
             </div>
         </header>
     )

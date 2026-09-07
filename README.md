@@ -2,11 +2,9 @@
 
 ### 🌐 **Live site:** [https://hrishikeshbajirao.github.io/atlas/](https://hrishikeshbajirao.github.io/atlas/)
 
-Atlas is a modern React application for exploring countries around the world.
+Atlas is a Full-Stack React and Express application for exploring countries around the world.
 
 Search for any country to instantly discover detailed information including its flag, population, capital, currencies, languages, area, region, time zones, and more.
-
-Atlas is being built as a portfolio project while learning modern frontend development with React, focusing on clean architecture, reusable components, and an excellent user experience.
 
 ---
 
@@ -238,9 +236,9 @@ This project is actively maintained and tracked using GitHub and WakaTime.
 ## Installation
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/HrishikeshBajirao/atlas
 
-cd atlas
+cd atlas/client
 
 npm install
 

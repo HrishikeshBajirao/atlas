@@ -3,6 +3,7 @@ import './styles/App.css'
 import { ComparisonPlatform } from './components/ComparisonPlatform.jsx'
 import { SelectDisplayMode } from './components/SelectDisplayMode'
 import { getCountriesList } from './data/restcountries.js'
+import { ExploreMap } from './components/views/ExploreMap.jsx'
 
 const RECENT_SEARCHES_KEY = "atlas-recent-searches";
 
@@ -60,6 +61,12 @@ function App() {
             />
           </main>
         </>
+      : displayMode === "map" ?
+
+        <ExploreMap 
+          setDisplayMode = {setDisplayMode}
+        />
+
       :
         
         <ComparisonPlatform 

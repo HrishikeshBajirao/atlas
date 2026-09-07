@@ -54,9 +54,7 @@
 
 ---
 
-# 🚀 v0.6.0 — Insights & UI Overhaul
-
-**Status: Released**
+## ✅ v0.6 — Insights & UI Overhaul
 
 ### UI / UX
 
@@ -94,9 +92,7 @@
 
 ---
 
-# 🌍 v0.7.0 — Full-Stack Architecture
-
-**Status: Released**
+## ✅ v0.7 — Full-Stack Architecture
 
 ### Backend
 
@@ -124,9 +120,7 @@
 
 ---
 
-# 🗺️ v0.8.0 — Interactive World Exploration
-
-**Status: Planned**
+## v0.8 — Interactive World Exploration
 
 - [ ] Interactive country selection from the world map
 - [ ] Highlight selected countries on the map
@@ -137,9 +131,7 @@
 
 ---
 
-# 📊 v0.9.0 — Advanced Data Exploration
-
-**Status: Planned**
+## v0.9.0 — Advanced Data Exploration
 
 - [ ] Heatmap visualization
 - [ ] Additional historical datasets
@@ -150,9 +142,8 @@
 
 ---
 
-# ⭐ v0.10.0 — Personalization & UX
+## ⭐ v0.10.0 — Personalization & UX
 
-**Status: Planned**
 
 - [ ] Favorite countries
 - [ ] Persistent favorites
