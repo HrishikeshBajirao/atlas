@@ -36,11 +36,11 @@ export function SelectDisplayMode({setDisplayMode}){
             />
 
             <div 
-                className="mt-10 min-w-[50%] mx-50 p-1 bg-slate-800 text-white border border-gray rounded-md 
+                className="mt-10 min-w-[50%] mx-50 pt-3 bg-slate-800 text-white border border-gray rounded-md 
                 hover:bg-slate-900 hover:cursor-pointer transition-transform duration-200 ease-in-out z-10"
                 onClick={() => setDisplayMode("map")}
             >
-                <h3 className="text-3xl text-center">🃏 Interactive World Map (Beta)</h3>
+                <h3 className="text-3xl text-center">🗺️ Interactive World Map (Beta)</h3>
             </div>
 
             <div 

@@ -12,8 +12,10 @@ setWorkerUrl(workerUrl);
 export function ExploreMap({setDisplayMode}){
     const mapContainer = useRef(null);
     const mapInstance = useRef(null);
+    const [isSelected, setIsSelected] = useState(false)
     const [mapCountrySelected, setMapCountrySelected] = useState(null)
     const [isMapLoading, setIsMapLoading] = useState(true)
+    const [isCountryLoading, setIsCountryLoading] = useState(null)
     
     useEffect(() => {
         // Prevent a second MapLibre map instance in this component.
@@ -95,11 +97,22 @@ export function ExploreMap({setDisplayMode}){
             })
 
             map.on("click", "my-countries-fill", async (e) => {
-                const country = e.features?.[0];
-                const data = await getCountry(country.properties.ADM0_A3)
-                const gdp = await getHistoricalGdpByCountry(country.properties.ADM0_A3);
-                console.log(gdp)
-                setMapCountrySelected({countryInfo: data, gdp: gdp});
+
+                setIsSelected(true)
+                setIsCountryLoading(true)
+
+                try{
+                    const country = e.features?.[0];
+                    const data = await getCountry(country.properties.ADM0_A3)
+                    const gdp = await getHistoricalGdpByCountry(country.properties.ADM0_A3);
+                    console.log(gdp)
+                    setMapCountrySelected({countryInfo: data, gdp: gdp});
+                } catch(err){
+                    console.log(err)
+                } finally{
+                    setIsCountryLoading(false)
+                }
+                
             })
 
             setIsMapLoading(false)
@@ -135,8 +148,10 @@ export function ExploreMap({setDisplayMode}){
                     </div>
                 )}
 
-                {mapCountrySelected && (
+                {isSelected && (
                     <MapSideCountryInfo 
+                        setIsSelected = {setIsSelected}
+                        isCountryLoading = {isCountryLoading}
                         mapCountrySelected = {mapCountrySelected}
                         setMapCountrySelected = {setMapCountrySelected}
                     />
