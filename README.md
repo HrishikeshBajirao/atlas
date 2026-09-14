@@ -187,9 +187,12 @@ First working version using the REST Countries API.
 - Our World in Data
 - World Atlas
 
-### Libraries
+### Libraries and Packages
 - React Select
 - TopoJSON
+- jsonwebtoken
+- argon2
+- Drizzle ORM
 
 ### Browser APIs
 - Fetch API
@@ -201,6 +204,7 @@ First working version using the REST Countries API.
 
 - **Frontend:** [GitHub Pages](https://hrishikeshbajirao.github.io/atlas/)
 - **Backend API:** [Render](https://atlas-q289.onrender.com)
+- **Postgre Database:** Neon
 
 ## Skills Demonstrated
 

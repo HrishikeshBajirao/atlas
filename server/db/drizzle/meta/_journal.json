@@ -5,29 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1789377209613,
-      "tag": "0000_typical_vampiro",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1789378898825,
-      "tag": "0001_slim_mimic",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1789383514436,
-      "tag": "0002_noisy_thanos",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "7",
-      "when": 1789385416518,
-      "tag": "0003_fast_mister_fear",
+      "when": 1789394187162,
+      "tag": "0000_cool_scarlet_spider",
       "breakpoints": true
     }
   ]
