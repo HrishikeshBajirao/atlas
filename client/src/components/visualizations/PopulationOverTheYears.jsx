@@ -1,31 +1,22 @@
-import { useState, useEffect, useRef } from 'react';
-import * as d3 from 'd3';
-import { getHistoricalGdp } from '../../data/getHistoricalGdp.js'
+import { useState, useEffect, useRef } from 'react'
+import * as d3 from 'd3'
+import { getHistoricalPopulation } from '../../data/getHistoricalPopulation.js'
 
-export function GdpOverTheYears({countries}){
-    const svgRef = useRef();
-    const [historicalGDP, setHistoricalGDP] = useState([]);
-    //get tht historical gdp from OWID just once
-    useEffect(() => {
-        getHistoricalGdp().then(setHistoricalGDP);
-        // console.log('ff')
-    }, []);
+export function PopulationOverTheYears({countryCode}){
+    const svgRef = useRef()
+    const [historicalPopulation, setHistoricalPopulation] = useState(null)
 
     useEffect(() => {
+        getHistoricalPopulation(countryCode).then(setHistoricalPopulation)
+    }, [countryCode])
 
-        async function plotGdp(){
-            const data = historicalGDP;
+    useEffect(() => {
 
-            const gdpData = data.filter((item) => (
-                countries.find((country) => country.countryInfo?.alpha3Code === item.Code)
-            ))
-
-            // console.log(gdpData)
-
+        async function drawPlot(){
             const parent = svgRef.current.parentElement;
             const w = parent.clientWidth * 0.9;
             const h = 500
-            const leftPadding = 100
+            const leftPadding = 80
             const padding = 50
 
             const svg = d3.select(svgRef.current)
@@ -38,11 +29,11 @@ export function GdpOverTheYears({countries}){
 
             //Scales and Axes
             const xScale = d3.scaleLinear()
-                .domain(d3.extent(gdpData, d=> +d.Year))    // the +d.Year converts the string format of d.Year to number
+                .domain(d3.extent(historicalPopulation, d=> +d.year))    // the +d.Year converts the string format of d.Year to number
                 .range([leftPadding, w-padding])
 
             const yScale = d3.scaleLinear()
-                .domain(d3.extent(gdpData, d => +d.GDP))
+                .domain(d3.extent(historicalPopulation, d => +d.population_historical))
                 .range([h-padding, padding])
 
             const xAxis = d3
@@ -60,7 +51,7 @@ export function GdpOverTheYears({countries}){
 
             //rendering data
 
-            const points = gdpData.map((d) => [xScale(+d.Year), yScale(+d.GDP), d.Entity, +d.GDP])
+            const points = historicalPopulation.map((d) => [xScale(+d.year), yScale(+d.population_historical), d.entity, +d.population_historical])
             const groups = d3.rollup(points, v => Object.assign(v, {z: v[0][2]}), d => d[2])
 
             const line = d3.line();
@@ -98,11 +89,11 @@ export function GdpOverTheYears({countries}){
             function pointermoved(event) {
                 const [xm, ym] = d3.pointer(event);
                 const i = d3.leastIndex(points, ([x, y]) => Math.hypot(x - xm, y - ym));
-                const [x, y, country, gdp] = points[i];
+                const [x, y, country, population] = points[i];
                 path.style("stroke", ({z}) => z === country ? null : "#ddd").filter(({z}) => z === country).raise();
                 dot.attr("transform", `translate(${x},${y})`);
-                dot.select("text").text(`${country}: $${d3.format(",.0f")(gdp)}`);
-                svg.property("value", gdpData[i]).dispatch("input", {bubbles: true});
+                dot.select("text").text(`${country}: ${d3.format(",.0f")(population)}`);
+                svg.property("value", historicalPopulation[i]).dispatch("input", {bubbles: true});
             }
             
             function pointerentered() {
@@ -118,13 +109,13 @@ export function GdpOverTheYears({countries}){
             }
         }
 
-        plotGdp();
+        drawPlot()
 
-    }, [countries, historicalGDP])
+    }, [historicalPopulation])
 
     return (
         <>
-        <svg ref={svgRef}></svg>
+            <svg ref={svgRef}></svg>
         </>
     )
 }

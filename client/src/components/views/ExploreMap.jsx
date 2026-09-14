@@ -105,7 +105,7 @@ export function ExploreMap({setDisplayMode}){
                     const country = e.features?.[0];
                     const data = await getCountry(country.properties.ADM0_A3)
                     const gdp = await getHistoricalGdpByCountry(country.properties.ADM0_A3);
-                    console.log(gdp)
+                    // console.log(gdp)
                     setMapCountrySelected({countryInfo: data, gdp: gdp});
                 } catch(err){
                     console.log(err)

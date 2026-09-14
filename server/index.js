@@ -1,7 +1,7 @@
 import express from "express"
 import cors from "cors"
 import { getCountriesListHandler, getCountryDataHandler } from './controllers/countriesController.js'
-import { getGdpHistoricalHandler } from './controllers/dataController.js'
+import { getGdpHistoricalHandler, getPopulationHistoricalHandler } from './controllers/dataController.js'
 import errorHandler from './middleware/errorHandler.js'
 
 const app = express();
@@ -21,6 +21,7 @@ app.get('/api/countries', getCountriesListHandler);
 app.get('/api/countries/:code', getCountryDataHandler);
 app.get('/api/data/gdp-historical', getGdpHistoricalHandler);
 app.get('/api/data/gdp-historical/:code', getGdpHistoricalHandler);
+app.get('/api/data/population-historical/:code', getPopulationHistoricalHandler)
 
 app.use(errorHandler)
 

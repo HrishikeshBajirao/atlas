@@ -1,4 +1,5 @@
 import { GdpOverTheYears } from './visualizations/GdpOverTheYears.jsx'
+import { PopulationOverTheYears } from './visualizations/PopulationOverTheYears.jsx'
 
 export function MapSideCountryInfo({setIsSelected, isCountryLoading, mapCountrySelected, setMapCountrySelected}){
     console.log(mapCountrySelected)
@@ -47,12 +48,17 @@ export function MapSideCountryInfo({setIsSelected, isCountryLoading, mapCountryS
                     <p className="pl-3 my-1.5 tracking-wider">GDP per capita ({mapCountrySelected.gdp.at(-1).Year}): {(mapCountrySelected.gdp.at(-1).GDP / mapCountrySelected.countryInfo.population).toLocaleString()}</p>
 
                     <div className="ml-3 my-3 py-3 text-black bg-white rounded-md flex justify-center items-center">
-                    <GdpOverTheYears 
-                        countries = {[mapCountrySelected]}
-                    />
+                        <GdpOverTheYears 
+                            countries = {[mapCountrySelected]}
+                        />
                     </div>
 
                     <h2 className="text-xl font-semibold text-left tracking-wide mt-5 mb-3 ">POPULATION</h2>
+                    <div className="ml-3 my-3 py-3 text-black bg-white rounded-md flex justify-center items-center">
+                        <PopulationOverTheYears
+                            countryCode = {mapCountrySelected.countryInfo.alpha3Code}
+                        />
+                    </div>
 
                 </div>
                 </>
