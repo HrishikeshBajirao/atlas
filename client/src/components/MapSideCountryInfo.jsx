@@ -5,6 +5,14 @@ export function MapSideCountryInfo({setIsSelected, isCountryLoading, mapCountryS
     console.log(mapCountrySelected)
     return (
         <div className="absolute right-0 top-0 w-1/2 h-full bg-slate-800 overflow-y-auto">
+            <button type="button" 
+            className="text-red-500 text-md bg-red-200 py-1 px-2 rounded-md font-bold absolute top-2 left-2  
+                hover:scale-105 hover:text-red-800 hover:cursor-pointer z-20"
+                onClick={() => {
+                    setIsSelected(false)
+                    setMapCountrySelected(null)
+                }}
+            >X</button>
 
         {isCountryLoading ? (
             <div className="absolute inset-0 flex items-center justify-center bg-slate-800 z-10">
@@ -15,7 +23,7 @@ export function MapSideCountryInfo({setIsSelected, isCountryLoading, mapCountryS
             </div>
         ) : (
             <>
-            <button type="button" 
+                <button type="button" 
                 className="text-red-500 text-md bg-red-200 py-1 px-2 rounded-md font-bold absolute top-2 left-2  
                     hover:scale-105 hover:text-red-800 hover:cursor-pointer"
                     onClick={() => {

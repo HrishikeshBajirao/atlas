@@ -1,6 +1,7 @@
 import argon2 from 'argon2'
 import jwt from 'jsonwebtoken'
 import { UnauthorizedError } from '../middleware/errorHandler.js'
+import { randomBytes } from 'node:crypto'
 
 export async function hashPassword(password){
     const hash = await argon2.hash(password)
@@ -47,5 +48,10 @@ export function getBearerToken(req){
         token = authHeader.split(" ")[1]
     }
 
+    return token
+}
+
+export function makeRefreshToken(){
+    const token = randomBytes(32).toString("hex")
     return token
 }

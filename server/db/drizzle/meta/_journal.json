@@ -8,6 +8,13 @@
       "when": 1789394187162,
       "tag": "0000_cool_scarlet_spider",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1789632745961,
+      "tag": "0001_simple_adam_warlock",
+      "breakpoints": true
     }
   ]
 }

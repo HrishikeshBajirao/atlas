@@ -2,7 +2,7 @@ import express from "express"
 import cors from "cors"
 import { getCountriesListHandler, getCountryDataHandler } from './controllers/countriesController.js'
 import { getGdpHistoricalHandler, getPopulationHistoricalHandler } from './controllers/dataController.js'
-import { createUserHandler, loginUserHandler } from './controllers/usersController.js'
+import { createUserHandler, loginUserHandler, refreshUserHandler, revokeUserHandler, updateUserHandler } from './controllers/usersController.js'
 import { resetUserHandler } from './controllers/adminController.js'
 import { getFavoritesHandler, addFavoriteCountryHandler, removeFavoriteCountryHandler} from './controllers/favoritesController.js'
 import errorHandler from './middleware/errorHandler.js'
@@ -29,6 +29,9 @@ app.delete('/admin/reset', resetUserHandler)
 
 app.post('/auth/signup', createUserHandler)
 app.post('/auth/login', loginUserHandler)
+app.post('/auth/refresh', refreshUserHandler)
+app.post('/auth/revoke', revokeUserHandler)
+// app.put('/auth/users', updateUserHandler)
 
 app.get('/favorites', getFavoritesHandler)
 app.post('/favorites/:countryId', addFavoriteCountryHandler)
