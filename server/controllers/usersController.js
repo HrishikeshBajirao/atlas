@@ -12,6 +12,17 @@ export async function createUserHandler(req, res){
         throw new Error("email and password are required")
     }
 
+    const checkUserInDB = await getUserByEmail(userEmail)
+    if(checkUserInDB){
+        res.status(409).json({
+            success: false,
+            error: {
+              code: "USER_EXISTS",
+              message: "User already exists. Please login."
+            }
+        });
+    }
+
     const result = await createUser({
         email: userEmail,
         hashedPassword: await hashPassword(password),

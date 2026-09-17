@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react"
+import { Routes, Route } from 'react-router-dom'
 import './styles/App.css'
 import { ComparisonPlatform } from './components/ComparisonPlatform.jsx'
 import { SelectDisplayMode } from './components/SelectDisplayMode'
 import { getCountriesList } from './data/restcountries.js'
 import { ExploreMap } from './components/views/ExploreMap.jsx'
+import { UserSignup } from './components/auth/UserSignup.jsx'
+import { UserLogin } from './components/auth/UserLogin.jsx'
 
 const RECENT_SEARCHES_KEY = "atlas-recent-searches";
 
@@ -45,9 +48,11 @@ function App() {
   }, [recentSearches])
 
   return (
-    <>
 
-      {displayMode === "" ?
+    <Routes>
+
+      <Route path="/"
+        element={
         <>
           <header className="h-[30vh]">
             <p className="mt-8 mb-5 text-6xl text-center">🌍</p>
@@ -61,27 +66,50 @@ function App() {
             />
           </main>
         </>
-      : displayMode === "map" ?
+        }
+      />
 
-        <ExploreMap 
-          setDisplayMode = {setDisplayMode}
-        />
+      <Route path="/signup"
+        element={
+          <UserSignup 
+            setDisplayMode = {setDisplayMode}
+          />
+        }
+      />
 
-      :
-        
-        <ComparisonPlatform 
-          countries = {countries}
-          setCountries = {setCountries}
-          recentSearches = {recentSearches}
-          setRecentSearches = {setRecentSearches}
-          countriesList = {countriesList}
-          setNumberOfSlots = {setNumberOfSlots}
-          displayMode = {displayMode}
-          setDisplayMode = {setDisplayMode}
-        />
+      <Route path="/login"
+        element={
+          <UserLogin 
+            setDisplayMode = {setDisplayMode}
+          />
+        }
+      />
 
-      }
-    </>
+      <Route path="/explore"
+        element={
+          <ExploreMap 
+            setDisplayMode = {setDisplayMode}
+          />
+        }
+      />
+
+      <Route path="/comparison"
+        element={
+          <ComparisonPlatform 
+            countries = {countries}
+            setCountries = {setCountries}
+            recentSearches = {recentSearches}
+            setRecentSearches = {setRecentSearches}
+            countriesList = {countriesList}
+            setNumberOfSlots = {setNumberOfSlots}
+            displayMode = {displayMode}
+            setDisplayMode = {setDisplayMode}
+          />
+        }
+      />
+
+    </Routes>
+
   )
 }
 

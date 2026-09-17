@@ -19,13 +19,13 @@ app.use(cors({
 
 app.get('/api/health', (req, res) => { res.json("working!") })
 
+app.delete('/admin/reset', resetUserHandler)
+
 app.get('/api/countries', getCountriesListHandler);
 app.get('/api/countries/:code', getCountryDataHandler);
 app.get('/api/data/gdp-historical', getGdpHistoricalHandler);
 app.get('/api/data/gdp-historical/:code', getGdpHistoricalHandler);
 app.get('/api/data/population-historical/:code', getPopulationHistoricalHandler)
-
-app.delete('/admin/reset', resetUserHandler)
 
 app.post('/auth/signup', createUserHandler)
 app.post('/auth/login', loginUserHandler)
