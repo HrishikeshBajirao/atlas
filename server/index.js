@@ -17,7 +17,7 @@ app.use(cors({
     ]
 }));
 
-app.get('/health', (req, res) => { res.json("working!") })
+app.get('/healthz', (req, res) => { res.json("working!") })
 
 app.delete('/admin/reset', resetUserHandler)
 
