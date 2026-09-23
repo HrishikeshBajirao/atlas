@@ -203,7 +203,7 @@ First working version using the REST Countries API.
 ### 🌐 Deployment
 
 - **Frontend:** [GitHub Pages](https://hrishikeshbajirao.github.io/atlas/)
-- **Backend API:** [Render](https://atlas-q289.onrender.com)
+- **Backend API:** [Render](https://atlas-docker-container.onrender.com)
 - **Postgre Database:** Neon
 
 ## Skills Demonstrated
