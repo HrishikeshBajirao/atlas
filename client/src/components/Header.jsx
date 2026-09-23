@@ -16,7 +16,7 @@ export function Header({setDisplayMode}){
                     hover:bg-slate-800 hover:cursor-pointer hover:scale-105 hover:bg-slate-900
                     tracking-widest"
                 >
-                    🃏 Cards
+                    <Link to="/comparison">🃏 Cards</Link>
                 </button>
                 <button
                     onClick={() => setDisplayMode("table")}
@@ -24,7 +24,7 @@ export function Header({setDisplayMode}){
                     hover:bg-slate-800 hover:cursor-pointer hover:scale-105 hover:bg-slate-900
                     tracking-widest"
                 >
-                    📋 Table
+                    <Link to="/comparison">📋 Table</Link>
                 </button>
                 <button
                     onClick={() => setDisplayMode("insights")}
@@ -32,7 +32,7 @@ export function Header({setDisplayMode}){
                     hover:bg-slate-800 hover:cursor-pointer hover:scale-105 hover:bg-slate-900
                     tracking-widest"
                 >
-                    📊 Insights
+                    <Link to="/comparison">📊 Insights</Link>
                 </button>
                 <button
                     className="h-full bg-slate-800 p-3 text-white rounded-md text-lg font-semibold 

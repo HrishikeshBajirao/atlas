@@ -5,7 +5,7 @@ import { getGdpHistoricalHandler, getPopulationHistoricalHandler } from './contr
 import { createUserHandler, loginUserHandler, refreshUserHandler, revokeUserHandler, updateUserHandler } from './controllers/usersController.js'
 import { resetUserHandler } from './controllers/adminController.js'
 import { getFavoritesHandler, addFavoriteCountryHandler, removeFavoriteCountryHandler} from './controllers/favoritesController.js'
-import errorHandler from './middleware/errorHandler.js'
+import { errorHandler, notFoundHandler } from './middleware/errorHandler.js'
 
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -17,7 +17,7 @@ app.use(cors({
     ]
 }));
 
-app.get('/api/health', (req, res) => { res.json("working!") })
+app.get('/health', (req, res) => { res.json("working!") })
 
 app.delete('/admin/reset', resetUserHandler)
 
@@ -37,6 +37,8 @@ app.get('/favorites', getFavoritesHandler)
 app.post('/favorites/:countryId', addFavoriteCountryHandler)
 app.delete('/favorites/:countryId', removeFavoriteCountryHandler)
 
+//error middleware
+app.use(notFoundHandler);
 app.use(errorHandler)
 
 app.listen(PORT, () => console.log("server listening on ", PORT))

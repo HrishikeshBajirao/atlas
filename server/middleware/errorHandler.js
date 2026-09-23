@@ -1,4 +1,11 @@
-export default function errorHandler(err, req, res, next){
+export function notFoundHandler(req, res, next){
+    const error = new Error(`Not Found - ${req.originalUrl}`);
+    error.statusCode = 404;
+    error.code = "ROUTE_NOT_FOUND"
+    next(error);
+}
+
+export function errorHandler(err, req, res, next){
     console.log(err);
     res.status(err.statusCode || 500).json({
         success: false,

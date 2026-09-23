@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export function UserSignup(){
     const [email, setEmail] = useState("");
@@ -23,6 +24,15 @@ export function UserSignup(){
             const data = await response.json()
 
             if (!response.ok) {
+                if(response.status === 409){
+                    setMessage(
+                        <>
+                          User already exists! Go to{" "}
+                          <Link to="/login" className="underline hover:cursor-pointer">login</Link>
+                        </>
+                      )
+                    return
+                }
                 setMessage(data.error?.message || "Signup failed");
                 return;
             }
@@ -50,7 +60,6 @@ export function UserSignup(){
             required />
             <button type="submit" className="bg-white p-2 rounded-md text-black block">submit</button>
             <p className="text-red-600">{message}</p>
-            <a href="">go to login</a>
         </form>
     )
 }

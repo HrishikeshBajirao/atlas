@@ -28,6 +28,7 @@ function App() {
   );
   const [displayMode, setDisplayMode] = useState("")
   const [countriesList, setCountriesList] = useState([])
+  const [jwtToken, setJwtToken] = useState("")
 
   //fetch all countries list once after app loads to populate the Select input searchable input
   useEffect(() => {
@@ -71,16 +72,14 @@ function App() {
 
       <Route path="/signup"
         element={
-          <UserSignup 
-            setDisplayMode = {setDisplayMode}
-          />
+          <UserSignup />
         }
       />
 
       <Route path="/login"
         element={
           <UserLogin 
-            setDisplayMode = {setDisplayMode}
+            setJwtToken = {setJwtToken}
           />
         }
       />

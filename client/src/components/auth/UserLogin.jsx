@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export function UserLogin(){
+export function UserLogin({setJwtToken}){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("")
@@ -9,7 +9,7 @@ export function UserLogin(){
         e.preventDefault();
         setMessage("")
         try{
-            const url = new URL(`${import.meta.env.VITE_API_URL}/auth/signup`)
+            const url = new URL(`${import.meta.env.VITE_API_URL}/auth/login`)
             const response = await fetch(url, {
                 method: "POST",
                 headers: {
@@ -23,10 +23,11 @@ export function UserLogin(){
             const data = await response.json()
 
             if (!response.ok) {
-                setMessage(data.error?.message || "Signup failed");
+                setMessage(data.error?.message || "Login failed");
                 return;
             }
-
+            setJwtToken(data.token)
+            
             console.log(data)//
             setPassword("")
         } catch(err){
