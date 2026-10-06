@@ -11,28 +11,23 @@ import { db } from './db/index.js'
 const app = express();
 const PORT = process.env.PORT || 8000;
 app.use(express.json())
-app.use(cors({
-    origin: [
-        "http://localhost:5173",
-        "https://hrishikeshbajirao.github.io"
-    ]
-}));
+app.use(cors());
 
 app.get('/healthz', async (req, res) => {
-    try {
-        await db.execute(sql`SELECT 1`);
-    
-        res.status(200).json({
-          status: "ok",
-          database: "connected",
-          uptime: process.uptime()
-        });
-      } catch {
-        res.status(503).json({
-          status: "error",
-          database: "unavailable",
-        });
-      }
+  try {
+      await db.execute(sql`SELECT 1`);
+  
+      res.status(200).json({
+        status: "ok",
+        database: "connected",
+        uptime: process.uptime()
+      });
+    } catch {
+      res.status(503).json({
+        status: "error",
+        database: "unavailable",
+      });
+    }
 })
 
 app.delete('/admin/reset', resetUserHandler)
