@@ -6,6 +6,7 @@ import { createUserHandler, loginUserHandler, refreshUserHandler, revokeUserHand
 import { resetUserHandler } from './controllers/adminController.js'
 import { getFavoritesHandler, addFavoriteCountryHandler, removeFavoriteCountryHandler} from './controllers/favoritesController.js'
 import { errorHandler, notFoundHandler } from './middleware/errorHandler.js'
+import { db } from './db/index.js'
 
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -17,7 +18,22 @@ app.use(cors({
     ]
 }));
 
-app.get('/healthz', (req, res) => { res.json("working!") })
+app.get('/healthz', async (req, res) => {
+    try {
+        await db.execute(sql`SELECT 1`);
+    
+        res.status(200).json({
+          status: "ok",
+          database: "connected",
+          uptime: process.uptime()
+        });
+      } catch {
+        res.status(503).json({
+          status: "error",
+          database: "unavailable",
+        });
+      }
+})
 
 app.delete('/admin/reset', resetUserHandler)
 

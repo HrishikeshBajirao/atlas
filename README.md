@@ -11,7 +11,7 @@ Search for any country to instantly discover detailed information including its 
 ## 🎥 Demo
 
 <p align="center">
-  <img src="./client/assets/screenshots/atlas-demo-v0.6.0.gif" alt="Atlas Demo" width="800">
+  <img src="./screenshots/atlas-demo-v0.6.0.gif" alt="Atlas Demo" width="800">
 </p>
 
 *A quick demonstration of Atlas: search countries, compare multiple countries, manage comparison slots, and use recent searches.*
@@ -26,13 +26,13 @@ Search for any country to instantly discover detailed information including its 
 ### v0.5.0
 
 <p align="center">
-  <img src="./client/assets/screenshots/atlas-demo-v0.5.0.gif" alt="Atlas v0.5.0 Demo" width="850">
+  <img src="./screenshots/atlas-demo-v0.5.0.gif" alt="Atlas v0.5.0 Demo" width="850">
 </p>
 
 ### v0.4.0
 
 <p align="center">
-  <img src="./client/assets/screenshots/atlas-demo-v0.4.0.gif" alt="Atlas v0.4.0 Demo" width="850">
+  <img src="./screenshots/atlas-demo-v0.4.0.gif" alt="Atlas v0.4.0 Demo" width="850">
 </p>
 
 </details>
@@ -47,11 +47,11 @@ Search for any country to instantly discover detailed information including its 
 <br>
 
 <p align="center">
-  <img src="./client/assets/screenshots/atlas-v0.6.0-home-page.png" width="500">
-  <img src="./client/assets/screenshots/atlas-v0.6.0-cards-view.png" width="500">
-  <img src="./client/assets/screenshots/atlas-v0.6.0-table-view.png" width="500">
-  <img src="./client/assets/screenshots/atlas-v0.6.0-insights-view-population-bar-chart.png" width="500">
-  <img src="./client/assets/screenshots/atlas-v0.6.0-insights-view-scatter-chart.png" width="500">
+  <img src="./screenshots/atlas-v0.6.0-home-page.png" width="500">
+  <img src="./screenshots/atlas-v0.6.0-cards-view.png" width="500">
+  <img src="./screenshots/atlas-v0.6.0-table-view.png" width="500">
+  <img src="./screenshots/atlas-v0.6.0-insights-view-population-bar-chart.png" width="500">
+  <img src="./screenshots/atlas-v0.6.0-insights-view-scatter-chart.png" width="500">
 </p>
 
 Dynamic comparison panels, Card/Table/Insights views, and interactive D3.js visualizations.
@@ -69,8 +69,8 @@ Dynamic comparison panels, Card/Table/Insights views, and interactive D3.js visu
 <br>
 
 <p align="center">
-  <img src="./client/assets/screenshots/atlas-v0.5.0-react-select-dropdown.png" width="500">
-  <img src="./client/assets/screenshots/atlas-v0.5.0-table-view.png" width="500">
+  <img src="./screenshots/atlas-v0.5.0-react-select-dropdown.png" width="500">
+  <img src="./screenshots/atlas-v0.5.0-table-view.png" width="500">
 </p>
 
 Enhanced comparison workflow with searchable country selection.
@@ -85,8 +85,8 @@ Enhanced comparison workflow with searchable country selection.
 <br>
 
 <p align="center">
-  <img src="./client/assets/screenshots/atlas-v0.4.0-two-comparison-slots.png" width="500">
-  <img src="./client/assets/screenshots/atlas-v0.4.0-four-comparison-slots.png" width="500">
+  <img src="./screenshots/atlas-v0.4.0-two-comparison-slots.png" width="500">
+  <img src="./screenshots/atlas-v0.4.0-four-comparison-slots.png" width="500">
 </p>
 
 Dynamic multi-country comparison.
@@ -101,7 +101,7 @@ Dynamic multi-country comparison.
 <br>
 
 <p align="center">
-  <img src="./client/assets/screenshots/atlas-v0.3.0-recent-searches.png" width="500">
+  <img src="./screenshots/atlas-v0.3.0-recent-searches.png" width="500">
 </p>
 
 Persistent recent searches using localStorage.
@@ -116,8 +116,8 @@ Persistent recent searches using localStorage.
 <br>
 
 <p align="center">
-  <img src="./client/assets/screenshots/atlas-v0.2.0-ui1.png" width="500">
-  <img src="./client/assets/screenshots/atlas-v0.2.0-ui2.png" width="500">
+  <img src="./screenshots/atlas-v0.2.0-ui1.png" width="500">
+  <img src="./screenshots/atlas-v0.2.0-ui2.png" width="500">
 </p>
 
 Reusable components and improved interface.
@@ -132,8 +132,8 @@ Reusable components and improved interface.
 <br>
 
 <p align="center">
-  <img src="./client/assets/screenshots/atlas-v0.1.0-home.png" width="500">
-  <img src="./client/assets/screenshots/atlas-v0.1.0-search-result.png" width="500">
+  <img src="./screenshots/atlas-v0.1.0-home.png" width="500">
+  <img src="./screenshots/atlas-v0.1.0-search-result.png" width="500">
 </p>
 
 First working version using the REST Countries API.
