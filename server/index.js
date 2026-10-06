@@ -7,6 +7,7 @@ import { resetUserHandler } from './controllers/adminController.js'
 import { getFavoritesHandler, addFavoriteCountryHandler, removeFavoriteCountryHandler} from './controllers/favoritesController.js'
 import { errorHandler, notFoundHandler } from './middleware/errorHandler.js'
 import { db } from './db/index.js'
+import { sql } from 'drizzle-orm';
 
 const app = express();
 const PORT = process.env.PORT || 8000;
