@@ -15,20 +15,22 @@ app.use(express.json())
 app.use(cors());
 
 app.get('/healthz', async (req, res) => {
-  try {
-      await db.execute(sql`SELECT 1`);
-  
-      res.status(200).json({
-        status: "ok",
-        database: "connected",
-        uptime: process.uptime()
-      });
-    } catch {
-      res.status(503).json({
-        status: "error",
-        database: "unavailable",
-      });
-    }
+  res.status(200).send()
+
+  // try {
+  //   await db.execute(sql`SELECT 1`);
+
+  //   res.status(200).json({
+  //     status: "ok",
+  //     database: "connected",
+  //     uptime: process.uptime()
+  //   });
+  // } catch {
+  //   res.status(503).json({
+  //     status: "error",
+  //     database: "unavailable",
+  //   });
+  // }
 })
 
 app.delete('/admin/reset', resetUserHandler)
